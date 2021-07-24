@@ -8,7 +8,7 @@
       <link href="/2021/06/29/yuque/%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/"/>
       <url>/2021/06/29/yuque/%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/</url>
       
-        <content type="html"><![CDATA[<h2 id="JS-的模块化方案"><a href="#JS-的模块化方案" class="headerlink" title="JS 的模块化方案"></a>JS 的模块化方案</h2><p>在浏览器端，有 AMD，通过 require.js 库实现，具有异步按需加载和兼容性好的特点。有 ES Module，它是一种新特性，通过 import、export 实现导入和导出，它的兼容性不太好。在 NodeJS 端，有 CommonJS 方案，它是同步加载的</p><h2 id="JS-小数点计算为什么会丢失精度"><a href="#JS-小数点计算为什么会丢失精度" class="headerlink" title="JS 小数点计算为什么会丢失精度"></a>JS 小数点计算为什么会丢失精度</h2><h2 id="JS-如何精确浮点计算"><a href="#JS-如何精确浮点计算" class="headerlink" title="JS 如何精确浮点计算"></a>JS 如何精确浮点计算</h2><p>例如：如何实现 0.1+0.2=0.3</p><h2 id="JS-如何进行大数计算"><a href="#JS-如何进行大数计算" class="headerlink" title="JS 如何进行大数计算"></a>JS 如何进行大数计算</h2><p>Int 类型超出最大安全数的计算</p>]]></content>
+        <content type="html"><![CDATA[<p>系统梳理前端知识点。</p><span id="more"></span><h2 id="JS-的模块化方案"><a href="#JS-的模块化方案" class="headerlink" title="JS 的模块化方案"></a>JS 的模块化方案</h2><p>在浏览器端，有 AMD，通过 require.js 库实现，具有异步按需加载和兼容性好的特点。有 ES Module，它是一种新特性，通过 import、export 实现导入和导出，它的兼容性不太好。在 NodeJS 端，有 CommonJS 方案，它是同步加载的</p><h2 id="JS-小数点计算为什么会丢失精度"><a href="#JS-小数点计算为什么会丢失精度" class="headerlink" title="JS 小数点计算为什么会丢失精度"></a>JS 小数点计算为什么会丢失精度</h2><h2 id="JS-如何精确浮点计算"><a href="#JS-如何精确浮点计算" class="headerlink" title="JS 如何精确浮点计算"></a>JS 如何精确浮点计算</h2><p>例如：如何实现 0.1+0.2=0.3</p><h2 id="JS-如何进行大数计算"><a href="#JS-如何进行大数计算" class="headerlink" title="JS 如何进行大数计算"></a>JS 如何进行大数计算</h2><p>Int 类型超出最大安全数的计算</p>]]></content>
       
       
       
