@@ -1,0 +1,4133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/5.0.0-rc.3'>
+  <meta name="generator" content="Hexo 5.4.0">
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+  <link rel="canonical" href="https://resonance.fun/2020/10/29/yuque/思维导图之作用域和闭包/"/>
+  <!-- 渲染优化 -->
+  <!-- <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin> -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <meta content="All Resonance" name="application-name">
+  <meta content="All Resonance" name="apple-mobile-web-app-title">
+  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+  <meta content="telephone=no" name="format-detection">
+  <link rel="preload" href="/css/style.css?time=1648722003565" as="style">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts@20.5.30/Dosis/Dosis-Medium.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts@20.5.30/Dosis/Dosis-Medium.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <!-- 页面元数据 -->
+  <title>思维导图之作用域和闭包 - All Resonance</title>
+  <meta name="keywords" content="Shilin的备忘录,html/css/JavaScript,前端工程师,Angular,Ionic,Vue,React,Node.js,Powershell,Qt5">
+  <meta name="description" content="{“format”:”lakemind”,”type”:”Mind”,”version”:”1.0”,”diagramData”:{“head”:{“version”:”2.0.0”},”body”:[{“id”:”init”,”type”:”mindmap”,”html”:”数据类型”,”children”:[{“html”:”基本类型”,”layout”:{“quadrant”:1},”tre">
+<meta property="og:type" content="article">
+<meta property="og:title" content="思维导图之作用域和闭包">
+<meta property="og:url" content="https://resonance.fun/2020/10/29/yuque/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E4%B9%8B%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/index.html">
+<meta property="og:site_name" content="All Resonance">
+<meta property="og:description" content="{“format”:”lakemind”,”type”:”Mind”,”version”:”1.0”,”diagramData”:{“head”:{“version”:”2.0.0”},”body”:[{“id”:”init”,”type”:”mindmap”,”html”:”数据类型”,”children”:[{“html”:”基本类型”,”layout”:{“quadrant”:1},”tre">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://resonance.fun/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+<meta property="article:published_time" content="2020-10-29T05:24:13.000Z">
+<meta property="article:modified_time" content="2022-03-31T10:19:59.341Z">
+<meta property="article:author" content="all-resonance">
+<meta property="article:tag" content="Shilin的备忘录,html&#x2F;css&#x2F;JavaScript,前端工程师,Angular,Ionic,Vue,React,Node.js,Powershell,Qt5">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://resonance.fun/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+  <!-- feed -->
+      <link rel="alternate" href="/atom.xml" title="All Resonance" type="application/atom+xml">
+  <!-- import meta -->
+  <!-- link -->
+  <!-- import link -->
+  <style>
+    /* 首屏样式 */
+    #safearea {
+  display: none;
+}
+/* 
+  * Workaround for Chrome bug, part 1
+  * Chunk rendering for all but the first article.
+  * /layout/_partial/scripts/content-visibility-scroll-fix.ejs
+*/
+.post-story + .post-story,
+article + article,
+.post-wrapper + .post-wrapper {
+  content-visibility: auto;
+  contain-intrinsic-size: 10px 500px;
+}
+:root {
+  --color-site-body: #f4f4f4;
+  --color-site-bg: #f4f4f4;
+  --color-site-inner: #fff;
+  --color-site-footer: #666;
+  --color-card: #fff;
+  --color-text: #444;
+  --color-block: #f6f6f6;
+  --color-inlinecode: #c74f00;
+  --color-codeblock: #fff7ea;
+  --color-h1: #3a3a3a;
+  --color-h2: #3a3a3a;
+  --color-h3: #333;
+  --color-h4: #444;
+  --color-h5: #555;
+  --color-h6: #666;
+  --color-p: #444;
+  --color-list: #666;
+  --color-list-hl: #36ac91;
+  --color-meta: #888;
+  --color-read-bkg: #e0d8c8;
+  --color-read-post: #f8f1e2;
+}
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+html {
+  color: var(--color-text);
+  width: 100%;
+  height: 100%;
+  font-family: Dosis, "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Menlo, Monaco, monospace, sans-serif;
+  font-size: 16px;
+}
+html >::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+html >::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+html >::-webkit-scrollbar-thumb {
+  background: #44d7b6;
+  cursor: pointer;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+html >::-webkit-scrollbar-thumb:hover {
+  background: #ff5722;
+}
+body {
+  background-color: var(--color-site-body);
+  text-rendering: optimizelegibility;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+body.modal-active {
+  overflow: hidden;
+}
+@media screen and (max-width: 680px) {
+  body.modal-active {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+a {
+  color: #1b79c4;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+a:hover {
+  color: #ff5722;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+ul,
+ol {
+  padding-left: 0;
+}
+ul li,
+ol li {
+  list-style: none;
+}
+header {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+}
+img {
+  border: 0;
+  background: none;
+  max-width: 100%;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  height: 0;
+  border: 0;
+  border-radius: 1px;
+  -webkit-border-radius: 1px;
+  border-bottom: 1px solid rgba(68,68,68,0.1);
+}
+button,
+input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+button {
+  overflow: visible;
+  text-transform: none;
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+@supports (backdrop-filter: blur(20px)) {
+  .blur {
+    background: rgba(255,255,255,0.9) !important;
+    backdrop-filter: saturate(200%) blur(20px);
+  }
+}
+.shadow {
+  box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
+}
+.shadow.floatable {
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+.shadow.floatable:hover {
+  box-shadow: 0 2px 4px 0px rgba(0,0,0,0.1), 0 4px 8px 0px rgba(0,0,0,0.1), 0 8px 16px 0px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 2px 4px 0px rgba(0,0,0,0.1), 0 4px 8px 0px rgba(0,0,0,0.1), 0 8px 16px 0px rgba(0,0,0,0.1);
+}
+#l_cover {
+  min-height: 64px;
+}
+.cover-wrapper {
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  height: 100vh;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+  -khtml-flex-wrap: nowrap;
+  -moz-flex-wrap: nowrap;
+  -o-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  color: var(--color-site-inner);
+  padding: 0 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: -100px;
+}
+.cover-wrapper .cover-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+}
+.cover-wrapper .cover-bg.lazyload:not(.loaded) {
+  opacity: 0;
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+}
+.cover-wrapper .cover-bg.lazyload.loaded {
+  animation-delay: 0s;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  animation-name: fadeIn;
+}
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -khtml-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -o-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -khtml-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -o-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -khtml-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -o-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -khtml-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -o-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+.cover-wrapper .cover-body {
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.cover-wrapper#full {
+  height: calc(100vh + 100px);
+  padding-bottom: 100px;
+}
+.cover-wrapper#half {
+  max-height: 640px;
+  min-height: 400px;
+  height: calc(36vh - 64px + 200px);
+}
+.cover-wrapper #scroll-down {
+  width: 100%;
+  height: 64px;
+  position: absolute;
+  bottom: 100px;
+  text-align: center;
+  cursor: pointer;
+}
+.cover-wrapper #scroll-down .scroll-down-effects {
+  color: #fff;
+  font-size: 24px;
+  line-height: 64px;
+  position: absolute;
+  width: 24px;
+  left: calc(50% - 12px);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  animation: scroll-down-effect 1.5s infinite;
+  -webkit-animation: scroll-down-effect 1.5s infinite;
+  -khtml-animation: scroll-down-effect 1.5s infinite;
+  -moz-animation: scroll-down-effect 1.5s infinite;
+  -o-animation: scroll-down-effect 1.5s infinite;
+  -ms-animation: scroll-down-effect 1.5s infinite;
+}
+@-moz-keyframes scroll-down-effect {
+  0% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+  50% {
+    top: -16px;
+    opacity: 0.4;
+    -webkit-opacity: 0.4;
+    -moz-opacity: 0.4;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-webkit-keyframes scroll-down-effect {
+  0% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+  50% {
+    top: -16px;
+    opacity: 0.4;
+    -webkit-opacity: 0.4;
+    -moz-opacity: 0.4;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-o-keyframes scroll-down-effect {
+  0% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+  50% {
+    top: -16px;
+    opacity: 0.4;
+    -webkit-opacity: 0.4;
+    -moz-opacity: 0.4;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@keyframes scroll-down-effect {
+  0% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+  50% {
+    top: -16px;
+    opacity: 0.4;
+    -webkit-opacity: 0.4;
+    -moz-opacity: 0.4;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+.cover-wrapper .cover-body {
+  margin-top: 64px;
+  margin-bottom: 100px;
+}
+.cover-wrapper .cover-body,
+.cover-wrapper .cover-body .top,
+.cover-wrapper .cover-body .bottom {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -khtml-justify-content: center;
+  -moz-justify-content: center;
+  -o-justify-content: center;
+  -ms-justify-content: center;
+  max-width: 100%;
+}
+.cover-wrapper .cover-body .bottom {
+  margin-top: 32px;
+}
+.cover-wrapper .cover-body .title {
+  font-family: Dosis, "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
+  font-size: 3.125rem;
+  line-height: 1.2;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+.cover-wrapper .cover-body .subtitle {
+  font-size: 20px;
+}
+.cover-wrapper .cover-body .logo {
+  max-height: 120px;
+  max-width: calc(100% - 4 * 16px);
+}
+@media screen and (min-height: 1024px) {
+  .cover-wrapper .cover-body .title {
+    font-size: 3rem;
+  }
+  .cover-wrapper .cover-body .subtitle {
+    font-size: 1.05rem;
+  }
+  .cover-wrapper .cover-body .logo {
+    max-height: 150px;
+  }
+}
+.cover-wrapper .cover-body .m_search {
+  position: relative;
+  max-width: calc(100% - 16px);
+  width: 320px;
+  vertical-align: middle;
+}
+.cover-wrapper .cover-body .m_search .form {
+  position: relative;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  width: 100%;
+}
+.cover-wrapper .cover-body .m_search .icon,
+.cover-wrapper .cover-body .m_search .input {
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+.cover-wrapper .cover-body .m_search .icon {
+  position: absolute;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  line-height: 2.5rem;
+  width: 32px;
+  top: 0;
+  left: 5px;
+  color: rgba(68,68,68,0.75);
+}
+.cover-wrapper .cover-body .m_search .input {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  height: 2.5rem;
+  width: 100%;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 0.875rem;
+  -webkit-appearance: none;
+  padding-left: 36px;
+  border-radius: 1.4rem;
+  -webkit-border-radius: 1.4rem;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+  border: none;
+  color: var(--color-text);
+}
+@media screen and (max-width: 500px) {
+  .cover-wrapper .cover-body .m_search .input {
+    padding-left: 36px;
+  }
+}
+.cover-wrapper .cover-body .m_search .input:hover {
+  background: rgba(255,255,255,0.8);
+}
+.cover-wrapper .cover-body .m_search .input:focus {
+  background: #fff;
+}
+.cover-wrapper .list-h {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -khtml-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -o-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  align-items: stretch;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.cover-wrapper .list-h a {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1 0;
+  -ms-flex: 1 0;
+  flex: 1 0;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  font-weight: 600;
+}
+.cover-wrapper .list-h a img {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  margin: 4px;
+  min-width: 40px;
+  max-width: 44px;
+}
+@media screen and (max-width: 768px) {
+  .cover-wrapper .list-h a img {
+    min-width: 36px;
+    max-width: 40px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .cover-wrapper .list-h a img {
+    margin: 2px 4px;
+    min-width: 32px;
+    max-width: 36px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .cover-wrapper .list-h a img {
+    min-width: 28px;
+    max-width: 32px;
+  }
+}
+.cover-wrapper {
+  max-width: 100%;
+}
+.cover-wrapper.search .bottom .menu {
+  margin-top: 16px;
+}
+.cover-wrapper.search .bottom .menu .list-h a {
+  white-space: nowrap;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  align-items: baseline;
+  padding: 2px;
+  margin: 4px;
+  color: var(--color-site-inner);
+  opacity: 0.75;
+  -webkit-opacity: 0.75;
+  -moz-opacity: 0.75;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  border-bottom: 2px solid transparent;
+}
+.cover-wrapper.search .bottom .menu .list-h a i {
+  margin-right: 4px;
+}
+.cover-wrapper.search .bottom .menu .list-h a p {
+  font-size: 0.9375rem;
+}
+.cover-wrapper.search .bottom .menu .list-h a:hover,
+.cover-wrapper.search .bottom .menu .list-h a.active,
+.cover-wrapper.search .bottom .menu .list-h a:active {
+  opacity: 1;
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  border-bottom: 2px solid var(--color-site-inner);
+}
+.cover-wrapper.dock .menu,
+.cover-wrapper.featured .menu,
+.cover-wrapper.focus .menu {
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+}
+.cover-wrapper.dock .menu .list-h a,
+.cover-wrapper.featured .menu .list-h a,
+.cover-wrapper.focus .menu .list-h a {
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  line-height: 24px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-bottom: none;
+  text-align: center;
+  align-content: flex-end;
+  color: rgba(68,68,68,0.7);
+  font-size: 1.5rem;
+}
+@media screen and (max-width: 500px) {
+  .cover-wrapper.dock .menu .list-h a,
+  .cover-wrapper.featured .menu .list-h a,
+  .cover-wrapper.focus .menu .list-h a {
+    padding: 12px 8px;
+  }
+}
+.cover-wrapper.dock .menu .list-h a i,
+.cover-wrapper.featured .menu .list-h a i,
+.cover-wrapper.focus .menu .list-h a i {
+  margin: 8px;
+}
+.cover-wrapper.dock .menu .list-h a p,
+.cover-wrapper.featured .menu .list-h a p,
+.cover-wrapper.focus .menu .list-h a p {
+  font-size: 0.875rem;
+}
+.cover-wrapper.dock .menu .list-h a.active,
+.cover-wrapper.featured .menu .list-h a.active,
+.cover-wrapper.focus .menu .list-h a.active {
+  background: var(--color-card);
+  backdrop-filter: none;
+}
+.cover-wrapper.dock .menu .list-h a.active i,
+.cover-wrapper.featured .menu .list-h a.active i,
+.cover-wrapper.focus .menu .list-h a.active i,
+.cover-wrapper.dock .menu .list-h a.active i+p,
+.cover-wrapper.featured .menu .list-h a.active i+p,
+.cover-wrapper.focus .menu .list-h a.active i+p {
+  color: #44d7b6;
+}
+.cover-wrapper.dock .menu .list-h a.active img+p,
+.cover-wrapper.featured .menu .list-h a.active img+p,
+.cover-wrapper.focus .menu .list-h a.active img+p {
+  color: var(--color-text);
+}
+.cover-wrapper.dock .menu .list-h a:hover,
+.cover-wrapper.featured .menu .list-h a:hover,
+.cover-wrapper.focus .menu .list-h a:hover {
+  background: var(--color-card);
+}
+.cover-wrapper.dock .top {
+  margin-bottom: 48px;
+}
+.cover-wrapper.dock .menu {
+  background: rgba(255,255,255,0.5);
+  position: absolute;
+  bottom: 0;
+  max-width: 100%;
+}
+.cover-wrapper.dock .menu .list-h {
+  flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+  -khtml-flex-wrap: nowrap;
+  -moz-flex-wrap: nowrap;
+  -o-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  margin: 4px;
+}
+.cover-wrapper.dock .menu .list-h a+a {
+  margin-left: 4px;
+}
+@media screen and (max-width: 500px) {
+  .cover-wrapper.dock .menu .list-h {
+    overflow-x: scroll;
+  }
+  .cover-wrapper.dock .menu .list-h::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+  }
+  .cover-wrapper.dock .menu .list-h::-webkit-scrollbar-track-piece {
+    background: transparent;
+  }
+  .cover-wrapper.dock .menu .list-h::-webkit-scrollbar-thumb {
+    background: #44d7b6;
+    cursor: pointer;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+  }
+  .cover-wrapper.dock .menu .list-h::-webkit-scrollbar-thumb:hover {
+    background: #ff5722;
+  }
+}
+@supports (backdrop-filter: blur(20px)) {
+  .cover-wrapper.dock .menu {
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: saturate(200%) blur(20px);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-mode: 'dark';
+  }
+  :root:not([color-scheme]) {
+    --color-site-body: #000;
+    --color-read-bkg: #222;
+    --color-read-post: #333;
+    --color-site-bg: #222;
+    --color-site-inner: #eee;
+    --color-site-footer: #aaa;
+    --color-card: #333;
+    --color-text: #eee;
+    --color-block: #3a3a3a;
+    --color-codeblock: #343a3c;
+    --color-inlinecode: #d56d28;
+    --color-h1: #eee;
+    --color-h2: #eee;
+    --color-h3: #ddd;
+    --color-h4: #ddd;
+    --color-h5: #ddd;
+    --color-h6: #ddd;
+    --color-p: #bbb;
+    --color-list: #aaa;
+    --color-list-hl: #69dfc4;
+    --color-meta: #888;
+    --color-link: #888;
+  }
+  :root:not([color-scheme]) img {
+    filter: brightness(70%) !important;
+  }
+  :root:not([color-scheme]) #wrapper .title {
+    color: var(--color-meta) !important;
+  }
+  :root:not([color-scheme]) .l_header ul.nav-list-h>li>a,
+  :root:not([color-scheme]) ul.list-v >li>a {
+    color: var(--color-list) !important;
+  }
+  :root:not([color-scheme]) .blur {
+    background: var(--color-site-bg) !important;
+  }
+  :root:not([color-scheme]) .nav-main .u-search-input {
+    background: var(--color-card) !important;
+  }
+  :root:not([color-scheme]) #l_main .article .prev-next>a {
+    background: var(--color-block) !important;
+  }
+  :root:not([color-scheme]) #l_main .article .prev-next>a:hover {
+    background: var(--color-card) !important;
+  }
+  :root:not([color-scheme]) .article blockquote {
+    background: var(--color-block) !important;
+  }
+  :root:not([color-scheme]) .article-title a {
+    color: var(--color-h1) !important;
+  }
+  :root:not([color-scheme]) details>summary {
+    color: var(--color-p) !important;
+    background: var(--color-site-bg) !important;
+  }
+  :root:not([color-scheme]) details {
+    border: 1px solid var(--color-site-bg) !important;
+    background: var(--color-site-bg) !important;
+  }
+  :root:not([color-scheme]) #u-search .modal,
+  :root:not([color-scheme]) #u-search .modal-header,
+  :root:not([color-scheme]) #u-search .modal-body {
+    background: var(--color-card) !important;
+  }
+  :root:not([color-scheme]) #u-search .modal-body .modal-results .result:hover {
+    background: var(--color-block) !important;
+  }
+}
+[color-scheme='dark'] {
+  --color-site-body: #000;
+  --color-read-bkg: #222;
+  --color-read-post: #333;
+  --color-site-bg: #222;
+  --color-site-inner: #eee;
+  --color-site-footer: #aaa;
+  --color-card: #333;
+  --color-text: #eee;
+  --color-block: #3a3a3a;
+  --color-codeblock: #343a3c;
+  --color-inlinecode: #d56d28;
+  --color-h1: #eee;
+  --color-h2: #eee;
+  --color-h3: #ddd;
+  --color-h4: #ddd;
+  --color-h5: #ddd;
+  --color-h6: #ddd;
+  --color-p: #bbb;
+  --color-list: #aaa;
+  --color-list-hl: #69dfc4;
+  --color-meta: #888;
+  --color-link: #888;
+}
+[color-scheme='dark'] img {
+  filter: brightness(70%) !important;
+}
+[color-scheme='dark'] #wrapper .title {
+  color: var(--color-meta) !important;
+}
+[color-scheme='dark'] .l_header ul.nav-list-h>li>a,
+[color-scheme='dark'] ul.list-v >li>a {
+  color: var(--color-list) !important;
+}
+[color-scheme='dark'] .blur {
+  background: var(--color-site-bg) !important;
+}
+[color-scheme='dark'] .nav-main .u-search-input {
+  background: var(--color-card) !important;
+}
+[color-scheme='dark'] #l_main .article .prev-next>a {
+  background: var(--color-block) !important;
+}
+[color-scheme='dark'] #l_main .article .prev-next>a:hover {
+  background: var(--color-card) !important;
+}
+[color-scheme='dark'] .article blockquote {
+  background: var(--color-block) !important;
+}
+[color-scheme='dark'] .article-title a {
+  color: var(--color-h1) !important;
+}
+[color-scheme='dark'] details>summary {
+  color: var(--color-p) !important;
+  background: var(--color-site-bg) !important;
+}
+[color-scheme='dark'] details {
+  border: 1px solid var(--color-site-bg) !important;
+  background: var(--color-site-bg) !important;
+}
+[color-scheme='dark'] #u-search .modal,
+[color-scheme='dark'] #u-search .modal-header,
+[color-scheme='dark'] #u-search .modal-body {
+  background: var(--color-card) !important;
+}
+[color-scheme='dark'] #u-search .modal-body .modal-results .result:hover {
+  background: var(--color-block) !important;
+}
+@media screen and (max-width: 500px) {
+  [color-scheme='dark'] .l_header .m_search {
+    background: var(--color-site-bg) !important;
+  }
+}
+@font-face {
+  font-family: 'Dosis';
+  src: url("https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts@20.5.30/Dosis/Dosis-Medium.ttf");
+  font-weight: 'normal';
+  font-style: 'normal';
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Dosis';
+  src: url("https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts@20.5.30/Dosis/Dosis-Medium.ttf");
+  font-weight: 'normal';
+  font-style: 'normal';
+  font-display: swap;
+}
+.l_header {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  width: 100%;
+  height: 64px;
+  background: var(--color-card);
+  box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
+}
+.l_header.auto {
+  transition: opacity 0.4s ease;
+  -webkit-transition: opacity 0.4s ease;
+  -khtml-transition: opacity 0.4s ease;
+  -moz-transition: opacity 0.4s ease;
+  -o-transition: opacity 0.4s ease;
+  -ms-transition: opacity 0.4s ease;
+  visibility: hidden;
+}
+.l_header.auto.show {
+  opacity: 1 !important;
+  -webkit-opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  visibility: visible;
+}
+.l_header .container {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+.l_header #wrapper {
+  height: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.l_header #wrapper .nav-main,
+.l_header #wrapper .nav-sub {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+  -khtml-flex-wrap: nowrap;
+  -moz-flex-wrap: nowrap;
+  -o-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -khtml-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -o-justify-content: space-between;
+  -ms-justify-content: space-between;
+  align-items: center;
+}
+.l_header #wrapper .nav-main {
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+.l_header #wrapper.sub .nav-main {
+  transform: translateY(-64px);
+  -webkit-transform: translateY(-64px);
+  -khtml-transform: translateY(-64px);
+  -moz-transform: translateY(-64px);
+  -o-transform: translateY(-64px);
+  -ms-transform: translateY(-64px);
+}
+.l_header #wrapper .nav-sub {
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+  opacity: 0;
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  height: 64px;
+  width: calc(100% - 2 * 16px);
+  position: absolute;
+}
+.l_header #wrapper .nav-sub ::-webkit-scrollbar {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+}
+@media screen and (min-width: 2048px) {
+  .l_header #wrapper .nav-sub {
+    max-width: 55vw;
+    margin: auto;
+  }
+}
+.l_header #wrapper.sub .nav-sub {
+  opacity: 1;
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+}
+.l_header #wrapper .title {
+  position: relative;
+  color: var(--color-text);
+  padding-left: 24px;
+  max-height: 64px;
+}
+.l_header #wrapper .nav-main .title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+  line-height: 64px;
+  padding: 0 24px;
+  font-size: 1.25rem;
+  font-family: Dosis, "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
+}
+.l_header #wrapper .nav-main .title img {
+  height: 64px;
+}
+.l_header .nav-sub {
+  max-width: 1080px;
+  margin: auto;
+}
+.l_header .nav-sub .title {
+  font-weight: bold;
+  font-family: Dosis, "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Menlo, Monaco, monospace, sans-serif;
+  line-height: 1.2;
+  max-height: 64px;
+  white-space: normal;
+  flex-shrink: 1;
+}
+.l_header .switcher {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+  line-height: 64px;
+  align-items: center;
+}
+.l_header .switcher .s-toc {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .l_header .switcher .s-toc {
+    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+    display: -ms-flexbox /* TWEENER - IE 10 */;
+    display: -webkit-flex /* NEW - Chrome */;
+    display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+    display: flex;
+  }
+}
+.l_header .switcher >li {
+  height: 48px;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+  margin: 2px;
+}
+@media screen and (max-width: 500px) {
+  .l_header .switcher >li {
+    margin: 0 1px;
+    height: 48px;
+  }
+}
+.l_header .switcher >li >a {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -khtml-justify-content: center;
+  -moz-justify-content: center;
+  -o-justify-content: center;
+  -ms-justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0.85em 1.1em;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  border: none;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+  color: #44d7b6;
+}
+.l_header .switcher >li >a:hover {
+  border: none;
+}
+.l_header .switcher >li >a.active,
+.l_header .switcher >li >a:active {
+  border: none;
+  background: var(--color-site-bg);
+}
+@media screen and (max-width: 500px) {
+  .l_header .switcher >li >a {
+    width: 36px;
+    height: 48px;
+  }
+}
+.l_header .nav-sub .switcher {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+}
+.l_header .m_search {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  height: 64px;
+  width: 240px;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+@media screen and (max-width: 1024px) {
+  .l_header .m_search {
+    width: 44px;
+    min-width: 44px;
+  }
+  .l_header .m_search input::placeholder {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+  }
+  .l_header .m_search:hover {
+    width: 240px;
+  }
+  .l_header .m_search:hover input::placeholder {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@media screen and (min-width: 500px) {
+  .l_header .m_search:hover .input {
+    width: 100%;
+  }
+  .l_header .m_search:hover .input::placeholder {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@media screen and (max-width: 500px) {
+  .l_header .m_search {
+    min-width: 0;
+  }
+  .l_header .m_search input::placeholder {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+.l_header .m_search .form {
+  position: relative;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+.l_header .m_search .icon {
+  position: absolute;
+  width: 36px;
+  left: 5px;
+  color: var(--color-meta);
+}
+@media screen and (max-width: 500px) {
+  .l_header .m_search .icon {
+    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+    display: none;
+  }
+}
+.l_header .m_search .input {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  line-height: 1.3;
+  width: 100%;
+  color: var(--color-text);
+  background: #fafafa;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding-left: 40px;
+  font-size: 0.875rem;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border: none;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+@media screen and (min-width: 500px) {
+  .l_header .m_search .input:focus {
+    box-shadow: 0 4px 8px 0px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0 4px 8px 0px rgba(0,0,0,0.1);
+  }
+}
+@media screen and (max-width: 500px) {
+  .l_header .m_search .input {
+    background: var(--color-block);
+    padding-left: 8px;
+    border: none;
+  }
+  .l_header .m_search .input:hover,
+  .l_header .m_search .input:focus {
+    border: none;
+  }
+}
+@media (max-width: 500px) {
+  .l_header .m_search {
+    left: 0;
+    width: 0;
+    overflow: hidden;
+    position: absolute;
+    background: #fff;
+    transition: all 0.28s ease;
+    -webkit-transition: all 0.28s ease;
+    -khtml-transition: all 0.28s ease;
+    -moz-transition: all 0.28s ease;
+    -o-transition: all 0.28s ease;
+    -ms-transition: all 0.28s ease;
+  }
+  .l_header .m_search .input {
+    border-radius: 32px;
+    -webkit-border-radius: 32px;
+    margin-left: 16px;
+    padding-left: 16px;
+  }
+  .l_header.z_search-open .m_search {
+    width: 100%;
+  }
+  .l_header.z_search-open .m_search .input {
+    width: calc(100% - 120px);
+  }
+}
+ul.m-pc >li>a {
+  color: inherit;
+  border-bottom: 2px solid transparent;
+}
+ul.m-pc >li>a:active,
+ul.m-pc >li>a.active {
+  border-bottom: 2px solid #44d7b6;
+}
+ul.m-pc li:hover >ul.list-v,
+ul.list-v li:hover >ul.list-v {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+}
+ul.nav-list-h {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  align-items: stretch;
+}
+ul.nav-list-h>li {
+  position: relative;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -khtml-justify-content: center;
+  -moz-justify-content: center;
+  -o-justify-content: center;
+  -ms-justify-content: center;
+  height: 100%;
+  line-height: 2.4;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+ul.nav-list-h>li >a {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 600;
+}
+ul.list-v {
+  z-index: 1;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+  position: absolute;
+  background: var(--color-card);
+  box-shadow: 0 2px 4px 0px rgba(0,0,0,0.08), 0 4px 8px 0px rgba(0,0,0,0.08), 0 8px 16px 0px rgba(0,0,0,0.08);
+  -webkit-box-shadow: 0 2px 4px 0px rgba(0,0,0,0.08), 0 4px 8px 0px rgba(0,0,0,0.08), 0 8px 16px 0px rgba(0,0,0,0.08);
+  margin-top: -6px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  padding: 8px 0;
+}
+ul.list-v.show {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+}
+ul.list-v hr {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+ul.list-v >li {
+  white-space: nowrap;
+  word-break: keep-all;
+}
+ul.list-v >li.header {
+  font-size: 0.78125rem;
+  font-weight: bold;
+  line-height: 2em;
+  color: var(--color-meta);
+  margin: 8px 16px 4px;
+}
+ul.list-v >li.header i {
+  margin-right: 8px;
+}
+ul.list-v >li ul {
+  margin-left: 0;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+  margin-top: -40px;
+}
+ul.list-v .aplayer-container {
+  min-height: 64px;
+  padding: 6px 16px;
+}
+ul.list-v >li>a {
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  color: var(--color-list);
+  font-size: 0.875rem;
+  font-weight: bold;
+  line-height: 36px;
+  padding: 0 20px 0 16px;
+  text-overflow: ellipsis;
+  margin: 0 4px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+@media screen and (max-width: 1024px) {
+  ul.list-v >li>a {
+    line-height: 40px;
+  }
+}
+ul.list-v >li>a >i {
+  margin-right: 8px;
+}
+ul.list-v >li>a:active,
+ul.list-v >li>a.active {
+  color: var(--color-list-hl);
+}
+ul.list-v >li>a:hover {
+  color: var(--color-list-hl);
+  background: var(--color-site-bg);
+}
+.l_header .menu >ul>li>a {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  padding: 0 8px;
+}
+.l_header .menu >ul>li>a >i {
+  margin-right: 4px;
+}
+.l_header ul.nav-list-h>li {
+  color: var(--color-list);
+  line-height: 64px;
+}
+.l_header ul.nav-list-h>li >a {
+  max-height: 64px;
+  overflow: hidden;
+  color: inherit;
+}
+.l_header ul.nav-list-h>li >a:active,
+.l_header ul.nav-list-h>li >a.active {
+  color: #44d7b6;
+}
+.l_header ul.nav-list-h>li:hover>a {
+  color: var(--color-list-hl);
+}
+.l_header ul.nav-list-h>li i.music {
+  animation: rotate-effect 1.5s linear infinite;
+  -webkit-animation: rotate-effect 1.5s linear infinite;
+  -khtml-animation: rotate-effect 1.5s linear infinite;
+  -moz-animation: rotate-effect 1.5s linear infinite;
+  -o-animation: rotate-effect 1.5s linear infinite;
+  -ms-animation: rotate-effect 1.5s linear infinite;
+}
+@-moz-keyframes rotate-effect {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -khtml-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+  }
+  25% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -khtml-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -khtml-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -khtml-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -khtml-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotate-effect {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -khtml-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+  }
+  25% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -khtml-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -khtml-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -khtml-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -khtml-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+  }
+}
+@-o-keyframes rotate-effect {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -khtml-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+  }
+  25% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -khtml-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -khtml-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -khtml-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -khtml-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+  }
+}
+@keyframes rotate-effect {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -khtml-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+  }
+  25% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -khtml-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -khtml-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -khtml-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -khtml-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+  }
+}
+.menu-phone li ul.list-v {
+  right: calc(100% - 0.5 * 16px);
+}
+.menu-phone li ul.list-v ul {
+  right: calc(100% - 0.5 * 16px);
+}
+#wrapper {
+  max-width: 1080px;
+  margin: auto;
+}
+@media screen and (min-width: 2048px) {
+  #wrapper {
+    max-width: 55vw;
+  }
+}
+#wrapper .menu {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1 1;
+  -ms-flex: 1 1;
+  flex: 1 1;
+  margin: 0 16px 0 0;
+}
+#wrapper .menu .list-v ul {
+  left: calc(100% - 0.5 * 16px);
+}
+.menu-phone {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+  margin-top: 16px;
+  right: 8px;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+.menu-phone ul {
+  right: calc(100% - 0.5 * 16px);
+}
+@media screen and (max-width: 500px) {
+  .menu-phone {
+    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+    display: block;
+  }
+}
+.l_header {
+  max-width: 65vw;
+  left: calc((100% - 65vw) * 0.5);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+@media screen and (max-width: 2048px) {
+  .l_header {
+    max-width: 1112px;
+    left: calc((100% - 1112px) * 0.5);
+  }
+}
+@media screen and (max-width: 1112px) {
+  .l_header {
+    left: 0;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .l_header .container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .l_header #wrapper .nav-main .title {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .l_header #wrapper .nav-sub {
+    width: 100%;
+  }
+  .l_header #wrapper .nav-sub .title {
+    overflow-y: scroll;
+    margin-top: 2px;
+    padding: 8px 16px;
+  }
+  .l_header #wrapper .switcher {
+    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+    display: -ms-flexbox /* TWEENER - IE 10 */;
+    display: -webkit-flex /* NEW - Chrome */;
+    display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+    display: flex;
+    margin-right: 8px;
+  }
+  .l_header .menu {
+    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+    display: none;
+  }
+}
+@media screen and (max-width: 500px) {
+  .list-v li {
+    max-width: 270px;
+  }
+}
+#u-search {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 60px 20px;
+  z-index: 1001;
+}
+@media screen and (max-width: 680px) {
+  #u-search {
+    padding: 0px;
+  }
+}
+@media screen and (prefers-color-scheme: dark) and (max-width: 500px) {
+  .l_header .m_search {
+    background: var(--color-site-bg) !important;
+  }
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css?time=1648722003565" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css?time=1648722003565"></noscript>
+    <script>
+      let userColorScheme=localStorage.getItem("color-scheme")
+      if(userColorScheme){
+        document.documentElement.setAttribute("color-scheme", userColorScheme);
+      }
+    </script>
+  
+<script>
+if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
+    document.write(
+	'<style>'+
+		'html{'+
+			'overflow-x: hidden !important;'+
+			'overflow-y: hidden !important;'+
+		'}'+
+		'.kill-ie{'+
+			'text-align:center;'+
+			'height: 100%;'+
+			'margin-top: 15%;'+
+			'margin-bottom: 5500%;'+
+		'}'+
+    '.kill-t{'+
+      'font-size: 2rem;'+
+    '}'+
+    '.kill-c{'+
+      'font-size: 1.2rem;'+
+    '}'+
+		'#l_header,#l_body{'+
+			'display: none;'+
+		'}'+
+	'</style>'+
+    '<div class="kill-ie">'+
+        `<span class="kill-t"><b>抱歉，您的浏览器无法访问本站</b></span><br/>`+
+        `<span class="kill-c">微软已经于2016年终止了对 Internet Explorer (IE) 10 及更早版本的支持，<br/>继续使用存在极大的安全隐患，请使用当代主流的浏览器进行访问。</span><br/>`+
+        `<a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/WindowsForBusiness/End-of-IE-support"><strong>了解详情 ></strong></a>`+
+    '</div>');
+</script>
+
+
+<noscript>
+	<style>
+		html{
+			overflow-x: hidden !important;
+			overflow-y: hidden !important;
+		}
+		.kill-noscript{
+			text-align:center;
+			height: 100%;
+			margin-top: 15%;
+			margin-bottom: 5500%;
+		}
+    .kill-t{
+      font-size: 2rem;
+    }
+    .kill-c{
+      font-size: 1.2rem;
+    }
+		#l_header,#l_body{
+			display: none;
+		}
+	</style>
+    <div class="kill-noscript">
+        <span class="kill-t"><b>抱歉，您的浏览器无法访问本站</b></span><br/>
+        <span class="kill-c">本页面需要浏览器支持（启用）JavaScript</span><br/>
+        <a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=启用JavaScript"><strong>了解详情 ></strong></a>
+    </div>
+</noscript>
+
+
+  <script>
+  /************这个文件存放不需要重载的全局变量和全局函数*********/
+  window.volantis = {}; // volantis 全局变量
+  volantis.debug = false; // 开启调试模式
+  volantis.dom = {}; // 页面Dom see: /source/js/app.js etc.
+
+  volantis.GLOBAL_CONFIG ={
+    cdn: {"js":{"app":"/js/app.js?time=1648722003565","sites":"/js/plugins/sites.js?time=1648722003565","friends":"/js/plugins/friends.js?time=1648722003565","parallax":"/js/plugins/parallax.js?time=1648722003565","rightMenu":"/js/plugins/rightMenu.js?time=1648722003565","contributors":"/js/plugins/contributors.js?time=1648722003565","message":"/js/thirdparty/message.js?time=1648722003565","valine":"https://npm.elemecdn.com/valine@1.4/dist/Valine.min.js?time=1648722003565","search":"/js/search/hexo.js?time=1648722003565"},"css":{"style":"/css/style.css?time=1648722003565","message":"/css/message.css?time=1648722003565"}},
+    default: {"avatar":"/media/placeholder/avatar/round/3442075.svg","link":"/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/media/placeholder/cover/76b86c0226ffd.svg","image":"/media/placeholder/image/2659360.svg"},
+    lastupdate: new Date('Thu Mar 31 2022 10:20:03 GMT+0000 (Coordinated Universal Time)'),
+    sidebar: {
+      for_page: ["news","blogger","post","category","tagcloud","guide"],
+      for_post: ["toc"],
+      webinfo: {
+        lastupd: {
+          enable: true,
+          friendlyShow: true
+        },
+        runtime: {
+          data: "2020/01/01",
+          unit: "天"
+        }
+      }
+    },
+    plugins: {
+      message: {"enable":true,"icon":{"default":"fa-solid fa-info-circle light-blue","quection":"fa-solid fa-question-circle light-blue"},"time":{"default":5000,"quection":20000},"position":"topRight","transitionIn":"bounceInLeft","transitionOut":"fadeOutRight","titleColor":"var(--color-text)","messageColor":"var(--color-text)","backgroundColor":"var(--color-card)","zindex":2147483647,"copyright":{"enable":true,"title":"知识共享许可协议","message":"请遵守 CC BY-NC-SA 4.0 协议。","icon":"far fa-copyright light-blue"},"aplayer":{"enable":true,"play":"fa-solid fa-play","pause":"fa-solid fa-pause"},"rightmenu":{"enable":true,"notice":true}},
+      fancybox: {"css":"/libs/@fancyapps/ui/dist/fancybox.css","js":"/libs/@fancyapps/ui/dist/fancybox.umd.js"},
+      aplayer: {
+        id: 5062959861,
+        enable:true
+      },
+      rightmenu: {
+        faicon: "fa",
+        layout: ["home","hr","source_docs","hr","print","darkmode","update","hr","music"],
+        music_alwaysShow: true,
+        customPicUrl: {"enable":false,"old":null,"new":null},
+        print: true
+      }
+    }
+  }
+
+  /******************** volantis.EventListener ********************************/
+  // 事件监听器 see: /source/js/app.js
+  volantis.EventListener = {}
+  // 这里存放pjax切换页面时将被移除的事件监听器
+  volantis.EventListener.list = []
+  //构造方法
+  function volantisEventListener(type, f, ele) {
+    this.type = type
+    this.f = f
+    this.ele = ele
+  }
+  // 移除事件监听器
+  volantis.EventListener.remove = () => {
+    volantis.EventListener.list.forEach(function (i) {
+      i.ele.removeEventListener(i.type, i.f, false)
+    })
+    volantis.EventListener.list = []
+  }
+  /******************** volantis.dom.$ ********************************/
+  // 注：这里没有选择器，也没有forEach一次只处理一个dom，这里重新封装主题常用的dom方法，返回的是dom对象，对象包含了以下方法，同时保留dom的原生API
+  function volantisDom(ele) {
+    if (!ele) ele = document.createElement("div")
+    this.ele = ele;
+    // ==============================================================
+    this.ele.find = (c) => {
+      let q = this.ele.querySelector(c)
+      if (q)
+        return new volantisDom(q)
+    }
+    // ==============================================================
+    this.ele.hasClass = (c) => {
+      return this.ele.className.match(new RegExp('(\\s|^)' + c + '(\\s|$)'));
+    }
+    this.ele.addClass = (c) => {
+      this.ele.classList.add(c);
+      return this.ele
+    }
+    this.ele.removeClass = (c) => {
+      this.ele.classList.remove(c);
+      return this.ele
+    }
+    this.ele.toggleClass = (c) => {
+      if (this.ele.hasClass(c)) {
+        this.ele.removeClass(c)
+      } else {
+        this.ele.addClass(c)
+      }
+      return this.ele
+    }
+    // ==============================================================
+    // 参数 r 为 true 表示pjax切换页面时事件监听器将被移除，false不移除
+    this.ele.on = (c, f, r = 1) => {
+      this.ele.addEventListener(c, f, false)
+      if (r) {
+        volantis.EventListener.list.push(new volantisEventListener(c, f, this.ele))
+      }
+      return this.ele
+    }
+    this.ele.click = (f, r) => {
+      this.ele.on("click", f, r)
+      return this.ele
+    }
+    this.ele.scroll = (f, r) => {
+      this.ele.on("scroll", f, r)
+      return this.ele
+    }
+    // ==============================================================
+    this.ele.html = (c) => {
+      // if(c=== undefined){
+      //   return this.ele.innerHTML
+      // }else{
+      this.ele.innerHTML = c
+      return this.ele
+      // }
+    }
+    // ==============================================================
+    this.ele.hide = (c) => {
+      this.ele.style.display = "none"
+      return this.ele
+    }
+    this.ele.show = (c) => {
+      this.ele.style.display = "block"
+      return this.ele
+    }
+    // ==============================================================
+    return this.ele
+  }
+  volantis.dom.$ = (ele) => {
+    return !!ele ? new volantisDom(ele) : null;
+  }
+  /******************** RunItem ********************************/
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = ()=>{
+          volantis.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) =>{
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index,1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+  /******************** Pjax ********************************/
+  // /layout/_plugins/pjax/index.ejs
+  // volantis.pjax.send(callBack[,"callBackName"]) 传入pjax:send回调函数
+  // volantis.pjax.push(callBack[,"callBackName"]) 传入pjax:complete回调函数
+  // volantis.pjax.error(callBack[,"callBackName"]) 传入pjax:error回调函数
+  volantis.pjax = {};
+  volantis.pjax.method = {
+    complete: new RunItem(),
+    error: new RunItem(),
+    send: new RunItem(),
+  };
+  volantis.pjax = {
+    ...volantis.pjax,
+    push: volantis.pjax.method.complete.push,
+    error: volantis.pjax.method.error.push,
+    send: volantis.pjax.method.send.push,
+  };
+  /********************  Dark Mode  ********************************/
+  // /layout/_partial/scripts/darkmode.ejs
+  // volantis.dark.mode 当前模式 dark or light
+  // volantis.dark.toggle() 暗黑模式触发器
+  // volantis.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  volantis.dark = {};
+  volantis.dark.method = {
+    toggle: new RunItem(),
+  };
+  volantis.dark = {
+    ...volantis.dark,
+    push: volantis.dark.method.toggle.push,
+  };
+  /********************  Message  ********************************/
+  // VolantisApp.message
+  /********************  isMobile  ********************************/
+  // /source/js/app.js
+  // volantis.isMobile
+  // volantis.isMobileOld
+  /********************脚本动态加载函数********************************/
+  // volantis.js(src, cb)  cb 可以传入onload回调函数 或者 JSON对象 例如: volantis.js("src", ()=>{}) 或 volantis.js("src", {defer:true,onload:()=>{}})
+  // volantis.css(src)
+
+  // 返回Promise对象，如下方法同步加载资源，这利于处理文件资源之间的依赖关系，例如：APlayer 需要在 MetingJS 之前加载
+  // (async () => {
+  //     await volantis.js("...theme.plugins.aplayer.js.aplayer...")
+  //     await volantis.js("...theme.plugins.aplayer.js.meting...")
+  // })();
+
+  // 已经加入了setTimeout
+  volantis.js = (src, cb) => {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var HEAD = document.getElementsByTagName("head")[0] || document.documentElement;
+        var script = document.createElement("script");
+        script.setAttribute("type", "text/javascript");
+        if (cb) {
+          if (JSON.stringify(cb)) {
+            for (let p in cb) {
+              if (p == "onload") {
+                script[p] = () => {
+                  cb[p]()
+                  resolve()
+                }
+              } else {
+                script[p] = cb[p]
+                script.onload = resolve
+              }
+            }
+          } else {
+            script.onload = () => {
+              cb()
+              resolve()
+            };
+          }
+        } else {
+          script.onload = resolve
+        }
+        script.setAttribute("src", src);
+        HEAD.appendChild(script);
+      });
+    });
+  }
+  volantis.css = (src) => {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var link = document.createElement('link');
+        link.rel = "stylesheet";
+        link.href = src;
+        link.onload = resolve;
+        document.getElementsByTagName("head")[0].appendChild(link);
+      });
+    });
+  }
+  /********************按需加载的插件********************************/
+  // volantis.import.jQuery().then(()=>{})
+  volantis.import = {
+    jQuery: () => {
+      if (typeof jQuery == "undefined") {
+        return volantis.js("/libs/jquery/dist/jquery.min.js")
+      } else {
+        return new Promise(resolve => {
+          resolve()
+        });
+      }
+    }
+  }
+  /********************** requestAnimationFrame ********************************/
+  // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+  // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+  volantis.requestAnimationFrame = (fn)=>{
+    if (!window.requestAnimationFrame) {
+      window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+    }
+    window.requestAnimationFrame(fn)
+  }
+  /************************ layoutHelper *****************************************/
+  volantis.layoutHelper = (helper, html, opt)=>{
+    opt = Object.assign({clean:false, pjax:true}, opt)
+    function myhelper(helper, html, clean) {
+      volantis.tempDiv = document.createElement("div");
+      volantis.tempDiv.innerHTML = html;
+      let layoutHelper = document.querySelector("#layoutHelper-"+helper)
+      if (layoutHelper) {
+        if (clean) {
+          layoutHelper.innerHTML = ""
+        }
+        layoutHelper.append(volantis.tempDiv);
+      }
+    }
+    myhelper(helper, html, opt.clean)
+    if (opt.pjax) {
+      volantis.pjax.push(()=>{
+        myhelper(helper, html, opt.clean)
+      },"layoutHelper-"+helper)
+    }
+  }
+  /****************************** 滚动事件处理 ****************************************/
+  volantis.scroll = {
+    engine: new RunItem(),
+    unengine: new RunItem(),
+  };
+  volantis.scroll = {
+    ...volantis.scroll,
+    push: volantis.scroll.engine.push,
+  };
+  // 滚动条距离顶部的距离
+  volantis.scroll.getScrollTop = () =>{
+    let scrollPos;
+    if (window.pageYOffset) {
+      scrollPos = window.pageYOffset;
+    } else if (document.compatMode && document.compatMode != 'BackCompat') {
+      scrollPos = document.documentElement.scrollTop;
+    } else if (document.body) {
+      scrollPos = document.body.scrollTop;
+    }
+    return scrollPos;
+  }
+  // 使用 requestAnimationFrame 处理滚动事件
+  // `volantis.scroll.del` 中存储了一个数值, 该数值检测一定时间间隔内滚动条滚动的位移, 数值的检测频率是浏览器的刷新频率. 数值为正数时, 表示向下滚动. 数值为负数时, 表示向上滚动.
+  volantis.scroll.handleScrollEvents = () => {
+    volantis.scroll.lastScrollTop = volantis.scroll.getScrollTop()
+    function loop() {
+      const scrollTop = volantis.scroll.getScrollTop();
+      if (volantis.scroll.lastScrollTop !== scrollTop) {
+        volantis.scroll.del = scrollTop - volantis.scroll.lastScrollTop;
+        volantis.scroll.lastScrollTop = scrollTop;
+        // if (volantis.scroll.del > 0) {
+        //   console.log("向下滚动");
+        // } else {
+        //   console.log("向上滚动");
+        // }
+        volantis.scroll.engine.start();
+      }else{
+        volantis.scroll.unengine.start();
+      }
+      volantis.requestAnimationFrame(loop)
+    }
+    volantis.requestAnimationFrame(loop)
+  }
+  volantis.scroll.handleScrollEvents()
+  // 触发页面滚动至目标元素位置
+  volantis.scroll.to = (ele, option = {}) =>{
+    // 默认配置
+    opt = {
+      top: ele.getBoundingClientRect().top + document.documentElement.scrollTop,
+      behavior: "smooth"
+    }
+    // 定义配置
+    if ("top" in option) {
+      opt.top = option.top
+    }
+    if ("behavior" in option) {
+      opt.behavior = option.behavior
+    }
+    if ("addTop" in option) {
+      opt.top += option.addTop
+    }
+    if (!("observerDic" in option)) {
+      option.observerDic = 25
+    }
+    // 滚动
+    window.scrollTo(opt);
+    // 监视器
+    // 监视并矫正元素滚动到指定位置 
+    // 目前用于处理 toc 部分 lazyload 引起的 cls 导致的定位失败问题
+    if (option.observer) {
+      volantis.scroll.unengine.push(()=>{
+        let me = ele.getBoundingClientRect().top
+        if(!(me >= -option.observerDic && me <= option.observerDic)){
+          volantis.scroll.to(ele, option)
+        }else{
+          volantis.scroll.unengine.remove("unengineObserver")
+        }
+      },"unengineObserver")
+    }
+  }
+  /******************************************************************************/
+  /******************************************************************************/
+</script>
+  <!-- Custom Files head begin-->
+  
+  <!-- Custom Files head end-->
+</head>
+  <body itemscope itemtype="http://schema.org/WebPage">
+    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fa-solid fa-comments fa-fw" target="_self"  href="/" onclick="return false;" title="comment"></a></li>
+        
+          <li><a id="s-toc" class="s-toc fa-solid fa-list fa-fw" target="_self"  href="/" onclick="return false;" title="toc"></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+            All Resonance
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                href="/" title="博客"
+                  
+                  
+                  
+                    active-action="action-home"
+                  >
+                  <i class='fa-solid fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                href="/categories/" title="分类"
+                  
+                  
+                  
+                    active-action="action-categories"
+                  >
+                  <i class='fa-solid fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                href="/tags/" title="标签"
+                  
+                  
+                  
+                    active-action="action-tags"
+                  >
+                  <i class='fa-solid fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                href="/archives/" title="归档"
+                  
+                  
+                  
+                    active-action="action-archives"
+                  >
+                  <i class='fa-solid fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                href="/friends/" title="友链"
+                  
+                  
+                  
+                    active-action="action-friends"
+                  >
+                  <i class='fa-solid fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                href="/about/" title="关于"
+                  
+                  
+                  
+                    active-action="action-about"
+                  >
+                  <i class='fa-solid fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class='fa-solid fa-moon fa-fw'></i>暗黑模式
+                </a>
+              <li>
+            
+          
+          
+				</ul>
+			</div>
+      
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fa-solid fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+      
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fa-solid fa-search fa-fw" target="_self" href="/" onclick="return false;" title="search"></a></li>
+				
+				<li>
+          <a class="s-menu fa-solid fa-bars fa-fw" target="_self" href="/" onclick="return false;" title="menu"></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                href="/" title="博客"
+                  
+                  
+                  
+                    active-action="action-home"
+                  >
+                  <i class='fa-solid fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                href="/categories/" title="分类"
+                  
+                  
+                  
+                    active-action="action-categories"
+                  >
+                  <i class='fa-solid fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                href="/tags/" title="标签"
+                  
+                  
+                  
+                    active-action="action-tags"
+                  >
+                  <i class='fa-solid fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                href="/archives/" title="归档"
+                  
+                  
+                  
+                    active-action="action-archives"
+                  >
+                  <i class='fa-solid fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                href="/friends/" title="友链"
+                  
+                  
+                  
+                    active-action="action-friends"
+                  >
+                  <i class='fa-solid fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                href="/about/" title="关于"
+                  
+                  
+                  
+                    active-action="action-about"
+                  >
+                  <i class='fa-solid fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class='fa-solid fa-moon fa-fw'></i>暗黑模式
+                </a>
+              <li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+
+      <!-- Custom Files header begin -->
+      
+      <!-- Custom Files header end -->
+		</div>
+	</div>
+  </div>
+</header>
+
+    <div id="l_body">
+      <div id="l_cover">
+  
+    
+      <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
+      <div id="none" class='cover-wrapper post dock' style="display: none;">
+        
+  <div class='cover-bg lazyload placeholder' data-bg="https://bing.bfsea.xyz/v1/rand?w=1920&h=1200"></div>
+
+<div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">All Resonance</p>
+    
+    
+      <p class="subtitle">物质的底层是能量，而能量的底层是精神！</p>
+    
+  </div>
+  <div class='bottom'>
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+          
+            <a href="/"
+              
+              
+              active-action="action-home">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4f0.svg'><p>首页</p>
+            </a>
+          
+            <a href="/archives/"
+              
+              
+                target="_self"
+              
+              active-action="action-archives">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f516.svg'><p>文章</p>
+            </a>
+          
+            <a href="/about/"
+              
+              
+              active-action="action-about">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f497.svg'><p>关于</p>
+            </a>
+          
+            <a href="https://github.com/all-resonance/all-resonance/"
+              
+              
+                target="_self"
+              
+              active-action="action-https:githubcomall-resonanceall-resonance">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f9ec.svg'><p>源码</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+      </div>
+    
+  
+</div>
+
+      <div id="safearea">
+        <div class="body-wrapper">
+          
+<div id="l_main" class=''>
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  <link itemprop="mainEntityOfPage" href="https://resonance.fun/2020/10/29/yuque/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E4%B9%8B%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="All Resonance">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="All Resonance">
+    <meta itemprop="description" content="物质的本质是能量，而能量的底层是精神！">
+  </span>
+  
+
+
+  
+    <span hidden>
+      <meta itemprop="image" content="/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title" itemprop="name headline">
+        思维导图之作用域和闭包
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author' itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <a itemprop="url" class='author' href="/" rel="nofollow">
+    <img itemprop="image" src="https://cdn.nlark.com/yuque/0/2020/jpeg/anonymous/1589423837659-4734a3f4-30d1-4d38-835e-c1495a162db9.jpeg" class="lazyload" data-srcset="https://cdn.nlark.com/yuque/0/2020/jpeg/anonymous/1589423837659-4734a3f4-30d1-4d38-835e-c1495a162db9.jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <p itemprop="name">向仕林</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2020-10-29T05:24:13+00:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年10月29日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="思维导图之作用域和闭包" data-path="/2020/10/29/yuque/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E4%B9%8B%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/">
+        <i class="fa-solid fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fa-solid fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+        <!-- Custom Files topMeta begin-->
+        
+        <!-- Custom Files topMeta end-->
+      </div>
+    
+  </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <p>{“format”:”lakemind”,”type”:”Mind”,”version”:”1.0”,”diagramData”:{“head”:{“version”:”2.0.0”},”body”:[{“id”:”init”,”type”:”mindmap”,”html”:”数据类型”,”children”:[{“html”:”基本类型”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#A287E1”},”id”:”f1b51e22-5556-41c2-8bdf-f900a8c5cf6f”,”children”:[{“html”:”number”,”id”:”3c85803e-2ab1-47d3-93e4-34e924d6d361”,”children”:[],”zIndex”:2},{“html”:”string”,”id”:”0714922a-cb2e-4e85-ba85-d73c7bafc728”,”children”:[],”zIndex”:3},{“html”:”undefined”,”id”:”42f4fa35-8257-402a-ae08-12ea56d761ee”,”children”:[],”zIndex”:4},{“html”:”null”,”id”:”bee1c28d-be83-4edf-af03-08b8dd29d91e”,”children”:[],”zIndex”:5},{“html”:”boolean”,”id”:”c5ae2d7f-12b8-4379-a4ea-7679e6f99b6f”,”children”:[],”zIndex”:9},{“html”:”symbol”,”id”:”b326de10-646c-48e5-985e-32744066f033”,”children”:[],”zIndex”:6}],”zIndex”:0},{“html”:”引用类型”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#E48484”},”id”:”1a581807-35a4-47d7-bfe1-cf8f93e51df8”,”children”:[{“html”:”object”,”id”:”aae01172-12c8-4c6a-8da9-dae7ff8f1997”,”children”:[{“html”:”array”,”id”:”abdcf0cb-edc5-40ce-913c-86c1b24bceec”,”children”:[],”zIndex”:10},{“html”:”…”,”id”:”6d40973b-4f4b-4c09-90b8-c7046fbdbf13”,”children”:[],”zIndex”:11}],”zIndex”:7},{“html”:”function”,”id”:”f5803c67-eec6-4f23-82b7-0a3da47141e8”,”children”:[],”zIndex”:8}],”zIndex”:1}],”zIndex”:12,”x”:2024.4623834304057,”y”:-3472.70048927316,”border”:{“shape”:”rect”,”stroke”:”transparent”}},{“id”:”fc99eff4-03ef-4955-9ac3-c3dd0fc2e483”,”x”:2003.6096233018084,”y”:-2194.5299924160363,”html”:”JS 代码执行”,”type”:”mindmap”,”children”:[{“html”:”1.游览器会在内存中开辟一块栈内存，全局上下文（环境），也叫 ECStack。”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#A287E1”},”id”:”733f2abd-2dc1-4e82-a9cc-25b7be0d2ef7”,”children”:[{“html”:”&lt;div style=&quot;text-align:center;&quot;&gt;</div>“,”id”:”a40eafd0-87de-4158-b9c7-9f35fdb611c3”,”children”:[{“html”:”&lt;div style=&quot;text-align:center;&quot;&gt;</div>“,”id”:”a78d3f71-b03d-4d09-82f2-5bbf0bd07162”,”children”:[],”zIndex”:16,”image”:{“src”:”<a target="_blank" rel="noopener" href="https://cdn.nlark.com/yuque/0/2020/png/1429353/1604060996415-32302ab3-f32b-4e45-9ead-6ac9698e07ab.png&quot;,&quot;naturalWidth&quot;:700,&quot;naturalHeight&quot;:504,&quot;width&quot;:283,&quot;height&quot;:203.76000000000002%7D,&quot;width&quot;:299,&quot;height&quot;:216%7D],&quot;zIndex&quot;:15,&quot;image&quot;:%7B&quot;src&quot;:&quot;https://cdn.nlark.com/yuque/0/2020/png/1429353/1604059782703-5690a93e-e8c8-4593-95d1-e68ab4bee13b.png&quot;,&quot;naturalWidth&quot;:589,&quot;naturalHeight&quot;:479,&quot;width&quot;:206,&quot;height&quot;:167.52801358234296%7D,&quot;border&quot;:%7B&quot;shape&quot;:&quot;line&quot;,&quot;stroke&quot;:&quot;transparent&quot;%7D,&quot;width&quot;:222,&quot;height&quot;:187.52801358234296%7D],&quot;zIndex&quot;:13,&quot;border&quot;:%7B&quot;shape&quot;:&quot;line&quot;,&quot;stroke&quot;:&quot;transparent&quot;%7D%7D,%7B&quot;html&quot;:&quot;2.%E7%84%B6%E5%90%8E%E5%BD%A2%E6%88%90%E5%85%A8%E5%B1%80%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87EC(G)%EF%BC%88%E9%BB%98%E8%AE%A4%E5%B0%B1%E6%98%AFwindow/global%EF%BC%89%E4%BE%9B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E3%80%82&quot;,&quot;layout&quot;:%7B&quot;quadrant&quot;:1%7D,&quot;treeEdge&quot;:%7B&quot;stroke&quot;:&quot;#E48484&quot;},&quot;id&quot;:&quot;cde0a14e-ccf0-40d0-8e05-0ccb4d1868f4&quot;,&quot;children&quot;:[],&quot;zIndex&quot;:14}],&quot;zIndex&quot;:17},{&quot;id&quot;:&quot;129c5c0c-ad88-4e63-9320-a350ee1f58df&quot;,&quot;x&quot;:3374.297353377579,&quot;y&quot;:-2207.5561578019106,&quot;html&quot;:&quot;%E5%88%9B%E5%BB%BA%E5%87%BD%E6%95%B0&quot;,&quot;type&quot;:&quot;mindmap&quot;,&quot;children&quot;:[{&quot;html&quot;:&quot;1.%E5%8D%95%E7%8B%AC%E5%BC%80%E8%BE%9F%E4%B8%80%E4%B8%AA%E5%A0%86%E5%86%85%E5%AD%98%EF%BC%8816%E8%BF%9B%E5%88%B6%E5%9C%B0%E5%9D%80%EF%BC%89%EF%BC%8C%E5%87%BD%E6%95%B0%E5%A0%86%E5%86%85%E5%AD%98%E4%B8%AD%E5%AD%98%E5%82%A8%E7%9A%84%E6%98%AF%E5%87%BD%E6%95%B0%E4%BD%93%E4%B8%AD%E7%9A%84%E2%80%9C%E4%BB%A3%E7%A0%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%80%9D%E3%80%82&quot;,&quot;layout&quot;:{&quot;quadrant&quot;:1},&quot;treeEdge&quot;:{&quot;stroke&quot;:&quot;#A287E1&quot;},&quot;id&quot;:&quot;5859bc97-b0cc-4727-809e-482555f526ce&quot;,&quot;children&quot;:[],&quot;zIndex&quot;:18},{&quot;html&quot;:&quot;2.%E5%88%9B%E5%BB%BA%E5%87%BD%E6%95%B0%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E5%B0%B1%E5%A3%B0%E6%98%8E%E4%BA%86%E5%AE%83%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F[scope]%EF%BC%8C%E4%B9%9F%E5%B0%B1%E6%98%AF%E6%89%80%E5%9C%A8%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%96%87%E7%8E%AF%E5%A2%83%E3%80%82&quot;,&quot;layout&quot;:{&quot;quadrant&quot;:1},&quot;treeEdge&quot;:{&quot;stroke&quot;:&quot;#E48484&quot;},&quot;id&quot;:&quot;a151950e-08f2-436f-ba60-896f20e404f9&quot;,&quot;children&quot;:[],&quot;zIndex&quot;:19},{&quot;html&quot;:&quot;3.%E6%8A%8A16%E8%BF%9B%E5%88%B6%E7%9A%84%E5%9C%B0%E5%9D%80%E5%AD%98%E6%94%BE%E5%88%B0%E6%A0%88%E4%B8%AD%EF%BC%8C%E4%BE%9B%E5%8F%98%E9%87%8F%EF%BC%88%E5%87%BD%E6%95%B0%E5%90%8D%E7%AD%89%EF%BC%89%E5%85%B3%E8%81%94%E5%BC%95%E7%94%A8%E5%8D%B3%E5%8F%AF&quot;,&quot;layout&quot;:{&quot;quadrant&quot;:1},&quot;treeEdge&quot;:{&quot;stroke&quot;:&quot;#69B1E4&quot;},&quot;id&quot;:&quot;6596c13c-9913-405a-b5d5-efa629c25397&quot;,&quot;children&quot;:[],&quot;zIndex&quot;:20},{&quot;html&quot;:&quot;">https://cdn.nlark.com/yuque/0/2020/png/1429353/1604060996415-32302ab3-f32b-4e45-9ead-6ac9698e07ab.png&quot;,&quot;naturalWidth&quot;:700,&quot;naturalHeight&quot;:504,&quot;width&quot;:283,&quot;height&quot;:203.76000000000002},&quot;width&quot;:299,&quot;height&quot;:216}],&quot;zIndex&quot;:15,&quot;image&quot;:{&quot;src&quot;:&quot;https://cdn.nlark.com/yuque/0/2020/png/1429353/1604059782703-5690a93e-e8c8-4593-95d1-e68ab4bee13b.png&quot;,&quot;naturalWidth&quot;:589,&quot;naturalHeight&quot;:479,&quot;width&quot;:206,&quot;height&quot;:167.52801358234296},&quot;border&quot;:{&quot;shape&quot;:&quot;line&quot;,&quot;stroke&quot;:&quot;transparent&quot;},&quot;width&quot;:222,&quot;height&quot;:187.52801358234296}],&quot;zIndex&quot;:13,&quot;border&quot;:{&quot;shape&quot;:&quot;line&quot;,&quot;stroke&quot;:&quot;transparent&quot;}},{&quot;html&quot;:&quot;2.然后形成全局执行上下文EC(G)（默认就是window/global）供代码执行。&quot;,&quot;layout&quot;:{&quot;quadrant&quot;:1},&quot;treeEdge&quot;:{&quot;stroke&quot;:&quot;#E48484&quot;},&quot;id&quot;:&quot;cde0a14e-ccf0-40d0-8e05-0ccb4d1868f4&quot;,&quot;children&quot;:[],&quot;zIndex&quot;:14}],&quot;zIndex&quot;:17},{&quot;id&quot;:&quot;129c5c0c-ad88-4e63-9320-a350ee1f58df&quot;,&quot;x&quot;:3374.297353377579,&quot;y&quot;:-2207.5561578019106,&quot;html&quot;:&quot;创建函数&quot;,&quot;type&quot;:&quot;mindmap&quot;,&quot;children&quot;:[{&quot;html&quot;:&quot;1.单独开辟一个堆内存（16进制地址），函数堆内存中存储的是函数体中的“代码字符串”。&quot;,&quot;layout&quot;:{&quot;quadrant&quot;:1},&quot;treeEdge&quot;:{&quot;stroke&quot;:&quot;#A287E1&quot;},&quot;id&quot;:&quot;5859bc97-b0cc-4727-809e-482555f526ce&quot;,&quot;children&quot;:[],&quot;zIndex&quot;:18},{&quot;html&quot;:&quot;2.创建函数的时候，就声明了它的作用域[scope]，也就是所在的上下文环境。&quot;,&quot;layout&quot;:{&quot;quadrant&quot;:1},&quot;treeEdge&quot;:{&quot;stroke&quot;:&quot;#E48484&quot;},&quot;id&quot;:&quot;a151950e-08f2-436f-ba60-896f20e404f9&quot;,&quot;children&quot;:[],&quot;zIndex&quot;:19},{&quot;html&quot;:&quot;3.把16进制的地址存放到栈中，供变量（函数名等）关联引用即可&quot;,&quot;layout&quot;:{&quot;quadrant&quot;:1},&quot;treeEdge&quot;:{&quot;stroke&quot;:&quot;#69B1E4&quot;},&quot;id&quot;:&quot;6596c13c-9913-405a-b5d5-efa629c25397&quot;,&quot;children&quot;:[],&quot;zIndex&quot;:20},{&quot;html&quot;:&quot;</a>&lt;div style=&quot;text-align:center;&quot;&gt;</div>“,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#A287E1”},”id”:”14419622-89b2-404d-96bb-6122e3cd7723”,”children”:[],”zIndex”:21,”image”:{“src”:”<a target="_blank" rel="noopener" href="https://cdn.nlark.com/yuque/0/2020/png/1429353/1604062395688-a40f493f-f76f-4dcd-83e0-a3eddcbbc1f0.png&quot;,&quot;naturalWidth&quot;:463,&quot;naturalHeight&quot;:281,&quot;width&quot;:463,&quot;height&quot;:281%7D%7D],&quot;zIndex&quot;:22%7D,%7B&quot;id&quot;:&quot;ea92f014-dfb7-4bc5-9fec-3e2a2d3219a6&quot;,&quot;x&quot;:1991.010600069691,&quot;y&quot;:-1629.5675587544767,&quot;html&quot;:&quot;%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C&quot;,&quot;type&quot;:&quot;mindmap&quot;,&quot;children&quot;:[%7B&quot;html&quot;:&quot;1.%E5%BD%A2%E6%88%90%E4%B8%80%E4%B8%AA%E5%85%A8%E6%96%B0%E7%9A%84%EF%BC%8C%E7%A7%81%E6%9C%89%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%96%87EC(...)&quot;,&quot;layout&quot;:%7B&quot;quadrant&quot;:1%7D,&quot;treeEdge&quot;:%7B&quot;stroke&quot;:&quot;#A287E1&quot;},&quot;id&quot;:&quot;27859533-85ab-45c2-9635-0fa167fe12d4&quot;,&quot;children&quot;:[],&quot;zIndex&quot;:23},{&quot;html&quot;:&quot;2.%E5%BD%93%E5%89%8D%E7%A7%81%E6%9C%89%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%96%87%E4%B8%AD%EF%BC%8C%E6%9C%89%E4%B8%80%E4%B8%AA%E5%AD%98%E6%94%BE%E6%9C%AC%E4%B8%8A%E4%B8%8B%E6%96%87%E5%86%85%E5%A3%B0%E6%98%8E%E7%9A%84%E5%8F%98%E9%87%8F%E7%9A%84%E5%9C%B0%E6%96%B9AO(...)">https://cdn.nlark.com/yuque/0/2020/png/1429353/1604062395688-a40f493f-f76f-4dcd-83e0-a3eddcbbc1f0.png&quot;,&quot;naturalWidth&quot;:463,&quot;naturalHeight&quot;:281,&quot;width&quot;:463,&quot;height&quot;:281}}],&quot;zIndex&quot;:22},{&quot;id&quot;:&quot;ea92f014-dfb7-4bc5-9fec-3e2a2d3219a6&quot;,&quot;x&quot;:1991.010600069691,&quot;y&quot;:-1629.5675587544767,&quot;html&quot;:&quot;函数执行&quot;,&quot;type&quot;:&quot;mindmap&quot;,&quot;children&quot;:[{&quot;html&quot;:&quot;1.形成一个全新的，私有的上下文EC(...)&quot;,&quot;layout&quot;:{&quot;quadrant&quot;:1},&quot;treeEdge&quot;:{&quot;stroke&quot;:&quot;#A287E1&quot;},&quot;id&quot;:&quot;27859533-85ab-45c2-9635-0fa167fe12d4&quot;,&quot;children&quot;:[],&quot;zIndex&quot;:23},{&quot;html&quot;:&quot;2.当前私有的上下文中，有一个存放本上下文内声明的变量的地方AO(...)</a><div>私有变量对象 -&gt; 这里的变量都是当前上下文内的私有变量(当前上下文中声明的变量，形参变量)</div>“,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#E48484”},”id”:”aeb76700-4daf-41bf-ad15-bd81f116a967”,”children”:[],”zIndex”:24},{“html”:”3.进栈执行”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#69B1E4”},”id”:”dba0e235-fbce-41f5-a599-f92fc2cdd99b”,”children”:[],”zIndex”:25},{“html”:”4.代码执行之前还要处理很多事情”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#DE81C6”},”id”:”3d19547f-97dd-4f3d-9e85-a27c668ace9e”,”children”:[{“html”:”1.初始化作用域链[scope-chain]: <div>&lt;当前自己的上下文，上级上下文(创建函数时形成的作用域)&gt;</div><div>&lt;span style=&quot;color:rgb(89, 89, 89);&quot;&gt;当前函数的上级上下文是创建函数所在的上下文（作用域）</span></div><div>&lt;span style=&quot;color:rgb(251, 50, 0);&quot;&gt;后期函数内代码执行，遇到一个变量，我们首先看是否为自己上下文中的私有变量（看 AO 中有没有），如果是私有的变量，则当前变量的操作和外界环境中的变量互不干扰（没有直接关系）；如果不是自己的私有变量，则按照作用域链，查找是否为其上级上下文中的私有变量…直到找到 EC(G)全局上下文为止 作用域链查找机制</span></div>“,”id”:”3192a6da-bc0c-4b2f-bd6a-60b80bf1e611”,”children”:[],”zIndex”:27},{“html”:”2.初始化 this…”,”id”:”fc880192-ab33-4a87-94e1-7496dea6d304”,”children”:[],”zIndex”:28},{“html”:”3.初始化 arguments…”,”id”:”af0e886b-2f8c-4fd8-9ff5-cdbb6b38ce37”,”children”:[],”zIndex”:29},{“html”:”4.形参赋值<div>形参都是私有变量（放到 AO 中的）</div><div>如果不传递实参值，默认值是 undefined</div>“,”id”:”356f8dcf-856c-469f-937d-feaebdc14b5b”,”children”:[],”zIndex”:30},{“html”:”5.变量提升”,”id”:”ede4a7ea-4ca1-40e4-82fa-fe18dad5266d”,”children”:[],”zIndex”:31}],”zIndex”:26},{“html”:”5.代码自上而下执行”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#77C386”},”id”:”97df9f13-b220-47dd-b944-78332dd062f7”,”children”:[],”zIndex”:32},{“html”:”6.一般情况下， 函数进栈执行的上下文，进栈执行完成后，会默认出栈释放掉（私有上下文中存储的私有变量和一些值都会被释放掉） -&gt; 目的：为了优化内存空间，减少栈内存的消耗，提高页面或者计算机的处理速度…”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#DFB85D”},”id”:”499021f1-ad43-47cf-b4fc-d7067ad68161”,”children”:[],”zIndex”:33}],”zIndex”:34},{“id”:”bbea95d2-e3d3-4e69-8a4c-86d3a5cd4247”,”x”:1963.3765434958004,”y”:82.81621411828132,”html”:”GC：游览器的垃圾回收机制（内存管理）”,”type”:”mindmap”,”children”:[{“html”:”谷歌：基于查找引用”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#DE81C6”},”id”:”c9e933a5-abac-4736-9646-4da6c8f7d331”,”children”:[],”zIndex”:38},{“html”:”游览器的渲染引擎会在空闲的时候（定期一个时间），依次遍历所有的内存：栈/堆”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#A287E1”},”id”:”a552e576-57ab-4670-8cdd-2fd1f47182c8”,”children”:[],”zIndex”:35},{“html”:”堆：当前内存如果被占用（指针关联地址），则不能释放；如果没有任何的事物占用这个堆，则游览器会自动把这个堆内存释放掉。”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#E48484”},”id”:”71b45608-3dd0-4147-ac2b-b543e5f7b8c4”,”children”:[],”zIndex”:36},{“html”:”栈：当前上下文中是否有内容（一般是堆内存）被上下文以外的事物所占用，如果被占用则无法释放（闭包），如果没有被占用则释放掉。&lt;span style=&quot;color:rgb(251, 50, 0);&quot;&gt;EC(G)是加载页面的时候创建，只有关闭页面的时候才会被释放。</span>“,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#69B1E4”},”id”:”83ab9934-e818-4905-a27b-4830dcf9f399”,”children”:[],”zIndex”:37},{“html”:”&lt;span style=&quot;color:rgb(228, 130, 212);&quot;&gt;主动释放：把占用的事物手动赋值为 null（其余的值也可以，但是 null 更好，null 不占空间的），可以实现内存的手动优化</span>“,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#77C386”},”id”:”7f65522e-b320-4d09-b515-d6946c6b49e5”,”children”:[],”zIndex”:39}],”zIndex”:40},{“id”:”cde09247-87b4-4213-8fda-abefc26c8ca4”,”x”:2917.6565158848593,”y”:69.40691075334075,”html”:”this”,”type”:”mindmap”,”children”:[{“html”:”&lt;span style=&quot;color:rgb(228, 130, 212); font-weight:bold;&quot;&gt;函数的执行主体</span>（不等价于执行上下文/作用域）：谁把这个函数执行的”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#A287E1”},”id”:”b3412def-d12b-42b0-9e81-b06491748424”,”children”:[],”zIndex”:41},{“html”:”在游览器端运行 JS 代码，非函数中的 this 一般都是 window；研究 this 都是研究函数中的 this；有一个特殊的，就是 ES6+中“块级上下文”中的 this，是其所在上下文中的 this（理解为：块级上下文是没有自己 this 的）；”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#E48484”},”id”:”f4099a09-54c3-4ded-a4a4-cd92d7da35ce”,”children”:[],”zIndex”:42},{“html”:”想要分清楚函数执行的执行主体(this)，可以按照如下的规律来分析”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#69B1E4”},”id”:”6caf7a24-5eea-48ab-8863-5a4c7c5f12b5”,”children”:[{“html”:”事件绑定”,”id”:”5b615342-4631-45a0-8064-5fca2acb30a2”,”children”:[{“html”:”当前元素本身”,”id”:”d7a4240e-86ef-474b-90d7-5824fc7c3f47”,”children”:[],”zIndex”:49}],”zIndex”:44},{“html”:”普通函数执行”,”id”:”65a6d7ec-7d7c-48b7-bbbb-c0be86de1d6f”,”children”:[{“html”:”看函数前面是否有点，点前面是谁 this 就是谁”,”id”:”a3eda677-65f9-4afc-93ea-d977be9a4484”,”children”:[],”zIndex”:50},{“html”:”没有点就是 window/undefiend(严格模式)”,”id”:”5e8a148b-c639-49d9-93b4-59a428f64a06”,”children”:[],”zIndex”:51},{“html”:”自执行函数中的 this 一般都是 window/undefined(严格模式)”,”id”:”f45e3d01-1e3e-42af-82e8-187a938d4af5”,”children”:[],”zIndex”:52},{“html”:”回调函数中的 this 一般也是 window/undefined(严格模式)，除非做过特殊处理”,”id”:”d889cc4d-2c27-4f10-8ab8-3caff342b27b”,”children”:[],”zIndex”:53},{“html”:”&lt;span style=&quot;color:rgb(107, 45, 98);&quot;&gt;括号包起来的函数执行：</span><div>&lt;span style=&quot;color:rgb(107, 45, 98);&quot;&gt;如果括号中只有一项，就相当于没有括号；</span></div><div>&lt;span style=&quot;color:rgb(107, 45, 98);&quot;&gt;如果括号中有很多项，this 就是最后一项</span></div><div>&lt;span style=&quot;color:rgb(107, 45, 98);&quot;&gt;     (obj.fn)() -&gt; obj</span></div><div>&lt;span style=&quot;color:rgb(107, 45, 98);&quot;&gt;     (a, b, obj.fn)() -&gt; obj</span></div>“,”id”:”1862b77b-564c-4df1-841b-380e09d76cc6”,”children”:[],”zIndex”:54}],”zIndex”:45},{“html”:”构造函数执行”,”id”:”4ed6a01a-8c9c-4c9d-86ea-e5b460d27f93”,”children”:[{“html”:”所属类的实例”,”id”:”4eeacbf2-bb19-435d-b314-be1175456f54”,”children”:[],”zIndex”:56}],”zIndex”:46},{“html”:”箭头函数执行”,”id”:”ec859e1e-b16f-464f-bc42-c30fef007884”,”children”:[{“html”:”它的上级上下文”,”id”:”f41f3832-532e-4dec-997d-a29b355d8d89”,”children”:[],”zIndex”:55}],”zIndex”:47},{“html”:”基于 call/apply/bind 强制改变 this”,”id”:”9213fa2d-0097-4666-8672-ef4eaa5e0637”,”children”:[],”zIndex”:48}],”zIndex”:43}],”zIndex”:57},{“id”:”bb33ab1a-a703-4b16-9298-88e1c82463a8”,”x”:1952.0194459168001,”y”:714.3310716568769,”html”:”高阶编程技巧”,”type”:”mindmap”,”children”:[{“html”:”利用闭包的机制，实现出来的一些高阶编程方式”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#A287E1”},”id”:”3bc71dce-2aa6-48fa-9edf-547ca5ecc3cd”,”children”:[],”zIndex”:58},{“html”:”高级单例设计模式”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#E48484”},”id”:”b1b99533-26bc-4bed-8fb6-93f8037976a3”,”children”:[{“html”:”&lt;span style=&quot;color:rgb(251, 50, 0);&quot;&gt;早期的模块化设计思想</span>“,”id”:”a9c872d8-b357-418c-a123-7119cfea1f45”,”children”:[],”zIndex”:60},{“html”:”闭包+单例<div>一个对象就是一个单例模式<br></div>“,”id”:”09e4872d-3747-47f6-b2d5-32ddc61e3cfb”,”children”:[],”zIndex”:61},{“html”:”基于闭包的“保护作用”，防止了全局变量污染”,”id”:”bb674be6-14cf-4192-8396-742b230695da”,”children”:[],”zIndex”:62}],”zIndex”:59},{“html”:”惰性函数”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#69B1E4”},”id”:”a2524d75-2fa4-4645-ab8c-05a93f75b539”,”children”:[{“html”:”获取元素样式的小知识点”,”id”:”496afb35-356c-4cd0-b91c-e17ac07b2f60”,”children”:[{“html”:”1.dom.style<div>只有获取元素的内联样式</div>“,”id”:”74840378-e046-413e-953c-bcd7faaed8f2”,”children”:[],”zIndex”:65},{“html”:”2.getComputedStyle  IE6<del>8 不兼容<div>获取经过浏览器计算的样式（返回样式对象）</div>“,”id”:”701178cc-bce7-433b-9e36-3a5bd064adf3”,”children”:[],”zIndex”:66}],”zIndex”:64},{“html”:”&lt;span style=&quot;color:rgb(105, 177, 228);&quot;&gt;惰性思想</span>：干一次可以搞定的，绝对不去做第二次”,”id”:”8fb6e374-51db-40c0-9007-4731cdd6bfe7”,”children”:[],”zIndex”:67}],”zIndex”:63},{“html”:”函数柯理化”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#DE81C6”},”id”:”6e2cb5ea-036a-47c4-ac8e-5497b4abf02e”,”children”:[{“html”:”&lt;span style=&quot;color:rgb(228, 130, 212);&quot;&gt;预先处理的思想</span><div>形成一个不被释放的闭包，把一些信息储存起来，以后基于作用域链，访问到事先储存的信息，然后进行相关的处理。</div>“,”id”:”de121d25-3528-4666-84c1-44fa43cc03e4”,”children”:[],”zIndex”:69},{“html”:”小知识点”,”id”:”8823ea03-34ee-4373-a13f-aaa02fdd9f42”,”children”:[{“html”:”命令式编程”,”id”:”6ba6485c-6b35-4cb8-90fd-643df71135f9”,”children”:[{“html”:”自己编写代码，管控运行的步骤和逻辑（自己可以灵活掌控执行步骤）”,”id”:”772eaa42-519d-477e-bfc2-669f4108e043”,”children”:[],”zIndex”:73}],”zIndex”:71},{“html”:”函数式编程”,”id”:”ee04ddc8-42f1-4a97-98a6-6006275cf5b3”,”children”:[{“html”:”具体实现的步骤已经被封装成方法，我们只需要调用方法获取结果即可，无需关注怎么实现的，用起来方便，代码量减少<div>弊端：灵活性差</div>“,”id”:”3c256491-3f2f-467e-9dea-de8ec44e6b82”,”children”:[],”zIndex”:74}],”zIndex”:72}],”zIndex”:70},{“html”:”currying”,”id”:”2c706054-c2cf-4a1b-8789-1b683fe2af8a”,”children”:[],”zIndex”:75},{“html”:”&lt;span style=&quot;font-weight:bold;&quot;&gt;compose</span>“,”id”:”65e45b73-c50e-4b6c-bc7e-3cb108c7662e”,”children”:[],”zIndex”:76}],”zIndex”:68}],”zIndex”:77},{“id”:”b98f60f5-dbe8-4268-84f4-155c3118e2b5”,”x”:2516.363393125918,”y”:-3481.224978713911,”html”:”数据类型转换”,”type”:”mindmap”,”children”:[{“html”:”其他类型转换为 Number”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#DFB85D”},”id”:”28fef53e-af7c-4747-bb67-d230b5282773”,”children”:[{“html”:”能用的办法”,”id”:”466f8305-e6c4-40da-8f93-9b658e6e28d5”,”children”:[{“html”:”parseInt/parseFloat([val])”,”layout”:{“quadrant”:1},”id”:”76e08162-00ef-4f04-a538-2dc3a55efb93”,”children”:[{“html”:”把要转换值先转换为字符串”,”id”:”1b8ab5a7-3a68-401c-b9ac-57d652886add”,”children”:[],”zIndex”:102},{“html”:”从字符串左侧的第一位开始查找有效数字字符，遇到非有效字符串则立即停止，最后把有效的数字字符串转为数字，如果没有则返回 NaN”,”id”:”564cda97-5817-4ade-b097-0b95e7498133”,”children”:[],”zIndex”:101}],”zIndex”:93},{“html”:”Number”,”layout”:{“quadrant”:1},”id”:”7ecf1da3-dbf0-41d4-b9c7-86badc9a62f1”,”children”:[{“html”:”只要出现非有效数字字符结果都是 NaN<div>Number(undefined) 是 NaN</div>“,”id”:”d3142c07-3700-4ea2-ab7d-80454189a4e9”,”children”:[],”zIndex”:99},{“html”:”对象转为数字，应该先 valueOf，没有原始值再 toString，最后再把字符串转为数字”,”id”:”2cf1b316-9527-4978-9eef-8de1450440db”,”children”:[],”zIndex”:100}],”zIndex”:94}],”zIndex”:92},{“html”:”隐式转换（游览器内部默认是先转换为 Number 再进行计算的）”,”id”:”624c0e8c-0710-4164-bf8b-92c448803fcc”,”children”:[{“html”:”isNaN([val])”,”id”:”48bd07bd-5a87-4d86-a940-27dee829fd48”,”children”:[],”zIndex”:96},{“html”:”数学运算”,”id”:”d73bf817-4c60-44af-9a70-4082d220eb0a”,”children”:[],”zIndex”:97},{“html”:”在==比较的时候（见== ：2.3）”,”id”:”7b0b5e99-cb8f-44f0-9f7b-29559c3b067f”,”children”:[],”zIndex”:98}],”zIndex”:95}],”zIndex”:91},{“html”:”其他类型转换为 Boolean”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#E48484”},”id”:”0db08cae-524b-453e-aa18-f86334d51f7a”,”children”:[{“html”:”只有“0、NaN、null、undefined、空字符串”五个值会变为布尔的 FALSE，其余都是 TRUE”,”id”:”98bd2b3d-fc29-4d68-8f0e-1daa67573970”,”children”:[],”zIndex”:79}],”zIndex”:78},{“html”:”其他类型转换为字符串”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#77C386”},”id”:”a0495c36-69de-4b76-a2f2-05735f90994b”,”children”:[{“html”:”1.一般都是直接“”包起来”,”id”:”6bbcb805-20b8-4881-b225-7f03b808ad19”,”children”:[],”zIndex”:89},{“html”:”2.只有{}普通对象 toString()是调取的&lt;span style=&quot;color:rgb(119, 195, 134);&quot;&gt;Object.prototype.toString()</span>，但它不是转换为字符串，而是&lt;span style=&quot;color:rgb(119, 195, 134);&quot;&gt;数据类型检测</span>，返回结果是[object Object]。（&lt;span style=&quot;color:rgb(119, 195, 134);&quot;&gt;其他对象也是可以调用的</span>）”,”id”:”29248173-b7d4-48f9-a477-c22f892f94a8”,”children”:[],”zIndex”:90}],”zIndex”:88},{“html”:”==”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#DE81C6”},”id”:”3a0ae834-99b4-4d65-b308-29a9f9d396e4”,”children”:[{“html”:”1.类型一样”,”id”:”0d83de72-b844-41cb-8ed4-b905b5e7ac6a”,”children”:[{“html”:”对象比较的是堆内存的地址”,”id”:”cb0f32b7-8ee0-4f53-844b-563ba4af1f8f”,”children”:[],”zIndex”:83},{“html”:”NaN == NaN  =&gt; false”,”id”:”0c07dbd7-8b9b-4f71-995d-e68cb0e8265b”,”children”:[],”zIndex”:84}],”zIndex”:81},{“html”:”2.类型不一样（会隐式转换为相同的数据类型）”,”id”:”783b255e-2264-4e1f-9135-26f9e717c368”,”children”:[{“html”:”1.null==undefined =&gt; true<div>但是换成===结果是 false（因为类型不一致）</div><div>剩下的 null/undefined 和其他任何数据类型值都不相等</div>“,”id”:”2014e91c-93da-4093-a4b2-06e6fb0392b7”,”children”:[],”zIndex”:85},{“html”:”2.字符串==对象   要把对象转换为字符串”,”id”:”0514b91b-c0e7-4b26-9999-578024efa867”,”children”:[],”zIndex”:86},{“html”:”3.剩下的如果==两边数据类型不一致，都是需要转换为 Number 再进行比较的”,”id”:”91ca760f-1084-41be-9a78-cfccef4a8e29”,”children”:[],”zIndex”:87}],”zIndex”:82}],”zIndex”:80}],”zIndex”:103},{“id”:”dd04bed1-67c3-41ca-b7ec-81e3e85752a0”,”x”:2014.1738538982459,”y”:-2910.0035004548354,”html”:”parseInt 的处理规则”,”type”:”mindmap”,”children”:[{“html”:”parseInt([value], [radix])”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#A287E1”},”id”:”59868e0a-450b-4550-9d9c-b4102ebb61fe”,”children”:[],”zIndex”:104},{“html”:”radix 是一个进制，不写或者写 0 默认都按照 10 进制处理。<div>特殊情况：如果 value 是以 0x 开头，则默认值不是 10 而是 16</div>“,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#E48484”},”id”:”fa5efc41-dbc6-4d15-a0f5-12f0a671ac8a”,”children”:[],”zIndex”:105},{“html”:”radix 有取值范围：2 ～ 36。如果不在这个区间，则会返回 NaN。”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#69B1E4”},”id”:”6de683ab-9dc0-4e95-a147-a740ce9985ab”,”children”:[],”zIndex”:106},{“html”:”作用：把[value]看作[radix]机制，最后把[radix]进制的值转换为十机制。”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#DE81C6”},”id”:”1cc2600e-69b7-47ab-9364-dac8c9cf3299”,”children”:[],”zIndex”:107},{“html”:”执行过程：<div>1.从左向右开始查找[value]中的有效的[radix]进制值，遇到不是有效的立即停止；如果没有找到，则返回 NaN。</div><div>2.把查找到的结果转为数字，再把它作为[radix]进制转为十进制。</div>“,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#DFB85D”},”id”:”2899be55-c677-4828-9185-023cb9ffc7f4”,”children”:[],”zIndex”:110},{“html”:”小知识点”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#77C386”},”id”:”ed6dfe5d-d14d-4e0e-b5a1-b3ad3dc15004”,”children”:[{“html”:”把一个任意进制的值转换为十进制值：<div>(每个位的数*进制^位权值)的和</div><div>位权值：个位从 0 开始，依次增 1；小数点后面的从-1 开始，依次减一。</div>“,”id”:”ada36261-f187-4582-854b-b1c80f6e5ecc”,”children”:[],”zIndex”:109}],”zIndex”:108}],”zIndex”:111},{“id”:”586fbcfd-1ba9-4b27-9e5f-05a2c4141ae1”,”x”:2867.8799493504434,”y”:-2914.512275969836,”html”:”变量提升的处理机制”,”type”:”mindmap”,”children”:[{“html”:”ES3+：在当前上下文中，JS 代码执行之前，浏览器会提前（词法解析的时候）把当前上下文中所有&lt;span style=&quot;color:rgb(228, 130, 212);&quot;&gt;带 var/function</span>关键字的进行提前的声明或者定义。”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#A287E1”},”id”:”bea45252-ed7b-4ef0-aa34-5c365b92a17f”,”children”:[],”zIndex”:112},{“html”:”带 var 声明的变量只提前声明不定义”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#E48484”},”id”:”80bb52ec-0274-4b57-bdb2-d8672450a41e”,”children”:[],”zIndex”:113},{“html”:”函数会提前声明和定义”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#69B1E4”},”id”:”3817f40f-3bdd-4100-8ada-24b38630b4d9”,”children”:[{“html”:”真实项目中建议用函数表达式创建函数，因为这样在变量提升阶段只会声明 function，更严谨。”,”id”:”b85b09ed-7429-4583-85d5-7ef6dc3f18e1”,”children”:[],”zIndex”:117},{“html”:”在使用函数表达式创建函数时，一般要把匿名函数具名化。<div>当函数执行，在形成的私有上下文中，会把这个具名化的名字作为变量，值就是这个函数来进行处理。这样做的好处是：&lt;span style=&quot;color:rgb(105, 177, 228);&quot;&gt;弥补了在严格模式下不能使用 argments.calle 调用当前函数。</span></div>“,”id”:”ad4c93ca-3165-4625-b3e4-685c8887deed”,”children”:[],”zIndex”:118}],”zIndex”:114},{“html”:”小知识点”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#DE81C6”},”id”:”e1eff868-9732-417c-84e0-9fd855f74a84”,”children”:[{“html”:”1.基于“var 或 function”在“全局上下文”中声明的变量（全局变量）会映射到 GO（全局对象 window）上一份，作为它的属性；而且是同时修改的。”,”id”:”4ec71694-0351-4751-b574-34fe7b571446”,”children”:[],”zIndex”:116},{“html”:”<div>2.不论条件成立，都要进行变量提升<div>当条件中带有 var/function 时，</div></div><div>老版中会将函数提前声明并且定义</div><div>新版中只会将函数提前声明</div><div>var 也会提前声明不定义</div>“,”id”:”a599d7d9-4439-4a3b-b71d-2f76ed26c85c”,”children”:[],”zIndex”:119}],”zIndex”:115}],”zIndex”:120},{“id”:”1dca2046-8497-4f05-b115-81852f0b7fac”,”x”:3046.242779214603,”y”:-1647.7008922638222,”html”:”闭包”,”type”:”mindmap”,”children”:[{“html”:”1.函数运行的一种机制：形成一个不被释放的上下文”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#A287E1”},”id”:”265c167d-a0dc-42c9-b4f6-5ec76d1bda90”,”children”:[],”zIndex”:121},{“html”:”2.函数执行会形成一个私有上下文 EC(FN)，如果上下文中的某些内容(一般指的是堆内存地址)被上下文以外的事物(例如：变量/事件绑定等)所占用，则当前上下文不能被出栈释放(浏览器的垃圾回收机制 GC 所决定的)”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#E48484”},”id”:”858dd510-bb77-4e40-891d-4543e5031ff9”,”children”:[],”zIndex”:122},{“html”:”特点”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#69B1E4”},”id”:”af8477d5-4ebf-498f-87e7-9d4e574765e7”,”children”:[{“html”:”保护：保护私有上下文中的“私有变量”和外界互不影响”,”id”:”54f34d37-1785-4f9b-a05f-d4169e6ace5b”,”children”:[],”zIndex”:124},{“html”:”保存：上下文不被释放，那么上下文中的“私有变量”和“值”都会被保存起来，可以供其下级上下文中使用。”,”id”:”20380cab-e226-452f-aded-1f195727dcf5”,”children”:[],”zIndex”:125}],”zIndex”:123},{“html”:”弊端：如果大量使用闭包，会导致内存溢出或内存泄露。”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#DE81C6”},”id”:”827aa6af-6e47-4ec9-a0d3-52764b48eaa3”,”children”:[],”zIndex”:126},{“html”:”应用场景”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#77C386”},”id”:”b46cbfda-ffd7-4ff0-8641-1e430f653486”,”children”:[{“html”:”1.循环事件绑定的 N 中解决办法”,”id”:”819a137a-9a3b-446f-b013-85fe69930b4a”,”children”:[{“html”:”1.利用闭包，创建私有上下文<div>性能不好</div>“,”id”:”153fdb2d-542e-4989-9b1f-d36498b940a3”,”children”:[{“html”:”自执行函数 function 包起来”,”id”:”8f6e67f1-0491-44f2-9188-a4e18e2721df”,”children”:[],”zIndex”:130},{“html”:”let”,”id”:”ce886cba-ba2c-4a85-9cd6-951884e9e0a7”,”children”:[],”zIndex”:131}],”zIndex”:129},{“html”:”2.自定义属性(与闭包无关)<div>性能好</div>“,”id”:”59bbd6b3-67f7-40dd-baa0-38bc1368d074”,”children”:[],”zIndex”:132},{“html”:”3.事件委托（它们都有一个共同的父元素，冒泡）<div>性能提升 40%～ 60%</div>“,”id”:”1c10e55e-cbc9-48b0-b865-d663b2f02159”,”children”:[],”zIndex”:133}],”zIndex”:128}],”zIndex”:127}],”zIndex”:134},{“id”:”6b5c2568-7f4e-458c-8a4e-4a6eb593dc1c”,”x”:1976.33793831011,”y”:-778.975022658044,”html”:”JS 中声明变量”,”type”:”mindmap”,”children”:[{“html”:”传统：var function”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#A287E1”},”id”:”79f3c1d1-e2bb-4350-8adb-7dd486ce3000”,”children”:[{“html”:”带 var 的只是提前声明”,”id”:”44efc85a-7c90-4463-bb32-3e1cb5c1fec2”,”children”:[],”zIndex”:142},{“html”:”带 function 的是声明+定义”,”id”:”eff77c0d-9251-4126-ba0c-526ff0bd036d”,”children”:[],”zIndex”:143}],”zIndex”:135},{“html”:”ES6+”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#E48484”},”id”:”d0339732-669e-4979-a8eb-4e63b94a833e”,”children”:[{“html”:”ES5 - ES2011 <div>ES6 - ES2015 </div><div>ES2016 </div><div>ES2017 </div><div>…</div>“,”id”:”f7ebf72c-9b6a-4b39-a018-caaa30578fd9”,”children”:[],”zIndex”:138},{“html”:”let”,”id”:”8b58615c-51b7-481b-8b19-0fd6d0e99359”,”children”:[{“html”:”&lt;span style=&quot;color:rgb(228, 130, 212);&quot;&gt;声明的变量可以改变引用指向</span>“,”id”:”d25f6d89-3223-48fb-871b-a0534862f5a8”,”children”:[],”zIndex”:139}],”zIndex”:137},{“html”:”const”,”id”:”4c97cef8-2c21-487f-a618-86b66e72d4b1”,”children”:[{“html”:”&lt;span style=&quot;color:rgb(228, 130, 212);&quot;&gt;声明的变量不可以改变引用指向</span>，他声明的值叫常量”,”id”:”b75c0670-4aa5-401d-ba99-c433d751dd84”,”children”:[],”zIndex”:141}],”zIndex”:140}],”zIndex”:136},{“html”:”let VS var”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#69B1E4”},”id”:”9bdc1d9f-84f4-432a-bad3-ae0e855faf5a”,”children”:[{“html”:”1.var 存在变量提升，而 let 不存在”,”id”:”a54ea328-0408-4ead-8550-2e91fda0a894”,”children”:[],”zIndex”:145},{“html”:”&lt;span style=&quot;color:rgb(228, 132, 132);&quot;&gt;2.</span>&lt;span style=&quot;color:rgb(228, 132, 132);&quot;&gt;【旧版】“全局上下文 EC(G)”中，基于 var/function 声明的变量，也相当于给 GO 全局对象(window)新增一个属性，并且任何一个发生值的改变，另一个也会跟着改变（映射机制）；</span><div>&lt;span style=&quot;color:rgb(228, 132, 132);&quot;&gt;【新版】</span>&lt;span style=&quot;color:rgb(228, 132, 132);&quot;&gt;“全局上下文 EC(G)”中，基于 var/function 声明的变量，只是给全局对象 GO 设置一个属性；</span>&lt;span style=&quot;color:rgb(228, 132, 132);&quot;&gt;<br></span><div>&lt;span style=&quot;color:rgb(105, 177, 228);&quot;&gt;但是基于 lei 声明的变量，就是全局变量，和 GO 没有任何的关系。</span></div></div>“,”id”:”fa1140b4-9b3b-427a-979d-9e9468dd463a”,”children”:[{“html”:”没有基于任何关键词声明的变量，则相当于给全局对象设置一个属性”,”id”:”260a8569-e788-4e8e-bd3d-57769f47b5fc”,”children”:[],”zIndex”:147}],”zIndex”:146},{“html”:”3.在相同的上下文中，let 不允许重复声明，如果重复声明会报错(词法分析阶段)；而 var 可以重复声明，浏览器只按声明一次处理”,”id”:”ec9744ae-5847-4e74-944a-b2d9efc23767”,”children”:[],”zIndex”:148,”layout”:{“quadrant”:1}},{“html”:”&lt;span style=&quot;color:rgb(105, 177, 228); font-weight:bold;&quot;&gt;4.let/const/function 会产生块级私有上下文，而 var 是不会的</span>“,”id”:”a7f7fd3c-eb17-4bfc-96a8-dd4ac895b29a”,”children”:[],”zIndex”:153}],”zIndex”:144},{“html”:”小知识点”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#DE81C6”},”id”:”99b5f488-cb43-482f-aeb7-1ca4971c736f”,”children”:[{“html”:”词法分析：浏览在执行代码之前，会先把代码解析为浏览器能识别的事物”,”id”:”c3395f6b-239b-4543-a913-e39d51a9047a”,”children”:[],”zIndex”:150},{“html”:”暂时性死区（浏览器暂存的 BUG）”,”id”:”1b8ab318-1a57-4931-80a9-ba43545b266b”,”children”:[{“html”:”1.基于 typeof 检测一个未被声明的变量，不会报错，结果是 undefined”,”id”:”e0e9bbe0-9a2a-461c-bb38-f344dbffc213”,”children”:[],”zIndex”:152}],”zIndex”:151},{“html”:”上下文 &amp; 作用域”,”id”:”259b605d-7f32-468f-af9b-dc230c4d71a3”,”children”:[{“html”:”全局上下文”,”id”:”60fe1681-c8d2-4032-8e05-146e49efa764”,”children”:[],”zIndex”:155},{“html”:”函数执行形成的“私有上下文””,”id”:”8ad7ba5d-dc97-4fe9-a512-3d7b7d43772a”,”children”:[],”zIndex”:156},{“html”:”块级作用域（块级私有上下文）”,”id”:”33fb2c1b-cc40-4c65-87b9-339e88247ca3”,”children”:[{“html”:”除了对象、函数等的大括号除外（例如：判断体、循环体、代码块…）都有可能会产生块级上下文”,”id”:”d7365bba-ac65-47d5-92f3-5fdf50471eee”,”children”:[],”zIndex”:158}],”zIndex”:157}],”zIndex”:154}],”zIndex”:149}],”zIndex”:159},{“id”:”2b6647d5-7501-40c7-b24a-2af42d4f1d80”,”x”:3224.4260039219885,”y”:-752.6815219819359,”html”:”块级上下文”,”type”:”mindmap”,”children”:[{“html”:”除函数/对象的大括号外，在其他的大括号中出现 let/const/function 则会单独形成块级私有上下文”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#A287E1”},”id”:”2463084f-5d6f-4afc-81c9-48c143726c2f”,”children”:[],”zIndex”:160}],”zIndex”:161},{“id”:”97ab8408-d69f-4080-ac0f-3eaaa781ae45”,”x”:3223.5822818981683,”y”:-598.6400544426056,”html”:”函数形参默认值”,”type”:”mindmap”,”children”:[{“html”:”如果函数应用了形参默认值，并且在函数体中出现了基于 var/let/const 声明变量的方式，这样除了函数执行，会产生一个私有的上下文之外，还会把函数体及其中的代码当做一个全新的块级上下文。如果这个块级上下文中的变量和函数私有上下文中的变量一致了，则会在块级上下文初始化之前，会把形参变量的值同步给块级上下文中的变量”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#A287E1”},”id”:”9c8f2b7e-56c2-47a1-b9df-e85c35da883e”,”children”:[],”zIndex”:162}],”zIndex”:163},{“id”:”d5954e00-aacc-43cc-9eb2-c6294ca7aa46”,”x”:2013.3631825544453,”y”:-4147.225387630226,”html”:”闭包剧本 🌟”,”type”:”mindmap”,”children”:[{“html”:”引言：就像人需要氧气才能生存，闭包也需要在特定的环境下才能存在，闭包携带了它自己的“氧气罐”（引用了当前作用域以外的其他作用域上下文），所以它才存活下来（使上下文不会消失）。”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#DFB85D”},”id”:”fcdf01ae-8066-4dbe-a424-c00f59dc280a”,”children”:[],”zIndex”:175},{“html”:”基本介绍: ECStack、EC、VO、AO、GO、SCOPE、SCOPE-CHAIN、GC”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#A287E1”},”id”:”60b7c46c-ca7f-4b3f-9396-2db05c8e1e5e”,”children”:[],”zIndex”:164},{“html”:”优缺点：保存和保护、性能消耗（内存泄漏）”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#E48484”},”id”:”cb29cf10-c1b0-487b-bb90-93af243dde80”,”children”:[],”zIndex”:165},{“html”:”实战应用”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#69B1E4”},”id”:”8587ed97-be45-46bc-bd35-8f9d9dbbe64d”,”children”:[{“html”:”项目实战应用：循环事件绑定(突出：事件委托)、let 和 var”,”id”:”69d08b2c-6ab1-4a9f-bade-bf8efb909bf0”,”children”:[],”zIndex”:167},{“html”:”插件组件应用：JS 高阶编程技巧(单例设计模式、惰性函数、柯理化函数、compose 组合函数)”,”id”:”efaa7f8c-3eeb-49f1-84bb-a88b621ba442”,”children”:[],”zIndex”:168},{“html”:”源码阅读应用：Lodash 源码(函数的防抖和节流)、JQ 的源码、redux、react-redux(高阶组件)…”,”id”:”6112fd30-eb39-4da2-8ee3-a4d4baee36b3”,”children”:[],”zIndex”:169},{“html”:”…”,”id”:”c0812e77-5a30-4ab8-b565-ebb7d6253ac9”,”children”:[],”zIndex”:170}],”zIndex”:166},{“html”:”自己的思想和理解(一句话概括)”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#DE81C6”},”id”:”5afc0a83-0a2b-4cdd-b605-a16141839cba”,”children”:[{“html”:”其实我觉得闭包这个东西还是很重要的”,”id”:”d7e2dffd-8111-4ecd-b022-83b31b0e2905”,”children”:[],”zIndex”:172}],”zIndex”:171},{“html”:”小技巧”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#77C386”},”id”:”89d878f9-c202-4d02-b648-3a3b62c6772b”,”children”:[{“html”:”担心自己表达能力：可以自己写一遍文章，详细的介绍闭包（面试的时候，给面试官看，它边看你边简单说一些）”,”id”:”9428a725-67c5-40f8-9f24-aba604e164b2”,”children”:[],”zIndex”:174}],”zIndex”:173}],”zIndex”:176,”tapered”:false},{“id”:”6c0e58ca-1a82-4e47-949e-087c354b99ad”,”x”:2894.570608794177,”y”:-4162.194456348563,”html”:”简述 let 和 var 的区别”,”type”:”mindmap”,”zIndex”:177}]},”viewportSetting”:{“zoom”:0.9529882937207227,”tlCanvasPoint”:[1970.3826987555492,-4590.259820030305,1],”width”:1040,”height”:898},”text”:”数据类型基本类型 numberstringundefinednullbooleansymbol 引用类型 objectarray…functionJS 代码执行 1.游览器会在内存中开辟一块栈内存，全局上下文（环境），也叫 ECStack。2.然后形成全局执行上下文 EC(G)（默认就是 window/global）供代码执行。创建函数 1.单独开辟一个堆内存（16 进制地址），函数堆内存中存储的是函数体中的“代码字符串”。2.创建函数的时候，就声明了它的作用域[scope]，也就是所在的上下文环境。3.把 16 进制的地址存放到栈中，供变量（函数名等）关联引用即可函数执行 1.形成一个全新的，私有的上下文 EC(…)2.当前私有的上下文中，有一个存放本上下文内声明的变量的地方 AO(…)私有变量对象 -&gt; 这里的变量都是当前上下文内的私有变量(当前上下文中声明的变量，形参变量)3.进栈执行 4.代码执行之前还要处理很多事情 1.初始化作用域链[scope-chain]: &lt;当前自己的上下文，上级上下文(创建函数时形成的作用域)&gt;当前函数的上级上下文是创建函数所在的上下文（作用域）后期函数内代码执行，遇到一个变量，我们首先看是否为自己上下文中的私有变量（看 AO 中有没有），如果是私有的变量，则当前变量的操作和外界环境中的变量互不干扰（没有直接关系）；如果不是自己的私有变量，则按照作用域链，查找是否为其上级上下文中的私有变量…直到找到 EC(G)全局上下文为止 作用域链查找机制 2.初始化 this…3.初始化 arguments…4.形参赋值形参都是私有变量（放到 AO 中的）如果不传递实参值，默认值是 undefined5.变量提升 5.代码自上而下执行 6.一般情况下， 函数进栈执行的上下文，进栈执行完成后，会默认出栈释放掉（私有上下文中存储的私有变量和一些值都会被释放掉） -&gt; 目的：为了优化内存空间，减少栈内存的消耗，提高页面或者计算机的处理速度…GC：游览器的垃圾回收机制（内存管理）谷歌：基于查找引用游览器的渲染引擎会在空闲的时候（定期一个时间），依次遍历所有的内存：栈/堆堆：当前内存如果被占用（指针关联地址），则不能释放；如果没有任何的事物占用这个堆，则游览器会自动把这个堆内存释放掉。栈：当前上下文中是否有内容（一般是堆内存）被上下文以外的事物所占用，如果被占用则无法释放（闭包），如果没有被占用则释放掉。EC(G)是加载页面的时候创建，只有关闭页面的时候才会被释放。主动释放：把占用的事物手动赋值为 null（其余的值也可以，但是 null 更好，null 不占空间的），可以实现内存的手动优化 this 函数的执行主体（不等价于执行上下文/作用域）：谁把这个函数执行的在游览器端运行 JS 代码，非函数中的 this 一般都是 window；研究 this 都是研究函数中的 this；有一个特殊的，就是 ES6+中“块级上下文”中的 this，是其所在上下文中的 this（理解为：块级上下文是没有自己 this 的）；想要分清楚函数执行的执行主体(this)，可以按照如下的规律来分析事件绑定当前元素本身普通函数执行看函数前面是否有点，点前面是谁 this 就是谁没有点就是 window/undefiend(严格模式)自执行函数中的 this 一般都是 window/undefined(严格模式)回调函数中的 this 一般也是 window/undefined(严格模式)，除非做过特殊处理括号包起来的函数执行：如果括号中只有一项，就相当于没有括号；如果括号中有很多项，this 就是最后一项      (obj.fn)() -&gt; obj     (a, b, obj.fn)() -&gt; obj 构造函数执行所属类的实例箭头函数执行它的上级上下文基于 call/apply/bind 强制改变 this 高阶编程技巧利用闭包的机制，实现出来的一些高阶编程方式高级单例设计模式早期的模块化设计思想闭包+单例一个对象就是一个单例模式基于闭包的“保护作用”，防止了全局变量污染惰性函数获取元素样式的小知识点 1.dom.style 只有获取元素的内联样式 2.getComputedStyle  IE6</del>8 不兼容获取经过浏览器计算的样式（返回样式对象）惰性思想：干一次可以搞定的，绝对不去做第二次函数柯理化预先处理的思想形成一个不被释放的闭包，把一些信息储存起来，以后基于作用域链，访问到事先储存的信息，然后进行相关的处理。小知识点命令式编程自己编写代码，管控运行的步骤和逻辑（自己可以灵活掌控执行步骤）函数式编程具体实现的步骤已经被封装成方法，我们只需要调用方法获取结果即可，无需关注怎么实现的，用起来方便，代码量减少弊端：灵活性差 curryingcompose 数据类型转换其他类型转换为 Number 能用的办法 parseInt/parseFloat([val])把要转换值先转换为字符串从字符串左侧的第一位开始查找有效数字字符，遇到非有效字符串则立即停止，最后把有效的数字字符串转为数字，如果没有则返回 NaNNumber 只要出现非有效数字字符结果都是 NaNNumber(undefined) 是 NaN 对象转为数字，应该先 valueOf，没有原始值再 toString，最后再把字符串转为数字隐式转换（游览器内部默认是先转换为 Number 再进行计算的）isNaN([val])数学运算在==比较的时候（见== ：2.3）其他类型转换为 Boolean 只有“0、NaN、null、undefined、空字符串”五个值会变为布尔的 FALSE，其余都是 TRUE 其他类型转换为字符串 1.一般都是直接“”包起来 2.只有{}普通对象 toString()是调取的 Object.prototype.toString()，但它不是转换为字符串，而是数据类型检测，返回结果是[object Object]。（其他对象也是可以调用的）==1.类型一样对象比较的是堆内存的地址 NaN == NaN  =&gt; false2.类型不一样（会隐式转换为相同的数据类型）1.null==undefined =&gt; true 但是换成===结果是 false（因为类型不一致）剩下的 null/undefined 和其他任何数据类型值都不相等 2.字符串==对象   要把对象转换为字符串 3.剩下的如果==两边数据类型不一致，都是需要转换为 Number 再进行比较的 parseInt 的处理规则 parseInt([value], [radix])radix 是一个进制，不写或者写 0 默认都按照 10 进制处理。特殊情况：如果 value 是以 0x 开头，则默认值不是 10 而是 16radix 有取值范围：2 ～ 36。如果不在这个区间，则会返回 NaN。作用：把[value]看作[radix]机制，最后把[radix]进制的值转换为十机制。执行过程：1.从左向右开始查找[value]中的有效的[radix]进制值，遇到不是有效的立即停止；如果没有找到，则返回 NaN。2.把查找到的结果转为数字，再把它作为[radix]进制转为十进制。小知识点把一个任意进制的值转换为十进制值：(每个位的数*进制^位权值)的和位权值：个位从 0 开始，依次增 1；小数点后面的从-1 开始，依次减一。变量提升的处理机制 ES3+：在当前上下文中，JS 代码执行之前，浏览器会提前（词法解析的时候）把当前上下文中所有带 var/function 关键字的进行提前的声明或者定义。带 var 声明的变量只提前声明不定义函数会提前声明和定义真实项目中建议用函数表达式创建函数，因为这样在变量提升阶段只会声明 function，更严谨。在使用函数表达式创建函数时，一般要把匿名函数具名化。当函数执行，在形成的私有上下文中，会把这个具名化的名字作为变量，值就是这个函数来进行处理。这样做的好处是：弥补了在严格模式下不能使用 argments.calle 调用当前函数。小知识点 1.基于“var 或 function”在“全局上下文”中声明的变量（全局变量）会映射到 GO（全局对象 window）上一份，作为它的属性；而且是同时修改的。2.不论条件成立，都要进行变量提升当条件中带有 var/function 时，老版中会将函数提前声明并且定义新版中只会将函数提前声明 var 也会提前声明不定义闭包 1.函数运行的一种机制：形成一个不被释放的上下文 2.函数执行会形成一个私有上下文 EC(FN)，如果上下文中的某些内容(一般指的是堆内存地址)被上下文以外的事物(例如：变量/事件绑定等)所占用，则当前上下文不能被出栈释放(浏览器的垃圾回收机制 GC 所决定的)特点保护：保护私有上下文中的“私有变量”和外界互不影响保存：上下文不被释放，那么上下文中的“私有变量”和“值”都会被保存起来，可以供其下级上下文中使用。弊端：如果大量使用闭包，会导致内存溢出或内存泄露。应用场景 1.循环事件绑定的 N 中解决办法 1.利用闭包，创建私有上下文性能不好自执行函数 function 包起来 let2.自定义属性(与闭包无关)性能好 3.事件委托（它们都有一个共同的父元素，冒泡）性能提升 40%～ 60%JS 中声明变量传统：var function 带 var 的只是提前声明带 function 的是声明+定义 ES6+ES5 - ES2011 ES6 - ES2015 ES2016 ES2017 …let 声明的变量可以改变引用指向 const 声明的变量不可以改变引用指向，他声明的值叫常量 let VS var1.var 存在变量提升，而 let 不存在 2.【旧版】“全局上下文 EC(G)”中，基于 var/function 声明的变量，也相当于给 GO 全局对象(window)新增一个属性，并且任何一个发生值的改变，另一个也会跟着改变（映射机制）；【新版】“全局上下文 EC(G)”中，基于 var/function 声明的变量，只是给全局对象 GO 设置一个属性；但是基于 lei 声明的变量，就是全局变量，和 GO 没有任何的关系。没有基于任何关键词声明的变量，则相当于给全局对象设置一个属性 3.在相同的上下文中，let 不允许重复声明，如果重复声明会报错(词法分析阶段)；而 var 可以重复声明，浏览器只按声明一次处理 4.let/const/function 会产生块级私有上下文，而 var 是不会的小知识点词法分析：浏览在执行代码之前，会先把代码解析为浏览器能识别的事物暂时性死区（浏览器暂存的 BUG）1.基于 typeof 检测一个未被声明的变量，不会报错，结果是 undefined 上下文 &amp; 作用域全局上下文函数执行形成的“私有上下文”块级作用域（块级私有上下文）除了对象、函数等的大括号除外（例如：判断体、循环体、代码块…）都有可能会产生块级上下文块级上下文除函数/对象的大括号外，在其他的大括号中出现 let/const/function 则会单独形成块级私有上下文函数形参默认值如果函数应用了形参默认值，并且在函数体中出现了基于 var/let/const 声明变量的方式，这样除了函数执行，会产生一个私有的上下文之外，还会把函数体及其中的代码当做一个全新的块级上下文。如果这个块级上下文中的变量和函数私有上下文中的变量一致了，则会在块级上下文初始化之前，会把形参变量的值同步给块级上下文中的变量闭包剧本 🌟 引言：就像人需要氧气才能生存，闭包也需要在特定的环境下才能存在，闭包携带了它自己的“氧气罐”（引用了当前作用域以外的其他作用域上下文），所以它才存活下来（使上下文不会消失）。基本介绍: ECStack、EC、VO、AO、GO、SCOPE、SCOPE-CHAIN、GC 优缺点：保存和保护、性能消耗（内存泄漏）实战应用项目实战应用：循环事件绑定(突出：事件委托)、let 和 var 插件组件应用：JS 高阶编程技巧(单例设计模式、惰性函数、柯理化函数、compose 组合函数)源码阅读应用：Lodash 源码(函数的防抖和节流)、JQ 的源码、redux、react-redux(高阶组件)……自己的思想和理解(一句话概括)其实我觉得闭包这个东西还是很重要的小技巧担心自己表达能力：可以自己写一遍文章，详细的介绍闭包（面试的时候，给面试官看，它边看你边简单说一些）简述 let 和 var 的区别”}</p>
+
+
+  </div>
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://resonance.fun/2020/10/29/yuque/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E4%B9%8B%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/>https://resonance.fun/2020/10/29/yuque/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E4%B9%8B%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-03-31T10:19:59+00:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2022年3月31日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://resonance.fun/2020/10/29/yuque/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E4%B9%8B%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/&title=思维导图之作用域和闭包 - All Resonance&summary="
+          
+          >
+          
+            <img src="/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="/media/org.volantis/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://resonance.fun/2020/10/29/yuque/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E4%B9%8B%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/&title=思维导图之作用域和闭包 - All Resonance&summary="
+          
+          >
+          
+            <img src="/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="/media/org.volantis/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://resonance.fun/2020/10/29/yuque/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E4%B9%8B%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/&title=思维导图之作用域和闭包 - All Resonance&summary="
+          
+          >
+          
+            <img src="/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="/media/org.volantis/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+    <!-- Custom Files bottomMeta begin -->
+    
+    <!-- Custom Files bottomMeta end -->
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2020/11/13/yuque/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E4%B9%8B%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>思维导图之面向对象</p>
+          <p class='content'>{“format”:”lakemind”,”type”:”Mind”,”version”:”1.0”,”diagramData”:{“head”:{“version”:”2.0.0”},”bod...</p>
+        </a>
+      
+      
+        <a class='next' href='/2020/06/02/yuque/%E6%9C%AA%E6%9D%A5%E7%9A%84%E8%B7%AF/'>
+          <p class='title'>未来的路<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>面试
+先达到 P6 再考虑其他岗位
+根据自己的喜欢选择 P6 之后要做什么
+先长高、再长胖、最后锻炼为型男。
+读书、读书、读书、读书，目的：锻炼学习能力。
+不要写中规中矩的简历，要按照一定的维度...</p>
+        </a>
+      
+    </div>
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
+
+  
+
+  
+  <article class="post white-box reveal shadow" id="comments">
+    <span hidden>
+      <meta itemprop="discussionUrl" content="/2020/10/29/yuque/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E4%B9%8B%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/index.html#comments">
+    </span>
+    <p ct><i class='fa-solid fa-comments'></i> 评论</p>
+    
+    
+    <div id="layoutHelper-comments"></div>
+
+  </article>
+  
+
+
+
+
+
+</div>
+<aside id='l_side' itemscope itemtype="http://schema.org/WPSideBar">
+  
+  
+    
+    
+
+
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  
+
+
+<!-- 没有 pjax 占位会报错 万恶的 pjax -->
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+
+  <!-- Custom Files side begin -->
+  
+  <!-- Custom Files side end -->
+</aside>
+
+
+
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<pjax>
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="思维导图之作用域和闭包";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+  pdata.commentConfig={};
+  //  see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs
+  
+    // header
+    var l_header=document.getElementById("l_header");
+    
+    l_header.classList.add("show");
+    
+    
+      // cover
+      var cover_wrapper=document.querySelector('#l_cover .cover-wrapper');
+      var scroll_down=document.getElementById('scroll-down');
+      cover_wrapper.id="none";
+      cover_wrapper.style.display="none";
+      scroll_down.style.display="none";
+    
+  
+</script>
+</pjax>
+        </div>
+        
+  
+  <footer class="footer clearfix"  itemscope itemtype="http://schema.org/WPFooter">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.4'
+      loop='all'
+      order='random'
+      fixed='false'
+      list-max-height='320px'
+      server='netease'
+      type='playlist'
+      id='5062959861'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper" itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        
+          <div><p><span id="lc-sv">本站总访问量为 <span id='number'><i class="fa-solid fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id='number'><i class="fa-solid fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
+</div>
+        
+      
+    
+      
+        本站使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/5.0.0-rc.3" target="_blank" class="codename">Volantis</a>
+        作为主题
+      
+    
+      
+        <div class='copyright'>
+        <p><a target="_blank" rel="noopener" href="https://github.com/all-resonance/">Copyright © 2021-2022 All Resonance</a><span style="margin: 0 5px">|</span><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn">蜀ICP备2021016014号</a></p>
+
+        </div>
+      
+    
+    <!-- Custom Files footer begin-->
+    
+    <!-- Custom Files footer end-->
+  </footer>
+
+
+        <a id="s-top" class="fa-solid fa-arrow-up fa-fw" href="/" onclick="return false;" title="top"></a>
+      </div>
+    </div>
+    <div>
+      <script>
+  /******************** volantis.dom ********************************/
+  // 页面选择器 将dom对象缓存起来 see: /source/js/app.js etc.
+  volantis.dom.bodyAnchor = volantis.dom.$(document.getElementById("safearea")); // 页面主体
+  volantis.dom.topBtn = volantis.dom.$(document.getElementById('s-top')); // 向上
+  volantis.dom.wrapper = volantis.dom.$(document.getElementById('wrapper')); // 整个导航栏
+  volantis.dom.coverAnchor = volantis.dom.$(document.querySelector('#l_cover .cover-wrapper')); // 1个
+  volantis.dom.switcher = volantis.dom.$(document.querySelector('#l_header .switcher .s-search')); // 搜索按钮   移动端 1个
+  volantis.dom.header = volantis.dom.$(document.getElementById('l_header')); // 移动端导航栏
+  volantis.dom.search = volantis.dom.$(document.querySelector('#l_header .m_search')); // 搜索框 桌面端 移动端 1个
+  volantis.dom.mPhoneList = volantis.dom.$(document.querySelectorAll('#l_header .m-phone .list-v')); //  手机端 子菜单 多个
+</script>
+
+<script>
+  
+  volantis.css("/libs/@fortawesome/fontawesome-free/css/all.min.css");
+  
+  
+  
+</script>
+
+<!-- required -->
+
+
+<!-- internal -->
+
+<script src="/js/app.js?time=1648722003565.js"></script>
+
+
+
+  
+  
+  
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      <li class='navigation menuNavigation-Content'>
+        <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fa fa-arrow-left fa-fw'></i></a>
+        <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fa fa-arrow-right fa-fw'></i></a>
+        <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fa fa-redo fa-fw'></i></a>
+        <a class='nav icon-only fix-cursor-default' href='/'><i class='fa fa-home fa-fw'></i></a>
+      </li>
+      <li class='option menuOption-Content'>
+        <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copyText'>
+          
+          <i class='fa fa-copy fa-fw'></i> 复制文本
+        </span>
+        <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copyPaste'>
+          
+          <i class='fa fa-paste fa-fw mR12'></i> 粘贴文本
+        </span>
+        <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copySelect'>
+          
+          <i class='fa fa-object-ungroup fa-fw mR12'></i> 全选文本
+        </span>
+        <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copyCut'>
+          
+          <i class='fa fa-cut fa-fw mR12'></i> 剪切文本
+        </span>
+        
+        <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='searchWord'>
+          
+          <i class='fa fa-search fa-fw'></i> 站内搜索
+        </span>
+        
+        <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='openTab'>
+          
+          <i class='fa fa-external-link-square-alt fa-fw mR12'></i> 在新标签页打开
+        </span>
+        <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copySrc'>
+          
+          <i class='fa fa-image fa-fw mR12'></i> 复制图片地址
+        </span>
+        <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copyImg'>
+          
+          <i class='fa fa-images fa-fw mR12'></i> 复制图片文件
+        </span>
+      </li>
+      
+        
+      
+        
+          <hr class="menuLoad-Content">
+        
+      
+        
+          
+    <li class="menuLoad-Content">
+      <a class='vlts-menu fix-cursor-default' href=https://github.com/all-resonance/all-resonance/
+        
+        
+        
+        
+          id="https:githubcomall-resonanceall-resonance"
+        
+      >
+        <i class='fa fa-code-branch fa-fw'></i> 本站源码
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr class="menuLoad-Content">
+        
+      
+        
+          <li class='option menuOption-Content'>
+            <span class='vlts-menu opt fix-cursor-default' id='printHtml'>
+              <i class='fa fa-print fa-fw '></i> 打印页面
+            </span>
+          </li>  
+        
+      
+        
+          <li class='option menuOption-Content'>
+            <span class='vlts-menu opt fix-cursor-default toggle-mode-btn' id='menuDarkBtn'>
+              <i class='fa fa-moon fa-fw '></i> 暗黑模式
+            </span>
+          </li>
+        
+      
+        
+          
+    <li class="menuLoad-Content">
+      <a class='vlts-menu fix-cursor-default' href=/
+        
+        
+        
+        
+          id="home"
+        
+      >
+        <i class='fa fa-fan fa-spin fa-fw'></i> 重载页面
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr class="menuLoad-Content">
+        
+      
+        
+          <div id="menuMusic">
+            <li class='music name menuOption-Content'>
+              <p class='nav music-title fix-cursor-default'></p>
+            </li>
+            <li class='music ctrl'>
+              <a class='nav icon-only backward fix-cursor-default' onclick='RightMenuAplayer.aplayerBackward()'><i class='fa fa-step-backward fa-fw '></i></a>
+              <a class='nav icon-only toggle fix-cursor-default' onclick='RightMenuAplayer.aplayerToggle()'><i class='fa fa-play fa-fw '></i></a>
+              <a class='nav icon-only forward fix-cursor-default' onclick='RightMenuAplayer.aplayerForward()'><i class='fa fa-step-forward fa-fw '></i></a>
+            </li>
+            <li class='music volume'>
+              <div class='nav volume'>
+                <div class="aplayer-volume-bar-wrap">
+                  <div class="aplayer-volume-bar fix-cursor-pointer">
+                    <div class="aplayer-volume"></div>
+                    <i class='left fa fa-volume-off fa-fw'></i>
+                    <i class='right fa fa-volume-up fa-fw'></i>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </div>
+        
+      
+    </ul>
+  </div>
+  <script>volantis.js('/js/plugins/rightMenu.js?time=1648722003565')</script>
+
+
+
+<!-- rightmenu要在darkmode之前（ToggleButton） darkmode要在comments之前（volantis.dark.push）-->
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "color-scheme";
+const rootElementDarkModeAttributeName = "color-scheme";
+const setLS = (k, v) => {
+    localStorage.setItem(k, v);
+};
+const removeLS = (k) => {
+    localStorage.removeItem(k);
+};
+const getLS = (k) => {
+    return localStorage.getItem(k);
+};
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+  getCustomDarkMode();
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+/**
+ * get target mode
+ */
+ const getCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  if(currentSetting=="dark"){
+    volantis.dark.mode="light";
+  }else{
+    volantis.dark.mode="dark";
+  }
+  // console.log(volantis.dark.mode)
+};
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+/**
+ * 暗黑模式触发器
+ */
+volantis.dark.toggle=()=>{
+  const mode = toggleCustomDarkMode();
+  applyCustomDarkModeSettings(mode);
+  // 使用 volantis.dark.push 方法传入volantis.dark.toggle回调函数 参见layout/_partial/scripts/global.ejs
+  volantis.dark.method.toggle.start();
+}
+/**
+ * bind event for toggle button
+ */
+
+function bindToggleButton() {
+  var btn= document.querySelectorAll("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn")
+  btn.forEach(function (e) {
+    volantis.dom.$(e).on('click',volantis.dark.toggle);
+  })
+}
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", ()=>{
+  volantis.requestAnimationFrame(bindToggleButton)
+});
+volantis.pjax.push(bindToggleButton);
+
+const darkModelListeners={
+  dark:(mediaQueryList )=>{
+    if(mediaQueryList.matches){
+      volantis.dark.mode = "dark";
+    }
+    volantis.dark.method.toggle.start();
+  },
+  light:(mediaQueryList)=>{
+    if(mediaQueryList.matches){
+      volantis.dark.mode = "light";
+    }
+    volantis.dark.method.toggle.start();
+  }
+}
+window.matchMedia('(prefers-color-scheme: dark)').addListener(darkModelListeners.dark)
+window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListeners.light)
+</script>
+
+
+
+
+<script>
+  function loadIssuesJS() {
+    
+      const sites_api = document.getElementById('sites-api');
+      if (sites_api != undefined && typeof SitesJS === 'undefined') {
+        volantis.js("/js/plugins/sites.js?time=1648722003565")
+      }
+    
+    
+      const friends_api = document.getElementById('friends-api');
+      if (friends_api != undefined && typeof FriendsJS === 'undefined') {
+        volantis.js("/js/plugins/friends.js?time=1648722003565")
+      }
+    
+    
+      const contributors_api = document.getElementById('contributors-api');
+      if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
+        volantis.js("/js/plugins/contributors.js?time=1648722003565")
+      }
+    
+  };
+  loadIssuesJS()
+  volantis.pjax.push(()=>{
+    loadIssuesJS();
+  })
+
+</script>
+
+
+
+
+  <script defer src="/libs/vanilla-lazyload/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+
+<script>
+  window.FPConfig = {
+	delay: 0,
+	ignoreKeywords: ["#"],
+	maxRPS: 6,
+	hoverDelay: 0
+  };
+</script>
+<script defer src="/libs/flying-pages/flying-pages.min.js"></script>
+
+
+
+
+
+
+
+  <script>
+  volantis.css("/libs/aplayer/dist/APlayer.min.css");
+  (async () => {
+    // APlayer 需要在  MetingJS 之前加载
+    await volantis.js("/libs/aplayer/dist/APlayer.min.js")
+    await volantis.js("/libs/meting/dist/Meting.min.js")
+  
+    // 右键 music 需要在 APlayer  MetingJS 之后加载
+    await volantis.js('/js/plugins/aplayer.js?time=1648722003568')
+  
+  })();
+
+  function SetAPlayerPlugin(){
+    let Metings = document.querySelectorAll('meting-js');
+    if (Metings.length === 0) {return;};
+    if (Metings[0].aplayer && Metings[0].aplayer.on) {
+      // improve the accessibility https://web.dev/button-name/
+      document.querySelectorAll(".aplayer-icon-menu").forEach(e=>{
+        e.setAttribute("aria-label","Aplayer Menu")
+      })
+      // message see: /layout/_plugins/message/script.ejs
+      
+        try {
+          setTimeout(() => {
+            Metings.forEach((item, index) => {
+              const aplayerItem = item.aplayer; if(!aplayerItem) return;
+              const rightAplayerCheck = 'true' === 'true'
+                && item.meta.id === '5062959861'; 
+              if(rightAplayerCheck) RightMenuAplayer.checkAPlayer();
+              if(aplayerItem.events.events.play.every(item => {return item.name !== 'messagePlay'})) {
+                aplayerItem.on('play', function messagePlay() {
+                  let index = aplayerItem.list.index;
+                  let title = aplayerItem.list.audios[index].title;
+                  let artist = aplayerItem.list.audios[index].artist;
+                  setTimeout(() => {
+                    VolantisApp.message('音乐通知', title + ' - ' + artist, {
+                      icon: 'fa-solid fa-play',
+                      transitionIn: 'flipInX',
+                      transitionOut: 'flipOutX'
+                    });
+                  }, 100)
+                });
+              }
+              if(aplayerItem.events.events.pause.every(item => {return item.name !== 'messagePause'})) {
+                aplayerItem.on('pause', function messagePause() {
+                  let index = aplayerItem.list.index;
+                  let title = aplayerItem.list.audios[index].title;
+                  let artist = aplayerItem.list.audios[index].artist;
+                  setTimeout(() => {
+                    // 歌曲播放结束也会触发 pause 事件，为了避免错误提示，等待一会儿
+                    if(aplayerItem.paused) {
+                      VolantisApp.message('音乐通知', title + ' - ' + artist, {
+                        icon: 'fa-solid fa-pause',
+                        transitionIn: 'flipInX',
+                        transitionOut: 'flipOutX'
+                      });
+                    }
+                  }, 100)
+                });
+              }
+            });
+          }, 500)
+        } catch (error) { console.error(error); }
+      
+    }else{
+      volantis.requestAnimationFrame(SetAPlayerPlugin)
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", ()=>{
+    SetAPlayerPlugin();
+  });
+  volantis.pjax.push(SetAPlayerPlugin);
+</script>
+
+
+
+
+  <script>
+  volantis.layoutHelper("comments",`<div id="utterances"></div>`)
+  volantis.utterances={}
+  volantis.utterances.ThemeLight='github-light';
+  volantis.utterances.ThemeDark='github-dark';
+  volantis.utterances.Theme=volantis.utterances.ThemeLight;
+  function pjax_utterances(){
+    if(!document.getElementById("utterances"))return;
+    
+      if(volantis.dark.mode=="dark"){
+        volantis.utterances.Theme=volantis.utterances.ThemeDark;
+      }else{
+        volantis.utterances.Theme=volantis.utterances.ThemeLight;
+      }
+    
+    setTimeout(function() {
+      var checkUtterances = setInterval(function () {
+        var HEAD = document.getElementById("utterances");
+        if (!HEAD) return
+        clearInterval(checkUtterances)
+        try {
+          document.getElementById("utterances").innerHTML="";
+        } catch (error) {}
+        var script = document.createElement('script');
+        script.setAttribute('src','https://utteranc.es/client.js');
+        script.setAttribute('repo','all-resonance/all-resonance');
+        let issuenumber = '1';
+        if (issuenumber) {
+          script.setAttribute('issue-number', issuenumber);
+        } else {
+          script.setAttribute('issue-term', 'pathname');
+        }
+        script.setAttribute('theme', volantis.utterances.Theme );
+        script.setAttribute('label','✨💬✨');
+        script.setAttribute('crossorigin', "anonymous");
+        HEAD.appendChild(script);
+      }, 200)
+    });
+  }
+  pjax_utterances();
+  volantis.pjax.push(pjax_utterances);
+  volantis.dark.push(pjax_utterances);
+</script>
+
+
+
+
+
+<!-- optional -->
+
+  <script>
+  const SearchServiceDataPathRoot = ("/" || "/").endsWith("/")
+    ? "/" || "/"
+    : "//" || "/";
+  const SearchServiceDataPath = SearchServiceDataPathRoot + "content.json";
+
+  function loadSearchScript() {
+    // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
+    return volantis.js("/js/search/hexo.js?time=1648722003565");
+  }
+
+  function loadSearchService() {
+    loadSearchScript();
+    document.querySelectorAll(".input.u-search-input").forEach((e) => {
+      e.removeEventListener("focus", loadSearchService, false);
+    });
+
+    document.querySelectorAll(".u-search-form").forEach((e) => {
+      e.addEventListener("submit", (event)=>{event.preventDefault();}, false);
+    });
+  }
+
+  // 打开并搜索 字符串 s
+  function OpenSearch(s) {
+    loadSearchScript().then(() => {
+      SearchService.setQueryText(s);
+      SearchService.search();
+    });
+  }
+
+  // 访问含有 ?s=xxx  的链接时打开搜索 // 与搜索引擎 structured data 相关: /scripts/helpers/structured-data/lib/config.js
+  if (window.location.search && /^\?s=/g.test(window.location.search)) {
+    let queryText = decodeURI(window.location.search)
+      .replace(/\ /g, "-")
+      .replace(/^\?s=/g, "");
+    OpenSearch(queryText);
+  }
+
+  // 搜索输入框获取焦点时加载搜索
+  document.querySelectorAll(".input.u-search-input").forEach((e) => {
+    e.addEventListener("focus", loadSearchService, false);
+  });
+</script>
+
+
+
+
+
+
+
+
+  <script>
+
+
+
+  function pjax_highlightjs_copyCode(){
+    if (!(document.querySelector(".highlight .code pre") ||
+      document.querySelector(".article pre code"))) {
+      return;
+    }
+    VolantisApp.utilCopyCode(".highlight .code pre, .article pre code")
+  }
+  volantis.requestAnimationFrame(pjax_highlightjs_copyCode)
+  volantis.pjax.push(pjax_highlightjs_copyCode)
+
+</script>
+
+
+
+
+  <script defer>
+
+  const LCCounter = {
+    app_id: 'Cky5AowHIVQ4Kc4Shd65XS8b-gzGzoHsz',
+    app_key: 'HR0MWtonsUplwoOcrWbPU4JE',
+    custom_api_server: '',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'https://resonance.fun' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'https://resonance.fun' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'https://resonance.fun' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              let curPath = window.location.pathname;
+              if (curPath.includes('index.html')) {
+                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
+              }
+              if (pv.getAttribute('data-path') == curPath) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == curPath) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+  document.addEventListener('pjax:complete', function () {
+    LCCounter.refreshCounter();
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+  <script>
+  function load_swiper() {
+    if (!document.querySelectorAll(".swiper-container")[0]) return;
+    volantis.css("/libs/swiper/swiper-bundle.min.css");
+    volantis.js("/libs/swiper/swiper-bundle.min.js").then(() => {
+      pjax_swiper();
+    });
+  }
+
+  load_swiper();
+
+  function pjax_swiper() {
+    volantis.swiper = new Swiper('.swiper-container', {
+      slidesPerView: 'auto',
+      spaceBetween: 8,
+      centeredSlides: true,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  }
+
+  volantis.pjax.push(() => {
+    if (!document.querySelectorAll(".swiper-container")[0]) return;
+    if (typeof volantis.swiper === "undefined") {
+      load_swiper();
+    } else {
+      pjax_swiper();
+    }
+  });
+</script>
+
+
+<!-- pjax 标签必须存在于所有页面 否则 pjax error -->
+<pjax>
+
+</pjax>
+
+<script>
+  function listennSidebarTOC() {
+    const navItems = document.querySelectorAll(".toc li");
+    if (!navItems.length) return;
+    const sections = [...navItems].map((element) => {
+      const link = element.querySelector(".toc-link");
+      const target = document.getElementById(
+        decodeURI(link.getAttribute("href")).replace("#", "")
+      );
+      // 解除 a 标签 href 的 锚点定位, a 标签 href 的 锚点定位 会随机启用?? 产生错位???
+      link.setAttribute("onclick","return false;")
+      link.setAttribute("toc-action","toc-"+decodeURI(link.getAttribute("href")).replace("#", ""))
+      link.setAttribute("href","/")
+      // 配置 点击 触发新的锚点定位
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        // 这里的 addTop 是通过错位使得 toc 自动展开.
+        volantis.scroll.to(target,{addTop: 5, observer:false})
+        // Anchor id
+        history.pushState(null, document.title, "#" + target.id);
+      });
+      return target;
+    });
+
+    function activateNavByIndex(target) {
+      if (target.classList.contains("active-current")) return;
+
+      document.querySelectorAll(".toc .active").forEach((element) => {
+        element.classList.remove("active", "active-current");
+      });
+      target.classList.add("active", "active-current");
+      let parent = target.parentNode;
+      while (!parent.matches(".toc")) {
+        if (parent.matches("li")) parent.classList.add("active");
+        parent = parent.parentNode;
+      }
+    }
+
+    function findIndex(entries) {
+      let index = 0;
+      let entry = entries[index];
+      if (entry.boundingClientRect.top > 0) {
+        index = sections.indexOf(entry.target);
+        return index === 0 ? 0 : index - 1;
+      }
+      for (; index < entries.length; index++) {
+        if (entries[index].boundingClientRect.top <= 0) {
+          entry = entries[index];
+        } else {
+          return sections.indexOf(entry.target);
+        }
+      }
+      return sections.indexOf(entry.target);
+    }
+
+    function createIntersectionObserver(marginTop) {
+      marginTop = Math.floor(marginTop + 10000);
+      let intersectionObserver = new IntersectionObserver(
+        (entries, observe) => {
+          let scrollHeight = document.documentElement.scrollHeight;
+          if (scrollHeight > marginTop) {
+            observe.disconnect();
+            createIntersectionObserver(scrollHeight);
+            return;
+          }
+          let index = findIndex(entries);
+          activateNavByIndex(navItems[index]);
+        }, {
+          rootMargin: marginTop + "px 0px -100% 0px",
+          threshold: 0,
+        }
+      );
+      sections.forEach((element) => {
+        element && intersectionObserver.observe(element);
+      });
+    }
+
+    createIntersectionObserver(document.documentElement.scrollHeight);
+  }
+
+  document.addEventListener("DOMContentLoaded", ()=>{
+    volantis.requestAnimationFrame(listennSidebarTOC)
+  });
+  document.addEventListener("pjax:success", ()=>{
+    volantis.requestAnimationFrame(listennSidebarTOC)
+  });
+</script>
+
+<script>
+  // https://web.dev/content-visibility/
+  // https://www.caniuse.com/?search=content-visibility
+  // https://infrequently.org/2020/12/content-visibility-scroll-fix/
+  // https://infrequently.org/2020/12/resize-resilient-deferred-rendering/
+
+  // 备注 目前已知的问题:
+  // 动态修改导致的内容高度变化(例如评论框异步渲染的外部盒子高度变化) 无法提前获知, 进而导致的首次滚动条跳动无法去除 (wontfix) 事实上不使用 content-visibility 也会有跳动, 不过是比使用 content-visibility 跳动提前
+  // scrollreveal 插件潜在问题 目前尚不明确
+
+  let eqIsh = (a, b, fuzz = 2) => {
+    return Math.abs(a - b) <= fuzz;
+  };
+
+  let rectNotEQ = (a, b) => {
+    return !eqIsh(a.width, b.width) || !eqIsh(a.height, b.height);
+  };
+
+  // Keep a map of elements and the dimensions of
+  // their place-holders, re-setting the element's
+  // intrinsic size when we get updated measurements
+  // from observers.
+  let spaced = new WeakMap();
+
+  // Only call this when known cheap, post layout
+  let reserveSpace = (el, rect = el.getClientBoundingRect()) => {
+    let old = spaced.get(el);
+    // Set intrinsic size to prevent jumping on un-painting:
+    //    https://drafts.csswg.org/css-sizing-4/#intrinsic-size-override
+    if (!old || rectNotEQ(old, rect)) {
+      spaced.set(el, rect);
+      el.style["contain-intrinsic-size"] = `${rect.width}px ${rect.height}px`;
+    }
+  };
+
+  let iObs = new IntersectionObserver(
+    (entries, o) => {
+      entries.forEach((entry) => {
+        // We don't care if the element is intersecting or
+        // has been laid out as our page structure ensures
+        // they'll get the right width.
+        reserveSpace(entry.target, entry.boundingClientRect);
+      });
+    },
+    { rootMargin: "500px 0px 500px 0px" }
+  );
+
+  let rObs = new ResizeObserver((entries, o) => {
+    entries.forEach((entry) => {
+      reserveSpace(entry.target, entry.contentRect);
+    });
+  });
+
+  let resizeResilientDeferredRendering = (Selector) => {
+    let articles = document.querySelectorAll(Selector);
+
+    if (articles.length) {
+      articles.forEach((el) => {
+        iObs.observe(el);
+        rObs.observe(el);
+      });
+
+      // Workaround for Chrome bug, part 2.
+      //
+      // Re-enable browser management of rendering for the
+      // first article after the first paint. Double-rAF
+      // to ensure we get called after a layout.
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          articles[0].style["content-visibility"] = "auto";
+        });
+      });
+    }
+  };
+
+  let contentVisibilityScrollFix = () => {
+    if (!("content-visibility" in document.documentElement.style)) {
+      return;
+    }
+    resizeResilientDeferredRendering(".post-story");
+    resizeResilientDeferredRendering("article");
+    resizeResilientDeferredRendering(".post-wrapper");
+  };
+  contentVisibilityScrollFix();
+  volantis.pjax.push(contentVisibilityScrollFix);
+</script>
+
+
+
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"All Resonance","url":"https://resonance.fun/","logo":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"all-resonance","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://resonance.fun/","sameAs":["https://github.com/volantis-x"],"description":"物质的本质是能量，而能量的底层是精神！"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://resonance.fun/","name":"All Resonance"}},{"@type":"ListItem","position":3,"item":{"@id":"https://resonance.fun/2020/10/29/yuque/思维导图之作用域和闭包/","name":"思维导图之作用域和闭包"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"思维导图之作用域和闭包","description":"","datePublished":"2020-10-29T05:24:13.000Z","dateModified":"2022-03-31T10:19:59.341Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://resonance.fun/2020/10/29/yuque/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E4%B9%8B%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/"},"author":{"@type":"Person","name":"all-resonance","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://resonance.fun/"},"publisher":{"@type":"Organization","name":"All Resonance","logo":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://resonance.fun/2020/10/29/yuque/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E4%B9%8B%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/","wordCount":0,"image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+
+
+<!-- more -->
+
+
+
+      
+        <!-- 
+  pjax重载区域接口：
+  1.  <pjax></pjax> 标签 pjax 标签必须存在于所有页面 否则 pjax error
+  2.  script[data-pjax]
+  3.  .pjax-reload script
+  4.  .pjax
+-->
+
+
+
+<script src="/libs/pjax/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox]):not([onclick="return false;"]):not([target="_blank"]):not([target="view_window"]):not([href$=".xml"])',
+        selectors: [
+          "head title",
+          "head meta[name='description']",
+          "head meta[name='keywords']",
+          "head meta[property^='og']",
+          
+          "#l_main",
+          "#pjax-header-nav-list",
+          ".pjax",
+          "pjax", // <pjax></pjax> 标签
+          "script[data-pjax], .pjax-reload script" // script标签添加data-pjax 或 script标签外层添加.pjax-reload 的script代码段重载
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000,
+        
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
+      volantis.pjax.method.send.start();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
+      volantis.pjax.method.complete.start();
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      if(volantis.debug) {
+        console.error(e);
+        console.log('pjax error: \n' + JSON.stringify(e));
+      }else{
+        // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
+        volantis.pjax.method.error.start();
+        window.location.href = e.triggerElement.href;
+      }
+    });
+</script>
+
+      
+    </div>
+  <!-- Custom Files bodyEnd begin-->
+  
+  <!-- Custom Files bodyEnd end-->
+  </body>
+</html>
