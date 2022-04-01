@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-    <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/5.0.0-rc.3'>
+    <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/5.0.0-alpha.9'>
   <meta name="generator" content="Hexo 5.4.0">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   <meta name="robots" content="noindex,follow">
   <link rel="canonical" href="https://resonance.fun/archives/2021/03/"/>
   <!-- 渲染优化 -->
-  <!-- <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <!-- 语雀 cdn 防盗链临时解决方案  -->
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
   <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin> -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta http-equiv="Content-Security-Policy" content=" default-src 'self' https:; block-all-mixed-content; base-uri 'self' https:; form-action 'self' https:; worker-src 'self' https:; connect-src 'self' https: *; img-src 'self' data: https: *; media-src 'self' https: *; font-src 'self' data: https: *; frame-src 'self' https: *; manifest-src 'self' https: *; child-src https:; script-src 'self' https: 'unsafe-inline' *; style-src 'self' https: 'unsafe-inline' *; ">
   <meta name="HandheldFriendly" content="True" >
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -20,29 +23,30 @@
   <meta content="All Resonance" name="apple-mobile-web-app-title">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/css/style.css?time=1648761309236" as="style">
-  <link rel="preload" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts@20.5.30/Dosis/Dosis-Medium.ttf" as="font" type="font/ttf" crossorigin="anonymous">
-<link rel="preload" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts@20.5.30/Dosis/Dosis-Medium.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/style.css?time=1648783897354" as="style">
+  <link rel="preload" href="/media/fonts/VarelaRound/VarelaRound-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+<link rel="preload" href="/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
   <!-- 页面元数据 -->
   <title>归档：2021/3 - All Resonance</title>
-  <meta name="keywords" content="Shilin的备忘录,html/css/JavaScript,前端工程师,Angular,Ionic,Vue,React,Node.js,Powershell,Qt5">
-  <meta name="description" content="物质的本质是能量，而能量的底层是精神！">
+  <meta name="keywords" content="Shilin的备忘录,html/css/JavaScript,前端工程师,Vue,React,Node.js">
+  <meta name="description" content="夫君子之行，静以修身，俭以养德，非淡泊无以明志，非宁静无以致远～">
 <meta property="og:type" content="website">
 <meta property="og:title" content="All Resonance">
 <meta property="og:url" content="https://resonance.fun/archives/2021/03/index.html">
 <meta property="og:site_name" content="All Resonance">
-<meta property="og:description" content="物质的本质是能量，而能量的底层是精神！">
+<meta property="og:description" content="夫君子之行，静以修身，俭以养德，非淡泊无以明志，非宁静无以致远～">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://resonance.fun/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:author" content="all-resonance">
-<meta property="article:tag" content="Shilin的备忘录,html&#x2F;css&#x2F;JavaScript,前端工程师,Angular,Ionic,Vue,React,Node.js,Powershell,Qt5">
+<meta property="article:tag" content="Shilin的备忘录,html&#x2F;css&#x2F;JavaScript,前端工程师,Vue,React,Node.js">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://resonance.fun/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <!-- feed -->
       <link rel="alternate" href="/atom.xml" title="All Resonance" type="application/atom+xml">
   <!-- import meta -->
   <!-- link -->
+    <link rel="shortcut icon" type='image/x-icon' href="/images/favicon.ico">
   <!-- import link -->
   <style>
     /* 首屏样式 */
@@ -95,7 +99,7 @@ html {
   color: var(--color-text);
   width: 100%;
   height: 100%;
-  font-family: Dosis, "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Menlo, Monaco, monospace, sans-serif;
+  font-family: UbuntuMono, "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Menlo, Monaco, monospace, sans-serif;
   font-size: 16px;
 }
 html >::-webkit-scrollbar {
@@ -258,103 +262,6 @@ button {
   overflow: hidden;
   margin-bottom: -100px;
 }
-.cover-wrapper .cover-bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-position: center;
-  background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-}
-.cover-wrapper .cover-bg.lazyload:not(.loaded) {
-  opacity: 0;
-  -webkit-opacity: 0;
-  -moz-opacity: 0;
-}
-.cover-wrapper .cover-bg.lazyload.loaded {
-  animation-delay: 0s;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-out;
-  animation-name: fadeIn;
-}
-@-moz-keyframes fadeIn {
-  0% {
-    opacity: 0;
-    -webkit-opacity: 0;
-    -moz-opacity: 0;
-    filter: blur(12px);
-    transform: scale(1.02);
-    -webkit-transform: scale(1.02);
-    -khtml-transform: scale(1.02);
-    -moz-transform: scale(1.02);
-    -o-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-  }
-  100% {
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-}
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-    -webkit-opacity: 0;
-    -moz-opacity: 0;
-    filter: blur(12px);
-    transform: scale(1.02);
-    -webkit-transform: scale(1.02);
-    -khtml-transform: scale(1.02);
-    -moz-transform: scale(1.02);
-    -o-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-  }
-  100% {
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-}
-@-o-keyframes fadeIn {
-  0% {
-    opacity: 0;
-    -webkit-opacity: 0;
-    -moz-opacity: 0;
-    filter: blur(12px);
-    transform: scale(1.02);
-    -webkit-transform: scale(1.02);
-    -khtml-transform: scale(1.02);
-    -moz-transform: scale(1.02);
-    -o-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-  }
-  100% {
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-}
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    -webkit-opacity: 0;
-    -moz-opacity: 0;
-    filter: blur(12px);
-    transform: scale(1.02);
-    -webkit-transform: scale(1.02);
-    -khtml-transform: scale(1.02);
-    -moz-transform: scale(1.02);
-    -o-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-  }
-  100% {
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-}
 .cover-wrapper .cover-body {
   z-index: 1;
   position: relative;
@@ -506,7 +413,7 @@ button {
   margin-top: 32px;
 }
 .cover-wrapper .cover-body .title {
-  font-family: Dosis, "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
+  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
   font-size: 3.125rem;
   line-height: 1.2;
   text-shadow: 0 1px 2px rgba(0,0,0,0.1);
@@ -820,6 +727,71 @@ button {
     backdrop-filter: saturate(200%) blur(20px);
   }
 }
+.cover-wrapper #parallax-window {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+.parallax-mirror {
+  animation-delay: 0s;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  animation-name: fadeIn;
+}
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --color-mode: 'dark';
@@ -967,15 +939,15 @@ button {
   }
 }
 @font-face {
-  font-family: 'Dosis';
-  src: url("https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts@20.5.30/Dosis/Dosis-Medium.ttf");
+  font-family: 'UbuntuMono';
+  src: url("/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf");
   font-weight: 'normal';
   font-style: 'normal';
   font-display: swap;
 }
 @font-face {
-  font-family: 'Dosis';
-  src: url("https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts@20.5.30/Dosis/Dosis-Medium.ttf");
+  font-family: 'Varela Round';
+  src: url("/media/fonts/VarelaRound/VarelaRound-Regular.ttf");
   font-weight: 'normal';
   font-style: 'normal';
   font-display: swap;
@@ -1098,7 +1070,7 @@ button {
   line-height: 64px;
   padding: 0 24px;
   font-size: 1.25rem;
-  font-family: Dosis, "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
+  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
 }
 .l_header #wrapper .nav-main .title img {
   height: 64px;
@@ -1109,7 +1081,7 @@ button {
 }
 .l_header .nav-sub .title {
   font-weight: bold;
-  font-family: Dosis, "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Menlo, Monaco, monospace, sans-serif;
+  font-family: UbuntuMono, "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Menlo, Monaco, monospace, sans-serif;
   line-height: 1.2;
   max-height: 64px;
   white-space: normal;
@@ -1809,8 +1781,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css?time=1648761309236" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/css/style.css?time=1648761309236"></noscript>
+  <link rel="stylesheet" href="/css/style.css?time=1648783897354" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css?time=1648783897354"></noscript>
     <script>
       let userColorScheme=localStorage.getItem("color-scheme")
       if(userColorScheme){
@@ -1887,9 +1859,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   volantis.dom = {}; // 页面Dom see: /source/js/app.js etc.
 
   volantis.GLOBAL_CONFIG ={
-    cdn: {"js":{"app":"/js/app.js?time=1648761309236","sites":"/js/plugins/sites.js?time=1648761309236","friends":"/js/plugins/friends.js?time=1648761309236","parallax":"/js/plugins/parallax.js?time=1648761309236","rightMenu":"/js/plugins/rightMenu.js?time=1648761309236","contributors":"/js/plugins/contributors.js?time=1648761309236","message":"/js/thirdparty/message.js?time=1648761309236","valine":"https://npm.elemecdn.com/valine@1.4/dist/Valine.min.js?time=1648761309236","search":"/js/search/hexo.js?time=1648761309236"},"css":{"style":"/css/style.css?time=1648761309236","message":"/css/message.css?time=1648761309236"}},
+    cdn: {"js":{"app":"/js/app.js?time=1648783897354","sites":"/js/plugins/sites.js?time=1648783897354","friends":"/js/plugins/friends.js?time=1648783897354","parallax":"/js/plugins/parallax.js?time=1648783897354","rightMenu":"/js/plugins/rightMenu.js?time=1648783897354","contributors":"/js/plugins/contributors.js?time=1648783897354","message":"/js/thirdparty/message.js?time=1648783897354","valine":"https://npm.elemecdn.com/valine@1.4/dist/Valine.min.js?time=1648783897354","search":"/js/search/hexo.js?time=1648783897354"},"css":{"style":"/css/style.css?time=1648783897354","message":"/css/message.css?time=1648783897354"}},
     default: {"avatar":"/media/placeholder/avatar/round/3442075.svg","link":"/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/media/placeholder/cover/76b86c0226ffd.svg","image":"/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date('Thu Mar 31 2022 21:15:09 GMT+0000 (Coordinated Universal Time)'),
+    lastupdate: new Date('1648783897354'),
     sidebar: {
       for_page: ["news","blogger","post","category","tagcloud","guide"],
       for_post: ["toc"],
@@ -1915,8 +1887,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         faicon: "fa",
         layout: ["home","hr","source_docs","hr","print","darkmode","update","hr","music"],
         music_alwaysShow: true,
-        customPicUrl: {"enable":false,"old":null,"new":null},
-        print: true
+        customPicUrl: {"enable":false,"old":null,"new":null}
       }
     }
   }
@@ -2267,6 +2238,16 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   }
   /******************************************************************************/
   /******************************************************************************/
+  //图像加载出错时的处理
+  function errorImgAvatar(img) {
+    img.src = "/media/placeholder/avatar/round/3442075.svg";
+    img.onerror = null;
+  }
+  function errorImgCover(img) {
+    img.src = "/media/placeholder/cover/76b86c0226ffd.svg";
+    img.onerror = null;
+  }
+  /******************************************************************************/
 </script>
   <!-- Custom Files head begin-->
   
@@ -2564,7 +2545,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
       <div id="half" class='cover-wrapper  dock' style="display: ;">
         
-  <div class='cover-bg lazyload placeholder' data-bg="https://bing.bfsea.xyz/v1/rand?w=1920&h=1200"></div>
+  <div id="parallax-window"></div>
 
 <div class='cover-body'>
   <div class='top'>
@@ -2573,7 +2554,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <p class="title">All Resonance</p>
     
     
-      <p class="subtitle">物质的底层是能量，而能量的底层是精神！</p>
+      <p class="subtitle">夫君子之行，静以修身，俭以养德，非淡泊无以明志，非宁静无以致远～</p>
     
   </div>
   <div class='bottom'>
@@ -2650,7 +2631,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </span>
   <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
     <meta itemprop="name" content="All Resonance">
-    <meta itemprop="description" content="物质的本质是能量，而能量的底层是精神！">
+    <meta itemprop="description" content="夫君子之行，静以修身，俭以养德，非淡泊无以明志，非宁静无以致远～">
   </span>
   
   
@@ -2752,16 +2733,16 @@ feline
   <div class='content'>
     <ul class="list entry navigation">
       
-        <li><a class="flat-box" title="/" href="/"
+        <li><a class="flat-box" title="https://www.yuque.com/resonance/cqu234" target="_blank" rel="noopener" href="https://www.yuque.com/resonance/cqu234"
           
           
-          active-action="action-home"
+          active-action="action-https:wwwyuquecomresonancecqu234"
           >
           <div class='name'>
             
               <i class="fas fa-info-circle fa-fw" aria-hidden="true"></i>
             
-            欢迎光临我的博客
+            欢迎光临我的博客，祝好！
           </div>
           
         </a></li>
@@ -2781,18 +2762,15 @@ feline
     
       
         <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://cdn.nlark.com/yuque/0/2020/jpeg/anonymous/1589423837659-4734a3f4-30d1-4d38-835e-c1495a162db9.jpeg'/>
+          <img no-lazy src='https://cdn.nlark.com/yuque/0/2022/png/1429353/1648780999326-avatar/e6a1ea94-d01e-4cfa-8b55-17e74afcb162.png?x-oss-process=image%2Fresize%2Cm_fill%2Cw_320%2Ch_320%2Fformat%2Cpng'/>
         </a>
       
     
     
       <div class='text'>
         
-          <h2>创造与吸引</h2>
+          <h2>我手写我心</h2>
         
-        
-          <p>你创造你的实相</p>
-
         
         
           <p><span id="jinrishici-sentence">All Resonance</span></p>
@@ -3067,7 +3045,7 @@ feline
     
       
         本站使用
-        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/5.0.0-rc.3" target="_blank" class="codename">Volantis</a>
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/dev" target="_blank" class="codename">Volantis</a>
         作为主题
       
     
@@ -3114,7 +3092,7 @@ feline
 
 <!-- internal -->
 
-<script src="/js/app.js?time=1648761309236.js"></script>
+<script src="/js/app.js?time=1648783897354.js"></script>
 
 
 
@@ -3256,7 +3234,7 @@ feline
       
     </ul>
   </div>
-  <script>volantis.js('/js/plugins/rightMenu.js?time=1648761309236')</script>
+  <script>volantis.js('/js/plugins/rightMenu.js?time=1648783897354')</script>
 
 
 
@@ -3385,19 +3363,19 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/js/plugins/sites.js?time=1648761309236")
+        volantis.js("/js/plugins/sites.js?time=1648783897354")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/js/plugins/friends.js?time=1648761309236")
+        volantis.js("/js/plugins/friends.js?time=1648783897354")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/js/plugins/contributors.js?time=1648761309236")
+        volantis.js("/js/plugins/contributors.js?time=1648783897354")
       }
     
   };
@@ -3466,7 +3444,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
     await volantis.js("/libs/meting/dist/Meting.min.js")
   
     // 右键 music 需要在 APlayer  MetingJS 之后加载
-    await volantis.js('/js/plugins/aplayer.js?time=1648761309237')
+    await volantis.js('/js/plugins/aplayer.js?time=1648783897354')
   
   })();
 
@@ -3537,47 +3515,51 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 
 
   <script>
-  volantis.layoutHelper("comments",`<div id="utterances"></div>`)
-  volantis.utterances={}
-  volantis.utterances.ThemeLight='github-light';
-  volantis.utterances.ThemeDark='github-dark';
-  volantis.utterances.Theme=volantis.utterances.ThemeLight;
-  function pjax_utterances(){
-    if(!document.getElementById("utterances"))return;
-    
-      if(volantis.dark.mode=="dark"){
-        volantis.utterances.Theme=volantis.utterances.ThemeDark;
-      }else{
-        volantis.utterances.Theme=volantis.utterances.ThemeLight;
-      }
-    
-    setTimeout(function() {
-      var checkUtterances = setInterval(function () {
-        var HEAD = document.getElementById("utterances");
-        if (!HEAD) return
-        clearInterval(checkUtterances)
-        try {
-          document.getElementById("utterances").innerHTML="";
-        } catch (error) {}
-        var script = document.createElement('script');
-        script.setAttribute('src','https://utteranc.es/client.js');
-        script.setAttribute('repo','all-resonance/all-resonance');
-        let issuenumber = '1';
-        if (issuenumber) {
-          script.setAttribute('issue-number', issuenumber);
-        } else {
-          script.setAttribute('issue-term', 'pathname');
-        }
-        script.setAttribute('theme', volantis.utterances.Theme );
-        script.setAttribute('label','✨💬✨');
-        script.setAttribute('crossorigin', "anonymous");
-        HEAD.appendChild(script);
-      }, 200)
-    });
+  volantis.layoutHelper("comments",`<div id="giscus_container"></div>`)
+
+  volantis.giscus = {};
+
+  function check_giscus() {
+    if (volantis.dark.mode === "dark") {
+      volantis.giscus.Theme = 'dark';
+    } else {
+      volantis.giscus.Theme = 'light';
+    }
+
+    return document.getElementById("giscus_container");
   }
-  pjax_utterances();
-  volantis.pjax.push(pjax_utterances);
-  volantis.dark.push(pjax_utterances);
+
+  function pjax_giscus() {
+    const HEAD = check_giscus();
+    if (!HEAD) return;
+    let cfg = Object.assign({"theme":{"light":"light","dark":"dark"},"repo":"all-resonance/all-resonance","repo-id":"MDEwOlJlcG9zaXRvcnkzODc0NjE0MDY=","category":"Show and tell","category-id":"DIC_kwDOFxgxHs4COXN6","mapping":"title","reactions-enabled":"1","emit-metadata":"0","lang":"zh-CN"},pdata.commentConfig)
+    const script = document.createElement('script');
+    script.setAttribute('src', 'https://giscus.app/client.js');
+    Object.keys(cfg).forEach(k=>{
+      if (k != "theme") {
+        script.setAttribute('data-'+k, cfg[k]);
+      }
+    })
+    script.setAttribute('data-theme', volantis.giscus.Theme);
+    script.setAttribute('crossorigin', "anonymous");
+    HEAD.appendChild(script);
+  }
+
+  function dark_giscus() {
+    const HEAD = check_giscus();
+    if (!HEAD) return;
+
+    const message = {
+      setConfig: {
+        theme: volantis.giscus.Theme
+      }
+    };
+    const giscusIframe = document.querySelector('iframe.giscus-frame');
+    giscusIframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+  }
+  pjax_giscus();
+  volantis.pjax.push(pjax_giscus);
+  volantis.dark.push(dark_giscus);
 </script>
 
 
@@ -3594,7 +3576,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 
   function loadSearchScript() {
     // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
-    return volantis.js("/js/search/hexo.js?time=1648761309236");
+    return volantis.js("/js/search/hexo.js?time=1648783897354");
   }
 
   function loadSearchService() {
@@ -3871,6 +3853,61 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 
 
 
+  <script>
+  let imgs = ["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.webp"];
+  let index = 0;
+  let IntervalParallax = null;
+
+  function parallax(){
+    let ParallaxWindow = document.querySelector("#parallax-window");
+    
+    Parallax.window = ParallaxWindow;
+    Parallax.options.fade = 1500;
+    Parallax.cache = 1;
+    next_parallax();
+    Parallax.init();
+    if (imgs.length>1) {
+      IntervalParallax = setInterval(function () {
+        next_parallax();
+      }, '10000');
+    }
+  }
+
+  function next_parallax() {
+    if (typeof Parallax == "undefined") {
+      return
+    }
+    
+      if (!document.querySelector("#full")&&!document.querySelector("#half")) {
+        return
+      }
+    
+    if (imgs.length>=1) {
+      Parallax.options.src = imgs[index % imgs.length];
+      Parallax.start();
+      index++;
+      if (Parallax.cache) {
+        fetch(imgs[index % imgs.length] +"?t=" + new Date().getTime());
+        if (index == imgs.length) {
+          Parallax.cache = 0;
+        }
+      }
+    }
+  }
+  var runningOnBrowser = typeof window !== "undefined";
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  if (!isBot) {
+    volantis.js('/js/plugins/parallax.js?time=1648783897354').then(()=>{
+      parallax()
+    })
+    volantis.pjax.send(()=>{
+      clearInterval(IntervalParallax)
+    },"clearIntervalParallax");
+    volantis.pjax.push(parallax);
+  }
+</script>
+
+
 
 
   <script>
@@ -4094,7 +4131,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"All Resonance","url":"https://resonance.fun/","logo":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"all-resonance","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://resonance.fun/","sameAs":["https://github.com/volantis-x"],"description":"物质的本质是能量，而能量的底层是精神！"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://resonance.fun/","name":"All Resonance"}},{"@type":"ListItem","position":2,"item":{"@id":"https://resonance.fun/archives/","name":"Archive"}},{"@type":"ListItem","position":3,"item":{"@id":"https://resonance.fun/archives/2021/","name":"2021年"}},{"@type":"ListItem","position":4,"item":{"@id":"https://resonance.fun/archives/2021/3/","name":"3月"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"All Resonance","url":"https://resonance.fun/","keywords":"Shilin的备忘录,html/css/JavaScript,前端工程师,Angular,Ionic,Vue,React,Node.js,Powershell,Qt5","description":"物质的本质是能量，而能量的底层是精神！","author":{"@type":"Person","name":"all-resonance","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://resonance.fun/","description":"物质的本质是能量，而能量的底层是精神！"},"publisher":{"@type":"Organization","name":"All Resonance","url":"https://resonance.fun/","logo":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://resonance.fun?s={search_term_string}"},"query-input":"required name=search_term_string"}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"All Resonance","url":"https://resonance.fun/","logo":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"all-resonance","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://resonance.fun/","sameAs":["https://github.com/volantis-x"],"description":"夫君子之行，静以修身，俭以养德，非淡泊无以明志，非宁静无以致远～"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://resonance.fun/","name":"All Resonance"}},{"@type":"ListItem","position":2,"item":{"@id":"https://resonance.fun/archives/","name":"Archive"}},{"@type":"ListItem","position":3,"item":{"@id":"https://resonance.fun/archives/2021/","name":"2021年"}},{"@type":"ListItem","position":4,"item":{"@id":"https://resonance.fun/archives/2021/3/","name":"3月"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"All Resonance","url":"https://resonance.fun/","keywords":"Shilin的备忘录,html/css/JavaScript,前端工程师,Vue,React,Node.js","description":"夫君子之行，静以修身，俭以养德，非淡泊无以明志，非宁静无以致远～","author":{"@type":"Person","name":"all-resonance","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://resonance.fun/","description":"夫君子之行，静以修身，俭以养德，非淡泊无以明志，非宁静无以致远～"},"publisher":{"@type":"Organization","name":"All Resonance","url":"https://resonance.fun/","logo":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://resonance.fun?s={search_term_string}"},"query-input":"required name=search_term_string"}}]</script>
 
 
 <!-- more -->
@@ -4119,7 +4156,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
     var pjax;
     document.addEventListener('DOMContentLoaded', function () {
       pjax = new Pjax({
-        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox]):not([onclick="return false;"]):not([target="_blank"]):not([target="view_window"]):not([href$=".xml"])',
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox]):not([onclick="return false;"]):not([onclick="return!1"]):not([target="_blank"]):not([target="view_window"]):not([href$=".xml"])',
         selectors: [
           "head title",
           "head meta[name='description']",
