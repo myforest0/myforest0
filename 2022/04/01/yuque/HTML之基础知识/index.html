@@ -23,7 +23,7 @@
   <meta content="All Resonance" name="apple-mobile-web-app-title">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/css/style.css?time=1648819448759" as="style">
+  <link rel="preload" href="/css/style.css?time=1648821723216" as="style">
   <link rel="preload" href="/media/fonts/VarelaRound/VarelaRound-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 <link rel="preload" href="/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
@@ -39,7 +39,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://resonance.fun/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-04-01T03:33:15.000Z">
-<meta property="article:modified_time" content="2022-04-01T13:24:05.847Z">
+<meta property="article:modified_time" content="2022-04-01T14:02:00.514Z">
 <meta property="article:author" content="all-resonance">
 <meta property="article:tag" content="HTML基础">
 <meta name="twitter:card" content="summary">
@@ -1783,8 +1783,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css?time=1648819448759" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/css/style.css?time=1648819448759"></noscript>
+  <link rel="stylesheet" href="/css/style.css?time=1648821723216" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css?time=1648821723216"></noscript>
     <script>
       let userColorScheme=localStorage.getItem("color-scheme")
       if(userColorScheme){
@@ -1861,9 +1861,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   volantis.dom = {}; // 页面Dom see: /source/js/app.js etc.
 
   volantis.GLOBAL_CONFIG ={
-    cdn: {"js":{"app":"/js/app.js?time=1648819448759","sites":"/js/plugins/sites.js?time=1648819448759","friends":"/js/plugins/friends.js?time=1648819448759","parallax":"/js/plugins/parallax.js?time=1648819448759","rightMenu":"/js/plugins/rightMenu.js?time=1648819448759","contributors":"/js/plugins/contributors.js?time=1648819448759","message":"/js/thirdparty/message.js?time=1648819448759","valine":"https://npm.elemecdn.com/valine@1.4/dist/Valine.min.js?time=1648819448759","search":"/js/search/hexo.js?time=1648819448759"},"css":{"style":"/css/style.css?time=1648819448759","message":"/css/message.css?time=1648819448759"}},
+    cdn: {"js":{"app":"/js/app.js?time=1648821723216","sites":"/js/plugins/sites.js?time=1648821723216","friends":"/js/plugins/friends.js?time=1648821723216","parallax":"/js/plugins/parallax.js?time=1648821723216","rightMenu":"/js/plugins/rightMenu.js?time=1648821723216","contributors":"/js/plugins/contributors.js?time=1648821723216","message":"/js/thirdparty/message.js?time=1648821723216","valine":"https://npm.elemecdn.com/valine@1.4/dist/Valine.min.js?time=1648821723216","search":"/js/search/hexo.js?time=1648821723216"},"css":{"style":"/css/style.css?time=1648821723216","message":"/css/message.css?time=1648821723216"}},
     default: {"avatar":"/media/placeholder/avatar/round/3442075.svg","link":"/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/media/placeholder/cover/76b86c0226ffd.svg","image":"/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date('1648819448759'),
+    lastupdate: new Date('1648821723216'),
     sidebar: {
       for_page: ["news","blogger","post","category","tagcloud","guide"],
       for_post: ["toc"],
@@ -2700,29 +2700,29 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <h1 id="src-和-href-的区别"><a href="#src-和-href-的区别" class="headerlink" title="src 和 href 的区别"></a>src 和 href 的区别</h1><h2 id="src"><a href="#src" class="headerlink" title="src"></a>src</h2><div class="story post-story"><p><code>src</code>用于替换当前元素，<code>href</code>用于在当前文档和引用资源之间确立联系。
+    <h2 id="src-和-href-的区别"><a href="#src-和-href-的区别" class="headerlink" title="src 和 href 的区别"></a>src 和 href 的区别</h2><div class="story post-story"><h3 id="src"><a href="#src" class="headerlink" title="src"></a>src</h3><p><code>src</code>用于替换当前元素，<code>href</code>用于在当前文档和引用资源之间确立联系。
 <code>src</code>是<code>source</code>的缩写，指向外部资源的位置，指向的内容将会嵌入到文档中当前标签所在位置；在请求<code>src</code>资源时会将其指向的资源下载并应用到文档内，例如 js 脚本，<code>img</code>图片和<code>frame</code>等元素。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;js.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>当浏览器解析到该元素时，会暂停其他资源的下载和处理，直到将该资源加载、编译、执行完毕，图片和框架等元素也如此，类似于将所指向资源嵌入当前标签内。这也是为什么将 js 脚本放在底部而不是头部。</p>
-</div><h2 id="href"><a href="#href" class="headerlink" title="href"></a>href</h2><div class="story post-story"><p><code>href</code>是<code>Hypertext Reference</code>的缩写，指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接，如果我们在文档中添加</p>
+<h3 id="href"><a href="#href" class="headerlink" title="href"></a>href</h3><p><code>href</code>是<code>Hypertext Reference</code>的缩写，指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接，如果我们在文档中添加</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;common.css&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>那么浏览器会识别该文档为 css 文件，就会并行下载资源并且不会停止对当前文档的处理。这也是为什么建议使用<code>link</code>方式来加载<code>css</code>，而不是使用<code>@import</code>方式。</p>
-<h1 id="link-标签和-script-标签的引⽤位置"><a href="#link-标签和-script-标签的引⽤位置" class="headerlink" title="link 标签和 script 标签的引⽤位置"></a>link 标签和 script 标签的引⽤位置</h1><p>常见问题： 为什么引⽤ CSS 的 link 标签放在头部，引⽤ JS 的 script 标签放在 body 结束标签之前？</p>
-</div><h2 id="link-标签放在-head-标签中"><a href="#link-标签放在-head-标签中" class="headerlink" title="link 标签放在 head 标签中"></a>link 标签放在 head 标签中</h2><div class="story post-story"><ul>
+</div><h2 id="link-标签和-script-标签的引⽤位置"><a href="#link-标签和-script-标签的引⽤位置" class="headerlink" title="link 标签和 script 标签的引⽤位置"></a>link 标签和 script 标签的引⽤位置</h2><div class="story post-story"><p>常见问题： 为什么引⽤ CSS 的 link 标签放在头部，引⽤ JS 的 script 标签放在 body 结束标签之前？</p>
+<h3 id="link-标签放在-head-标签中"><a href="#link-标签放在-head-标签中" class="headerlink" title="link 标签放在 head 标签中"></a>link 标签放在 head 标签中</h3><ul>
 <li>⽤户访问⽹站时，代码是从上往下解析的，正常展示⻚⾯内容的样式，提⾼⽤户体验</li>
 <li>放在 html 结构底部时，加载⻚⾯会出现 html 结构混乱的情况</li>
 </ul>
-</div><h2 id="script-标签放在-body-结束标签之前"><a href="#script-标签放在-body-结束标签之前" class="headerlink" title="script 标签放在 body 结束标签之前"></a>script 标签放在 body 结束标签之前</h2><div class="story post-story"><ul>
+<h3 id="script-标签放在-body-结束标签之前"><a href="#script-标签放在-body-结束标签之前" class="headerlink" title="script 标签放在 body 结束标签之前"></a>script 标签放在 body 结束标签之前</h3><ul>
 <li>JS 脚本在下载和执⾏期间会阻⽌ html 解析</li>
 <li>把 script 标签放在底部，保证 html 和 css ⾸先完成解析之后再加载 JS 脚本</li>
 <li>script 标签加上 defer 属性时，可以放在 head 标签中 （async）</li>
 </ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">defer</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="提高网站搜索权重"><a href="#提高网站搜索权重" class="headerlink" title="提高网站搜索权重"></a>提高网站搜索权重</h1><p>SEO 优化、HTML 语义化</p>
-</div><h2 id="SEO-优化"><a href="#SEO-优化" class="headerlink" title="SEO 优化"></a>SEO 优化</h2><div class="story post-story"><ul>
+</div><h2 id="提高网站搜索权重"><a href="#提高网站搜索权重" class="headerlink" title="提高网站搜索权重"></a>提高网站搜索权重</h2><div class="story post-story"><p>SEO 优化、HTML 语义化</p>
+<h3 id="SEO-优化"><a href="#SEO-优化" class="headerlink" title="SEO 优化"></a>SEO 优化</h3><ul>
 <li>设置⽹站的 title 标题标签，如：</li>
 </ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>在这里写入标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -2737,18 +2737,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span></span></span><br><span class="line"><span class="tag">  <span class="attr">name</span>=<span class="string">&quot;keywords&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">content</span>=<span class="string">&quot;Shilin的备忘录,html/css/JavaScript,前端工程师,Vue,React,Node.js&quot;</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br></pre></td></tr></table></figure>
 
-</div><h2 id="HTML-语义化"><a href="#HTML-语义化" class="headerlink" title="HTML 语义化"></a>HTML 语义化</h2><div class="story post-story"><ul>
+<h3 id="HTML-语义化"><a href="#HTML-语义化" class="headerlink" title="HTML 语义化"></a>HTML 语义化</h3><ul>
 <li>使⽤正确的标签引⽤正确的内容</li>
 <li>增强可读性，结构更加清晰，便于对浏览器、搜索引擎解析</li>
 <li>搜索引擎的爬⾍也依赖于 HTML 标记来确定上下⽂和各个关键字的权重，利于 SEO</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">header、footer、a、p、ul、ol、li、h1、h2、h3...</span><br></pre></td></tr></table></figure>
 
-<h1 id="设置移动端视口大小"><a href="#设置移动端视口大小" class="headerlink" title="设置移动端视口大小"></a>设置移动端视口大小</h1><p>常见问题：如何在不同移动设备的屏幕下正常展示网页的内容？</p>
-</div><h2 id="viewport"><a href="#viewport" class="headerlink" title="viewport"></a>viewport</h2><div class="story post-story"><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>手机浏览器会把页面放⼊到⼀个虚拟的视⼝（viewpoint）中，但 viewport ⼜不局限于浏览器可视区域的大小，它可能比浏览器的可视区域大，也可能比浏览器的可视区域小。通常这个虚拟的视口（viewport）比屏幕宽，会把网页挤到⼀个很小的窗口。</p>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span></span></span><br><span class="line"><span class="tag">  <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">content</span>=<span class="string">&quot;width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no&quot;</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br></pre></td></tr></table></figure>
+</div><h2 id="设置移动端视口大小"><a href="#设置移动端视口大小" class="headerlink" title="设置移动端视口大小"></a>设置移动端视口大小</h2><div class="story post-story"><p>常见问题：如何在不同移动设备的屏幕下正常展示网页的内容？</p>
+<h3 id="viewport"><a href="#viewport" class="headerlink" title="viewport"></a>viewport</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>手机浏览器会把页面放⼊到⼀个虚拟的视⼝（viewpoint）中，但 viewport ⼜不局限于浏览器可视区域的大小，它可能比浏览器的可视区域大，也可能比浏览器的可视区域小。通常这个虚拟的视口（viewport）比屏幕宽，会把网页挤到⼀个很小的窗口。</p>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span></span></span><br><span class="line"><span class="tag">  <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">content</span>=<span class="string">&quot;width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no&quot;</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><table>
+<h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><table>
 <thead>
 <tr>
 <th>属性</th>
@@ -2780,11 +2780,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <td>是否允许用户进行缩放，no 代表不允许，yes 代表允许</td>
 </tr>
 </tbody></table>
-<h1 id="DOM、BOM-的区别与使用"><a href="#DOM、BOM-的区别与使用" class="headerlink" title="DOM、BOM 的区别与使用"></a>DOM、BOM 的区别与使用</h1></div><h2 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h2><div class="story post-story"><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><ul>
+</div><h2 id="DOM、BOM-的区别与使用"><a href="#DOM、BOM-的区别与使用" class="headerlink" title="DOM、BOM 的区别与使用"></a>DOM、BOM 的区别与使用</h2><div class="story post-story"><h3 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h3><h4 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h4><ul>
 <li>DOM 就是⽂档对象模型，是⼀个抽象的概念</li>
 <li>定义了访问和操作 HTML ⽂档的⽅法和属性</li>
 </ul>
-<h3 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h3><ul>
+<h4 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h4><ul>
 <li>查找节点</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">&quot;xd&quot;</span>);</span><br></pre></td></tr></table></figure>
@@ -2799,11 +2799,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.createElement(<span class="string">&quot;h1&quot;</span>);</span><br></pre></td></tr></table></figure>
 
-</div><h2 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h2><div class="story post-story"><h3 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h3><ul>
+<h3 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h3><h4 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h4><ul>
 <li>BOM 就是浏览器对象模型</li>
 <li>内置对象定义操作浏览器的⽅法</li>
 </ul>
-<h3 id="使用-2"><a href="#使用-2" class="headerlink" title="使用"></a>使用</h3><ul>
+<h4 id="使用-2"><a href="#使用-2" class="headerlink" title="使用"></a>使用</h4><ul>
 <li>window</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.alert(<span class="string">&quot;你好，世界&quot;</span>);</span><br></pre></td></tr></table></figure>
@@ -2863,7 +2863,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-04-01T13:24:05+00:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-04-01T14:02:00+00:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2022年4月1日</p>
@@ -3011,7 +3011,7 @@ React 虚拟 dom 的数据结构时间复杂度是 O(n^3)，链表的数据结�
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#src"><span class="toc-number">1.</span> <span class="toc-text">src</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#href"><span class="toc-number">2.</span> <span class="toc-text">href</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#link-%E6%A0%87%E7%AD%BE%E6%94%BE%E5%9C%A8-head-%E6%A0%87%E7%AD%BE%E4%B8%AD"><span class="toc-number">3.</span> <span class="toc-text">link 标签放在 head 标签中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#script-%E6%A0%87%E7%AD%BE%E6%94%BE%E5%9C%A8-body-%E7%BB%93%E6%9D%9F%E6%A0%87%E7%AD%BE%E4%B9%8B%E5%89%8D"><span class="toc-number">4.</span> <span class="toc-text">script 标签放在 body 结束标签之前</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SEO-%E4%BC%98%E5%8C%96"><span class="toc-number">5.</span> <span class="toc-text">SEO 优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML-%E8%AF%AD%E4%B9%89%E5%8C%96"><span class="toc-number">6.</span> <span class="toc-text">HTML 语义化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#viewport"><span class="toc-number">7.</span> <span class="toc-text">viewport</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">7.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">7.2.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7"><span class="toc-number">7.3.</span> <span class="toc-text">属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM"><span class="toc-number">8.</span> <span class="toc-text">DOM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="toc-number">8.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-1"><span class="toc-number">8.2.</span> <span class="toc-text">使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BOM"><span class="toc-number">9.</span> <span class="toc-text">BOM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-2"><span class="toc-number">9.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-2"><span class="toc-number">9.2.</span> <span class="toc-text">使用</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#src-%E5%92%8C-href-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.</span> <span class="toc-text">src 和 href 的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#src"><span class="toc-number">1.1.</span> <span class="toc-text">src</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#href"><span class="toc-number">1.2.</span> <span class="toc-text">href</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#link-%E6%A0%87%E7%AD%BE%E5%92%8C-script-%E6%A0%87%E7%AD%BE%E7%9A%84%E5%BC%95%E2%BD%A4%E4%BD%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">link 标签和 script 标签的引⽤位置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#link-%E6%A0%87%E7%AD%BE%E6%94%BE%E5%9C%A8-head-%E6%A0%87%E7%AD%BE%E4%B8%AD"><span class="toc-number">2.1.</span> <span class="toc-text">link 标签放在 head 标签中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#script-%E6%A0%87%E7%AD%BE%E6%94%BE%E5%9C%A8-body-%E7%BB%93%E6%9D%9F%E6%A0%87%E7%AD%BE%E4%B9%8B%E5%89%8D"><span class="toc-number">2.2.</span> <span class="toc-text">script 标签放在 body 结束标签之前</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E9%AB%98%E7%BD%91%E7%AB%99%E6%90%9C%E7%B4%A2%E6%9D%83%E9%87%8D"><span class="toc-number">3.</span> <span class="toc-text">提高网站搜索权重</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SEO-%E4%BC%98%E5%8C%96"><span class="toc-number">3.1.</span> <span class="toc-text">SEO 优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML-%E8%AF%AD%E4%B9%89%E5%8C%96"><span class="toc-number">3.2.</span> <span class="toc-text">HTML 语义化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%A7%86%E5%8F%A3%E5%A4%A7%E5%B0%8F"><span class="toc-number">4.</span> <span class="toc-text">设置移动端视口大小</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#viewport"><span class="toc-number">4.1.</span> <span class="toc-text">viewport</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">4.1.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">4.1.2.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7"><span class="toc-number">4.1.3.</span> <span class="toc-text">属性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM%E3%80%81BOM-%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E4%BD%BF%E7%94%A8"><span class="toc-number">5.</span> <span class="toc-text">DOM、BOM 的区别与使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM"><span class="toc-number">5.1.</span> <span class="toc-text">DOM</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="toc-number">5.1.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-1"><span class="toc-number">5.1.2.</span> <span class="toc-text">使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BOM"><span class="toc-number">5.2.</span> <span class="toc-text">BOM</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-2"><span class="toc-number">5.2.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-2"><span class="toc-number">5.2.2.</span> <span class="toc-text">使用</span></a></li></ol></li></ol></li></ol>
     </div>
   </section>
 
@@ -3197,7 +3197,7 @@ React 虚拟 dom 的数据结构时间复杂度是 O(n^3)，链表的数据结�
 
 <!-- internal -->
 
-<script src="/js/app.js?time=1648819448759.js"></script>
+<script src="/js/app.js?time=1648821723216.js"></script>
 
 
 
@@ -3339,7 +3339,7 @@ React 虚拟 dom 的数据结构时间复杂度是 O(n^3)，链表的数据结�
       
     </ul>
   </div>
-  <script>volantis.js('/js/plugins/rightMenu.js?time=1648819448759')</script>
+  <script>volantis.js('/js/plugins/rightMenu.js?time=1648821723216')</script>
 
 
 
@@ -3468,19 +3468,19 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/js/plugins/sites.js?time=1648819448759")
+        volantis.js("/js/plugins/sites.js?time=1648821723216")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/js/plugins/friends.js?time=1648819448759")
+        volantis.js("/js/plugins/friends.js?time=1648821723216")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/js/plugins/contributors.js?time=1648819448759")
+        volantis.js("/js/plugins/contributors.js?time=1648821723216")
       }
     
   };
@@ -3549,7 +3549,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
     await volantis.js("/libs/meting/dist/Meting.min.js")
   
     // 右键 music 需要在 APlayer  MetingJS 之后加载
-    await volantis.js('/js/plugins/aplayer.js?time=1648819448759')
+    await volantis.js('/js/plugins/aplayer.js?time=1648821723216')
   
   })();
 
@@ -3681,7 +3681,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 
   function loadSearchScript() {
     // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
-    return volantis.js("/js/search/hexo.js?time=1648819448759");
+    return volantis.js("/js/search/hexo.js?time=1648821723216");
   }
 
   function loadSearchService() {
@@ -3959,7 +3959,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 
 
   <script>
-  let imgs = ["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.webp"];
+  let imgs = ["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.webp"];
   let index = 0;
   let IntervalParallax = null;
 
@@ -4002,7 +4002,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
   var runningOnBrowser = typeof window !== "undefined";
   var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
   if (!isBot) {
-    volantis.js('/js/plugins/parallax.js?time=1648819448759').then(()=>{
+    volantis.js('/js/plugins/parallax.js?time=1648821723216').then(()=>{
       parallax()
     })
     volantis.pjax.send(()=>{
@@ -4236,7 +4236,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"All Resonance","url":"https://resonance.fun/","logo":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"all-resonance","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://resonance.fun/","sameAs":["https://github.com/volantis-x"],"description":"夫君子之行，静以修身，俭以养德，非淡泊无以明志，非宁静无以致远～"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://resonance.fun/","name":"All Resonance"}},{"@type":"ListItem","position":2,"item":{"@id":"https://resonance.fun/categories/HTML/","name":"HTML"}},{"@type":"ListItem","position":3,"item":{"@id":"https://resonance.fun/2022/04/01/yuque/HTML之基础知识/","name":"HTML之基础知识"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"HTML之基础知识","description":"","datePublished":"2022-04-01T03:33:15.000Z","dateModified":"2022-04-01T13:24:05.847Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://resonance.fun/2022/04/01/yuque/HTML%E4%B9%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"},"author":{"@type":"Person","name":"all-resonance","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://resonance.fun/"},"publisher":{"@type":"Organization","name":"All Resonance","logo":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://resonance.fun/2022/04/01/yuque/HTML%E4%B9%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/","wordCount":0,"articleSection":"HTML","keywords":"HTML基础","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"All Resonance","url":"https://resonance.fun/","logo":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"all-resonance","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://resonance.fun/","sameAs":["https://github.com/volantis-x"],"description":"夫君子之行，静以修身，俭以养德，非淡泊无以明志，非宁静无以致远～"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://resonance.fun/","name":"All Resonance"}},{"@type":"ListItem","position":2,"item":{"@id":"https://resonance.fun/categories/HTML/","name":"HTML"}},{"@type":"ListItem","position":3,"item":{"@id":"https://resonance.fun/2022/04/01/yuque/HTML之基础知识/","name":"HTML之基础知识"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"HTML之基础知识","description":"","datePublished":"2022-04-01T03:33:15.000Z","dateModified":"2022-04-01T14:02:00.514Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://resonance.fun/2022/04/01/yuque/HTML%E4%B9%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"},"author":{"@type":"Person","name":"all-resonance","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://resonance.fun/"},"publisher":{"@type":"Organization","name":"All Resonance","logo":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://resonance.fun/2022/04/01/yuque/HTML%E4%B9%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/","wordCount":0,"articleSection":"HTML","keywords":"HTML基础","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 <!-- more -->
