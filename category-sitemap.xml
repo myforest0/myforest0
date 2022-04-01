@@ -9,8 +9,22 @@
 
 
     <url>
+        <loc>https://resonance.fun/categories/HTML/</loc>
+        <lastmod>2022-04-01T13:24:05.847Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://resonance.fun/categories/CSS/</loc>
+        <lastmod>2022-04-01T13:24:05.847Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://resonance.fun/categories/JavaScript/</loc>
-        <lastmod>2022-04-01T03:31:34.912Z</lastmod>
+        <lastmod>2022-04-01T13:24:05.843Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
