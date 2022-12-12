@@ -4,28 +4,28 @@
 
     <url>
         <loc>https://resonance.fun/tags/JavaScript%E5%9F%BA%E7%A1%80/</loc>
-        <lastmod>2022-12-11T21:12:42.329Z</lastmod>
+        <lastmod>2022-12-12T21:14:01.803Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://resonance.fun/tags/HTML%E5%9F%BA%E7%A1%80/</loc>
-        <lastmod>2022-12-11T21:12:42.329Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://resonance.fun/tags/ES6/</loc>
-        <lastmod>2022-12-11T21:12:42.329Z</lastmod>
+        <lastmod>2022-12-12T21:14:01.803Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://resonance.fun/tags/CSS%E5%9F%BA%E7%A1%80/</loc>
-        <lastmod>2022-12-11T21:12:42.329Z</lastmod>
+        <lastmod>2022-12-12T21:14:01.803Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://resonance.fun/tags/ES6/</loc>
+        <lastmod>2022-12-12T21:14:01.799Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
