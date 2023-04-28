@@ -10,21 +10,21 @@
 
     <url>
         <loc>https://resonance.fun/categories/HTML/</loc>
-        <lastmod>2023-04-27T21:12:05.409Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://resonance.fun/categories/CSS/</loc>
-        <lastmod>2023-04-27T21:12:05.409Z</lastmod>
+        <lastmod>2023-04-28T21:11:47.187Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://resonance.fun/categories/JavaScript/</loc>
-        <lastmod>2023-04-27T21:12:05.405Z</lastmod>
+        <lastmod>2023-04-28T21:11:47.187Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://resonance.fun/categories/CSS/</loc>
+        <lastmod>2023-04-28T21:11:47.187Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
