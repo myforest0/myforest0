@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="https://resonance.fun/2022/04/06/yuque/react之基础知识/"/>
+  <link rel="canonical" href="https://resonance.fun/2023/05/19/yuque/note of react source/"/>
   <!-- 渲染优化 -->
   <!-- 语雀 cdn 防盗链临时解决方案  -->
   <meta name="referrer" content="no-referrer" />
@@ -23,23 +23,23 @@
   <meta content="All Resonance" name="apple-mobile-web-app-title">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/css/style.css?time=1684444322460" as="style">
+  <link rel="preload" href="/css/style.css?time=1684530684691" as="style">
   <link rel="preload" href="/media/fonts/VarelaRound/VarelaRound-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 <link rel="preload" href="/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
   <!-- 页面元数据 -->
-  <title>React之基础知识 - All Resonance</title>
+  <title>Note of react source - All Resonance</title>
   <meta name="keywords" content="Shilin的备忘录,html/css/JavaScript,前端工程师,Vue,React,Node.js">
-  <meta name="description" content="JSX 是什么JSX 是 Facebook 创造的用来描述用户界面的，实际上它是 JavaScript，在 React 代码执行之前，它就被 Babel 编译成了 React API。 1234&lt;div className&#x3D;&quot;container&quot;&gt;  &lt;h3&gt;Hello React&lt;&#x2F;h3&gt;  &lt;p&gt;React is great&amp;">
+  <meta name="description" content="{“format”:”lakeboard”,”type”:”Board”,”version”:”1.0”,”diagramData”:{“head”:{“version”:”2.0.0”,”theme”:{“name”:”wuxia_qingqiu”},”rough”:{“name”:”hachure”}},”body”:[{“type”:”geometry”,”html”:”&lt;div st">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React之基础知识">
-<meta property="og:url" content="https://resonance.fun/2022/04/06/yuque/React%E4%B9%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html">
+<meta property="og:title" content="Note of react source">
+<meta property="og:url" content="https://resonance.fun/2023/05/19/yuque/Note%20of%20react%20source/index.html">
 <meta property="og:site_name" content="All Resonance">
-<meta property="og:description" content="JSX 是什么JSX 是 Facebook 创造的用来描述用户界面的，实际上它是 JavaScript，在 React 代码执行之前，它就被 Babel 编译成了 React API。 1234&lt;div className&#x3D;&quot;container&quot;&gt;  &lt;h3&gt;Hello React&lt;&#x2F;h3&gt;  &lt;p&gt;React is great&amp;">
+<meta property="og:description" content="{“format”:”lakeboard”,”type”:”Board”,”version”:”1.0”,”diagramData”:{“head”:{“version”:”2.0.0”,”theme”:{“name”:”wuxia_qingqiu”},”rough”:{“name”:”hachure”}},”body”:[{“type”:”geometry”,”html”:”&lt;div st">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://resonance.fun/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-04-06T05:57:26.000Z">
-<meta property="article:modified_time" content="2023-05-18T21:11:59.729Z">
+<meta property="article:published_time" content="2023-05-19T05:53:29.000Z">
+<meta property="article:modified_time" content="2023-05-19T21:11:22.054Z">
 <meta property="article:author" content="all-resonance">
 <meta property="article:tag" content="Shilin的备忘录,html&#x2F;css&#x2F;JavaScript,前端工程师,Vue,React,Node.js">
 <meta name="twitter:card" content="summary">
@@ -1815,8 +1815,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css?time=1684444322460" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/css/style.css?time=1684444322460"></noscript>
+  <link rel="stylesheet" href="/css/style.css?time=1684530684691" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css?time=1684530684691"></noscript>
     <script>
       let userColorScheme=localStorage.getItem("color-scheme")
       if(userColorScheme){
@@ -1893,9 +1893,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   volantis.dom = {}; // 页面Dom see: /source/js/app.js etc.
 
   volantis.GLOBAL_CONFIG ={
-    cdn: {"js":{"app":"/js/app.js?time=1684444322460","sites":"/js/plugins/sites.js?time=1684444322460","friends":"/js/plugins/friends.js?time=1684444322460","parallax":"/js/plugins/parallax.js?time=1684444322460","rightMenu":"/js/plugins/rightMenu.js?time=1684444322460","contributors":"/js/plugins/contributors.js?time=1684444322460","message":"/js/thirdparty/message.js?time=1684444322460","valine":"https://npm.elemecdn.com/valine@1.4/dist/Valine.min.js?time=1684444322460","search":"/js/search/hexo.js?time=1684444322460"},"css":{"style":"/css/style.css?time=1684444322460","message":"/css/message.css?time=1684444322460"}},
+    cdn: {"js":{"app":"/js/app.js?time=1684530684691","sites":"/js/plugins/sites.js?time=1684530684691","friends":"/js/plugins/friends.js?time=1684530684691","parallax":"/js/plugins/parallax.js?time=1684530684691","rightMenu":"/js/plugins/rightMenu.js?time=1684530684691","contributors":"/js/plugins/contributors.js?time=1684530684691","message":"/js/thirdparty/message.js?time=1684530684691","valine":"https://npm.elemecdn.com/valine@1.4/dist/Valine.min.js?time=1684530684691","search":"/js/search/hexo.js?time=1684530684691"},"css":{"style":"/css/style.css?time=1684530684691","message":"/css/message.css?time=1684530684691"}},
     default: {"avatar":"/media/placeholder/avatar/round/3442075.svg","link":"/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/media/placeholder/cover/76b86c0226ffd.svg","image":"/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date('1684444322460'),
+    lastupdate: new Date('1684530684691'),
     sidebar: {
       for_page: ["news","blogger","post","category","tagcloud","guide"],
       for_post: ["toc"],
@@ -2645,7 +2645,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="https://resonance.fun/2022/04/06/yuque/React%E4%B9%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+  <link itemprop="mainEntityOfPage" href="https://resonance.fun/2023/05/19/yuque/Note%20of%20react%20source/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="All Resonance">
   </span>
@@ -2666,7 +2666,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        React之基础知识
+        Note of react source
       </h1>
       <div class='new-meta-box'>
         
@@ -2687,10 +2687,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-04-06T05:57:26+00:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2023-05-19T05:53:29+00:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年4月6日</p>
+    <p>发布于：2023年5月19日</p>
   </a>
 </div>
 
@@ -2701,7 +2701,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="React之基础知识" data-path="/2022/04/06/yuque/React%E4%B9%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+      <div id="lc-pv" data-title="Note of react source" data-path="/2023/05/19/yuque/Note%20of%20react%20source/">
         <i class="fa-solid fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fa-solid fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -2722,12 +2722,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <h2 id="JSX-是什么"><a href="#JSX-是什么" class="headerlink" title="JSX 是什么"></a>JSX 是什么</h2><div class="story post-story"><p>JSX 是 Facebook 创造的用来描述用户界面的，实际上它是 JavaScript，在 React 代码执行之前，它就被 Babel 编译成了 React API。</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div className=<span class="string">&quot;container&quot;</span>&gt;</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>Hello React<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span></span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>React is great<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+    <p>{“format”:”lakeboard”,”type”:”Board”,”version”:”1.0”,”diagramData”:{“head”:{“version”:”2.0.0”,”theme”:{“name”:”wuxia_qingqiu”},”rough”:{“name”:”hachure”}},”body”:[{“type”:”geometry”,”html”:”&lt;div style=&quot;text-align:center;&quot;&gt;&lt;span style=&quot;font-weight:bold; color:rgb(88, 90, 90);&quot;&gt;开始</span></div>“,”shape”:”start-end”,”stroke”:{“color”:”rgba(214, 178, 53, 1)”},”id”:”d77c3c0a-5f56-467e-87c2-13c326d1437e”,”x”:1231.7469236159975,”y”:217.79367800092942,”width”:100,”height”:40,”zIndex”:0,”defaultContentStyle”:{“color”:”#585A5A”,”font-family”:”shouxie”},”fill”:{“color”:”rgba(246, 230, 218, 1)”},”roughFillStyle”:”hachure”},{“type”:”geometry”,”html”:”&lt;div style=&quot;text-align:center;&quot;&gt;&lt;span style=&quot;font-weight:bold; color:rgb(88, 90, 90);&quot;&gt;结束</span></div>“,”shape”:”start-end”,”stroke”:{“color”:”rgba(214, 178, 53, 1)”},”id”:”0cd21805-0c46-4a09-ae34-b9febe1901e4”,”x”:1351.4645164619487,”y”:217.79367800092942,”width”:100,”height”:40,”zIndex”:1,”defaultContentStyle”:{“color”:”#585A5A”,”font-family”:”shouxie”},”fill”:{“color”:”rgba(246, 230, 218, 1)”},”roughFillStyle”:”hachure”},{“type”:”text”,”html”:”&lt;span style=&quot;font-weight:bold; font-size:18px; color:rgb(88, 90, 90);&quot;&gt;常用图例</span>“,”id”:”4ab3d958-9c7e-4db0-857b-a5b55c40a379”,”x”:1232.2469236159975,”y”:158.578895672147,”zIndex”:2,”defaultContentStyle”:{“color”:”#585A5A”,”font-family”:”shouxie”},”roughFillStyle”:”hachure”},{“type”:”geometry”,”html”:”&lt;div style=&quot;text-align:center;&quot;&gt;&lt;span style=&quot;color:rgb(88, 90, 90);&quot;&gt;有下级流程</span></div>“,”shape”:”subroutine”,”fill”:{“color”:”rgba(217, 234, 228, 1)”},”id”:”3665d196-9e63-4291-918a-6678f563b53a”,”x”:1232.7469236159975,”y”:297.5878918759557,”width”:120,”height”:60,”rotate”:0,”zIndex”:3,”defaultContentStyle”:{“color”:”#585A5A”,”font-family”:”shouxie”},”stroke”:{“color”:”rgba(238, 205, 180, 1)”},”roughFillStyle”:”hachure”},{“id”:”853cfdf0-e131-45f3-a18d-25bd5c52429f”,”type”:”group”,”children”:[{“type”:”geometry”,”html”:”&lt;div style=&quot;text-align:center;&quot;&gt;<div>&lt;span style=&quot;color:rgb(88, 90, 90);&quot;&gt;线上流程</span></div></div>“,”shape”:”rect”,”id”:”e65c5a0e-2353-46eb-9de0-679f9dd6dced”,”x”:1232.7469236159975,”y”:487.5896421179138,”width”:120,”height”:59.55902099609375,”rotate”:0,”zIndex”:4,”defaultContentStyle”:{“color”:”#585A5A”,”font-family”:”shouxie”},”fill”:{“color”:”rgba(246, 230, 218, 1)”},”stroke”:{“color”:”rgba(238, 205, 180, 1)”},”roughFillStyle”:”hachure”},{“type”:”image”,”image”:{“src”:”<a target="_blank" rel="noopener" href="https://cdn.nlark.com/yuque/0/2021/png/956523/1636343233420-2f8f6dfc-ed48-47b7-96d5-579aa86d7ba7.png&quot;,&quot;naturalWidth&quot;:48,&quot;naturalHeight&quot;:48,&quot;uploadInfo&quot;:%7B&quot;hash&quot;:&quot;4b005ea1317206bbf60dec46a48aaf91aea9b6708f31da6160d919c53698ccda&quot;,&quot;fileName&quot;:&quot;image.png&quot;,&quot;fileType&quot;:&quot;image/png&quot;,&quot;fileSize&quot;:868,&quot;localTempSrc&quot;:&quot;blob:https://www.yuque.com/bb91d914-3890-4ed2-a6b6-724d146cc40b&quot;,&quot;state&quot;:-2%7D,&quot;firstInsertRatio&quot;:0.5%7D,&quot;width&quot;:20.36769761396181,&quot;height&quot;:20.36769761396181,&quot;x&quot;:1221.5630748090166,&quot;y&quot;:475.4057933109329,&quot;constraints&quot;:%7B&quot;proportion&quot;:true%7D,&quot;id&quot;:&quot;eb56704d-9a94-4726-925a-ac3b7938b94b&quot;,&quot;rotate&quot;:0,&quot;zIndex&quot;:5%7D],&quot;zIndex&quot;:6%7D,%7B&quot;id&quot;:&quot;5e474600-1bb5-4b6a-b551-8f945e1fd416&quot;,&quot;type&quot;:&quot;group&quot;,&quot;children&quot;:[%7B&quot;type&quot;:&quot;geometry&quot;,&quot;html&quot;:&quot;">https://cdn.nlark.com/yuque/0/2021/png/956523/1636343233420-2f8f6dfc-ed48-47b7-96d5-579aa86d7ba7.png&quot;,&quot;naturalWidth&quot;:48,&quot;naturalHeight&quot;:48,&quot;uploadInfo&quot;:{&quot;hash&quot;:&quot;4b005ea1317206bbf60dec46a48aaf91aea9b6708f31da6160d919c53698ccda&quot;,&quot;fileName&quot;:&quot;image.png&quot;,&quot;fileType&quot;:&quot;image/png&quot;,&quot;fileSize&quot;:868,&quot;localTempSrc&quot;:&quot;blob:https://www.yuque.com/bb91d914-3890-4ed2-a6b6-724d146cc40b&quot;,&quot;state&quot;:-2},&quot;firstInsertRatio&quot;:0.5},&quot;width&quot;:20.36769761396181,&quot;height&quot;:20.36769761396181,&quot;x&quot;:1221.5630748090166,&quot;y&quot;:475.4057933109329,&quot;constraints&quot;:{&quot;proportion&quot;:true},&quot;id&quot;:&quot;eb56704d-9a94-4726-925a-ac3b7938b94b&quot;,&quot;rotate&quot;:0,&quot;zIndex&quot;:5}],&quot;zIndex&quot;:6},{&quot;id&quot;:&quot;5e474600-1bb5-4b6a-b551-8f945e1fd416&quot;,&quot;type&quot;:&quot;group&quot;,&quot;children&quot;:[{&quot;type&quot;:&quot;geometry&quot;,&quot;html&quot;:&quot;</a>&lt;div style=&quot;text-align:center;&quot;&gt;<div>&lt;span style=&quot;color:rgb(88, 90, 90);&quot;&gt;重点流程</span></div></div>“,”shape”:”rect”,”id”:”ff54d206-c394-441c-9140-db5d7972caa1”,”x”:1232.7469236159975,”y”:397.78233073036057,”width”:120,”height”:59.55902099609375,”rotate”:0,”zIndex”:7,”defaultContentStyle”:{“color”:”#585A5A”,”font-family”:”shouxie”},”fill”:{“color”:”rgba(246, 230, 218, 1)”},”stroke”:{“color”:”rgba(238, 205, 180, 1)”},”roughFillStyle”:”hachure”},{“type”:”image”,”image”:{“src”:”<a target="_blank" rel="noopener" href="https://cdn.nlark.com/yuque/0/2021/png/956523/1636343251316-136a467f-c37c-47ac-bb36-401870da6525.png&quot;,&quot;naturalWidth&quot;:40,&quot;naturalHeight&quot;:40,&quot;uploadInfo&quot;:%7B&quot;hash&quot;:&quot;392f08f262c7ad00893020ec8cf6f28f7c9f343d5cc0fcfa66a1622aa34e2d03&quot;,&quot;fileName&quot;:&quot;image.png&quot;,&quot;fileType&quot;:&quot;image/png&quot;,&quot;fileSize&quot;:643,&quot;localTempSrc&quot;:&quot;blob:https://www.yuque.com/013b7caf-dc0b-4bb7-8075-6e1c27328b82&quot;,&quot;state&quot;:-2%7D,&quot;firstInsertRatio&quot;:0.5%7D,&quot;width&quot;:16.76159571946846,&quot;height&quot;:16.76159571946846,&quot;x&quot;:1222.533000718801,&quot;y&quot;:391.56840783316403,&quot;constraints&quot;:%7B&quot;proportion&quot;:true%7D,&quot;id&quot;:&quot;301926bc-ae1c-46c5-a1b8-aa0ca633d441&quot;,&quot;rotate&quot;:0,&quot;zIndex&quot;:8%7D],&quot;zIndex&quot;:9%7D,%7B&quot;type&quot;:&quot;geometry&quot;,&quot;html&quot;:&quot;">https://cdn.nlark.com/yuque/0/2021/png/956523/1636343251316-136a467f-c37c-47ac-bb36-401870da6525.png&quot;,&quot;naturalWidth&quot;:40,&quot;naturalHeight&quot;:40,&quot;uploadInfo&quot;:{&quot;hash&quot;:&quot;392f08f262c7ad00893020ec8cf6f28f7c9f343d5cc0fcfa66a1622aa34e2d03&quot;,&quot;fileName&quot;:&quot;image.png&quot;,&quot;fileType&quot;:&quot;image/png&quot;,&quot;fileSize&quot;:643,&quot;localTempSrc&quot;:&quot;blob:https://www.yuque.com/013b7caf-dc0b-4bb7-8075-6e1c27328b82&quot;,&quot;state&quot;:-2},&quot;firstInsertRatio&quot;:0.5},&quot;width&quot;:16.76159571946846,&quot;height&quot;:16.76159571946846,&quot;x&quot;:1222.533000718801,&quot;y&quot;:391.56840783316403,&quot;constraints&quot;:{&quot;proportion&quot;:true},&quot;id&quot;:&quot;301926bc-ae1c-46c5-a1b8-aa0ca633d441&quot;,&quot;rotate&quot;:0,&quot;zIndex&quot;:8}],&quot;zIndex&quot;:9},{&quot;type&quot;:&quot;geometry&quot;,&quot;html&quot;:&quot;</a>&lt;div style=&quot;text-align:center;&quot;&gt;&lt;span style=&quot;color:rgb(88, 90, 90);&quot;&gt;判断</span></div>“,”shape”:”decision”,”id”:”60cb4b7b-5a16-48eb-84d7-c2ecc6ec9df9”,”x”:1232.7469236159975,”y”:749.3795685699731,”width”:140,”height”:70,”constraints”:{“proportion”:false},”zIndex”:10,”defaultContentStyle”:{“color”:”#585A5A”,”font-family”:”shouxie”},”fill”:{“color”:”rgba(246, 230, 218, 1)”},”stroke”:{“color”:”rgba(238, 205, 180, 1)”},”roughFillStyle”:”hachure”},{“type”:”geometry”,”html”:”&lt;div style=&quot;text-align:center;&quot;&gt;&lt;span style=&quot;color:rgb(88, 90, 90);&quot;&gt;通知</span></div>“,”shape”:”manual-input”,”id”:”c3e22313-c781-43ad-b952-e25980431e37”,”x”:1232.7469236159975,”y”:841.8689119826031,”width”:120,”height”:60,”zIndex”:11,”defaultContentStyle”:{“color”:”#585A5A”,”font-family”:”shouxie”},”fill”:{“color”:”rgba(246, 230, 218, 1)”},”stroke”:{“color”:”rgba(238, 205, 180, 1)”},”roughFillStyle”:”hachure”},{“type”:”geometry”,”html”:”&lt;div style=&quot;text-align:center;&quot;&gt;&lt;span style=&quot;color:rgb(88, 90, 90);&quot;&gt;文档</span></div>“,”shape”:”document”,”id”:”df18e219-c43f-479d-93c5-ed264a1fcb71”,”x”:1232.7469236159975,”y”:668.6005645154596,”width”:120,”height”:60,”zIndex”:12,”defaultContentStyle”:{“color”:”#585A5A”,”font-family”:”shouxie”},”fill”:{“color”:”rgba(246, 230, 218, 1)”},”stroke”:{“color”:”rgba(238, 205, 180, 1)”},”roughFillStyle”:”hachure”},{“type”:”line”,”shape”:”elbow”,”source”:{“connection”:[1231.7469176894365,1000.0922964973895]},”html”:”&lt;div style=&quot;text-align:center;&quot;&gt;&lt;span style=&quot;font-size:12px; color:rgb(88, 90, 90);&quot;&gt;Y/N</span></div>“,”target”:{“connection”:[1484.7469176894365,1000.0922964973895],”marker”:”arrow”},”id”:”91d351cd-2e90-4aab-b260-8253d0b50846”,”controlPoints”:[],”opacity”:1,”stroke”:{“color”:”rgba(212, 131, 68, 1)”},”zIndex”:13,”defaultContentStyle”:{“color”:”#585A5A”,”font-family”:”shouxie”},”roughFillStyle”:”hachure”},{“type”:”line”,”shape”:”elbow”,”source”:{“connection”:[1231.7469176894365,962.0441519025983]},”html”:”&lt;div style=&quot;text-align:center;&quot;&gt;&lt;span style=&quot;font-size:12px; color:rgb(88, 90, 90);&quot;&gt;AND/OR</span></div>“,”target”:{“connection”:[1484.7469176894365,962.0441519025983]},”id”:”9adcb896-6835-4564-b4e5-f1066da03077”,”controlPoints”:[],”stroke”:{“style”:”dash”,”color”:”rgba(212, 131, 68, 1)”},”opacity”:1,”zIndex”:14,”defaultContentStyle”:{“color”:”#585A5A”,”font-family”:”shouxie”},”roughFillStyle”:”hachure”},{“id”:”4401993f-fe8a-4838-b579-e9c357c0200e”,”type”:”group”,”children”:[{“type”:”geometry”,”html”:”&lt;div style=&quot;text-align:center;&quot;&gt;&lt;span style=&quot;color:rgb(88, 90, 90);&quot;&gt;自动化流程</span></div>“,”shape”:”rect”,”id”:”46bb4b1d-1b62-4d07-bc22-12530a034cb5”,”x”:1232.7469236159975,”y”:576.57172251218,”width”:120,”height”:59.55902099609375,”rotate”:0,”zIndex”:15,”defaultContentStyle”:{“color”:”#585A5A”,”font-family”:”shouxie”},”fill”:{“color”:”rgba(246, 230, 218, 1)”},”stroke”:{“color”:”rgba(238, 205, 180, 1)”},”roughFillStyle”:”hachure”},{“type”:”geometry”,”html”:”&lt;div style=&quot;text-align:center;&quot;&gt;&lt;span style=&quot;font-weight:bold; font-size:15px; color:rgb(88, 90, 90);&quot;&gt;Auto</span></div>“,”shape”:”start-end”,”stroke”:{“color”:”rgba(214, 178, 53, 1)”},”id”:”c7fce534-0e13-4e52-b12e-a50e2f72daa4”,”x”:1219.07526047963,”y”:567.1307435082738,”width”:44,”height”:16,”rotate”:0,”zIndex”:16,”defaultContentStyle”:{“color”:”#585A5A”,”font-family”:”shouxie”},”fill”:{“color”:”rgba(246, 230, 218, 1)”},”roughFillStyle”:”hachure”}],”zIndex”:17},{“type”:”swimlane”,”shape”:”swimlane-horizontal”,”category”:”swimlane”,”id”:”03cc4cc4-2baa-4926-96c7-5f69f99e6427”,”x”:1570.3878110053943,”y”:202.46884092218954,”widths”:[0.05081259453175127],”heights”:[0.2139693822426579,0.6883368493994441,0.8670604492858411],”children”:[{“html”:”&lt;div style=&quot;text-align:center;&quot;&gt;&lt;span style=&quot;font-weight:bold; color:rgb(88, 90, 90);&quot;&gt;准</span></div>&lt;div style=&quot;text-align:center;&quot;&gt;&lt;span style=&quot;font-weight:bold; color:rgb(88, 90, 90);&quot;&gt;备</span></div>“,”id”:”b08939db-4da9-42a7-8ba0-864e4d949507”,”nth”:0,”fill”:{“color”:”rgba(246, 230, 218, 1)”},”zIndex”:18,”defaultContentStyle”:{“color”:”#585A5A”},”stroke”:{“color”:”rgba(0, 0, 0, 1)”}},{“html”:”&lt;div style=&quot;text-align:center;&quot;&gt;<div>&lt;span style=&quot;font-weight:700;&quot;&gt;JSX</span></div><div>&lt;span style=&quot;font-weight:700;&quot;&gt;渲</span></div><div>&lt;span style=&quot;font-weight:700;&quot;&gt;染</span></div></div>“,”id”:”6156f081-9543-4bfb-abf9-0dabfae4058d”,”nth”:1,”fill”:{“color”:”rgba(246, 230, 218, 1)”},”zIndex”:19,”defaultContentStyle”:{“color”:”#585A5A”},”stroke”:{“color”:”rgba(0, 0, 0, 1)”}},{“html”:”&lt;div style=&quot;text-align:center;&quot;&gt;&lt;span style=&quot;font-weight:bold;&quot;&gt;Lane 3</span></div>“,”fill”:{“color”:”rgba(246, 230, 218, 1)”},”id”:”ee6206fc-fbba-428e-a3a9-9064385fb2af”,”nth”:2,”defaultContentStyle”:{“color”:”#585A5A”},”zIndex”:20},{“html”:”&lt;div style=&quot;text-align:center;&quot;&gt;&lt;span style=&quot;font-weight:bold;&quot;&gt;Lane 4</span></div>“,”fill”:{“color”:”rgba(246, 230, 218, 1)”},”id”:”8549af6f-3ff0-453d-9ef7-6fbfc6b05a57”,”nth”:3,”defaultContentStyle”:{“color”:”#585A5A”},”zIndex”:21}],”contain”:[“eb999a52-ea67-451c-bcc7-8fa2538b2ed6”,”fe569925-5c4c-4a86-826d-da57ecaea705”,”def4e6ae-ee45-4046-ada2-0c6a5134d805”,”5f23686e-df3d-4634-a794-8dc197ba1213”,”8d66cd30-2749-4356-90d9-665240c79f39”,”7551c8e7-1269-4dd0-833a-b1b2239bfe3e”,”3a931c6b-8762-4cfc-8a87-03f1b52a792b”,”fa91dd7f-0cc6-4a08-9cd3-3efdfdb45262”],”height”:628.2864997760527,”width”:969.1301778033921,”rotate”:0,”stroke”:{“width”:1,”color”:”rgba(212, 131, 68, 0.5)”},”zIndex”:22,”fill”:{“color”:”rgba(246, 230, 218, 1)”},”roughFillStyle”:”hachure”,”defaultContentStyle”:{“font-family”:”shouxie”}},{“type”:”text”,”html”:”1. 通过 create-ract-app 创建项目”,”shape”:”text”,”category”:”UML”,”id”:”eb999a52-ea67-451c-bcc7-8fa2538b2ed6”,”x”:1632.0594165039065,”y”:217.7936780009294,”defaultContentStyle”:{“color”:”#585A5A”,”font-family”:”shouxie”},”roughFillStyle”:”hachure”,”zIndex”:23,”width”:796.4459999999999,”height”:36,”rotate”:0},{“type”:”geometry”,”html”:”&lt;div style=&quot;text-align:left;&quot;&gt;旧的编译器是 createElement,新的编译</div>&lt;div style=&quot;text-align:left;&quot;&gt;器是_jsx，两者区别是参数不同，createElement 方法中的 children 是在第三个参数，_jsx 方法中的 children 是在 props 中。</div>“,”shape”:”note”,”category”:”UML”,”id”:”f2b01a32-59aa-446e-bdb6-91695b35bda4”,”x”:2584.310125000001,”y”:243.75294053643145,”fill”:{“color”:”#F7F0D7”},”stroke”:{“color”:”#D6B235”},”defaultContentStyle”:{“color”:”#585A5A”,”font-family”:”shouxie”},”roughFillStyle”:”hachure”,”width”:346.60454150390615,”height”:123.86587500000002,”zIndex”:24,”rotate”:0,”constraints”:{“proportion”:false}},{“type”:”text”,”html”:”3. 此时打包就会按照旧版的 babel 编译器编译”,”shape”:”text”,”category”:”UML”,”id”:”5f23686e-df3d-4634-a794-8dc197ba1213”,”x”:1630.4215068359376,”y”:287.68587803643146,”defaultContentStyle”:{“color”:”#585A5A”,”font-family”:”shouxie”},”roughFillStyle”:”hachure”,”zIndex”:25},{“type”:”text”,”html”:”2. 修改 package.json 中 script 脚本,对于所有命令增加环境变量 : cross-env DISABLE_NEW_JSX_TRANSFORM=true”,”shape”:”text”,”category”:”UML”,”id”:”def4e6ae-ee45-4046-ada2-0c6a5134d805”,”x”:1630.4215068359376,”y”:251.68587803643146,”defaultContentStyle”:{“color”:”#585A5A”,”font-family”:”shouxie”},”roughFillStyle”:”hachure”,”zIndex”:26},{“shape”:”elbow”,”target”:{“marker”:”arrow”,”connection”:[0,0.5],”id”:”f2b01a32-59aa-446e-bdb6-91695b35bda4”},”type”:”line”,”source”:{“id”:”5f23686e-df3d-4634-a794-8dc197ba1213”,”connection”:”E”},”stroke”:{“color”:”#D6B235”},”defaultContentStyle”:{“color”:”#585A5A”,”font-family”:”shouxie”},”roughFillStyle”:”hachure”,”id”:”c2fc633a-1b5b-46c0-839e-232637242417”,”zIndex”:27},{“type”:”text”,”html”:””,”shape”:”text”,”category”:”UML”,”id”:”fe569925-5c4c-4a86-826d-da57ecaea705”,”x”:1632.7367568359375,”y”:327.01334069824225,”defaultContentStyle”:{“color”:”#585A5A”,”font-family”:”shouxie”},”roughFillStyle”:”hachure”,”zIndex”:28},{“type”:”text”,”html”:”1. 经过准备阶段的配置，项目中通过 jsx 编写的代码将会被编辑成 React.createElement 方法调用”,”shape”:”text”,”id”:”8d66cd30-2749-4356-90d9-665240c79f39”,”x”:1632.7367568359375,”y”:345.53534069824224,”defaultContentStyle”:{“color”:”#585A5A”,”font-family”:”shouxie”},”roughFillStyle”:”hachure”,”zIndex”:29},{“type”:”text”,”html”:”2. 进入项目入口并调用 DOMRoot.render 方法”,”shape”:”text”,”id”:”3a931c6b-8762-4cfc-8a87-03f1b52a792b”,”x”:1632.0594165039065,”y”:381.53534069824224,”defaultContentStyle”:{“color”:”#585A5A”,”font-family”:”shouxie”},”roughFillStyle”:”hachure”,”zIndex”:30,”height”:39.99999999999997,”rotate”:0},{“type”:”text”,”html”:”3. 递归遍历虚拟 dom，创建真实 dom 节点”,”shape”:”text”,”id”:”7551c8e7-1269-4dd0-833a-b1b2239bfe3e”,”x”:1630.4215068359376,”y”:421.3413517264543,”defaultContentStyle”:{“color”:”#585A5A”,”font-family”:”shouxie”},”roughFillStyle”:”hachure”,”zIndex”:31},{“type”:”text”,”html”:”4. 拿到真实的 dom 节点，插入到事先创建的容器中”,”shape”:”text”,”id”:”fa91dd7f-0cc6-4a08-9cd3-3efdfdb45262”,”x”:1630.4215068359376,”y”:457.3413517264543,”defaultContentStyle”:{“color”:”#585A5A”,”font-family”:”shouxie”},”roughFillStyle”:”hachure”,”zIndex”:32}]},”mode”:”edit”,”viewportSetting”:{“zoom”:0.863837598531476,”tlCanvasPoint”:[1316.7051318359377,110.53746569824219,1],”width”:1248,”height”:643},”viewportOption”:”WYSIWYG”,”text”:”开始结束常用图例有下级流程线上流程重点流程判断通知文档 Y/NAND/OR 自动化流程 Auto 准备 JSX 渲染 Lane 3Lane 41. 通过 create-ract-app 创建项目旧的编译器是 createElement,新的编译器是_jsx，两者区别是参数不同，createElement 方法中的 children 是在第三个参数，_jsx 方法中的 children 是在 props 中。3. 此时打包就会按照旧版的 babel 编译器编译 2. 修改 package.json 中 script 脚本,对于所有命令增加环境变量 : cross-env DISABLE_NEW_JSX_TRANSFORM=true1. 经过准备阶段的配置，项目中通过 jsx 编写的代码将会被编辑成 React.createElement 方法调用 2. 进入项目入口并调用 DOMRoot.render 方法 3. 递归遍历虚拟 dom，创建真实 dom 节点 4. 拿到真实的 dom 节点，插入到事先创建的容器中”,”graphicsBBox”:{“x”:1218.3070068359375,”y”:158.5789031982422,”width”:1716.7537841796875,”height”:855.5133666992188}}</p>
 
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">React.createElement(</span><br><span class="line">  <span class="string">&quot;div&quot;</span>,</span><br><span class="line">  &#123; <span class="attr">className</span>: <span class="string">&quot;container&quot;</span> &#125;,</span><br><span class="line">  React.createElement(<span class="string">&quot;h3&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;Hello React&quot;</span>),</span><br><span class="line">  React.createElement(<span class="string">&quot;p&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;React is great&quot;</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
-</div>
   </div>
   
   
@@ -2745,7 +2742,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文永久链接是：<a href=https://resonance.fun/2022/04/06/yuque/React%E4%B9%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/>https://resonance.fun/2022/04/06/yuque/React%E4%B9%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</a></p>
+                <p>本文永久链接是：<a href=https://resonance.fun/2023/05/19/yuque/Note%20of%20react%20source/>https://resonance.fun/2023/05/19/yuque/Note%20of%20react%20source/</a></p>
               
             
           </blockquote>
@@ -2762,10 +2759,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2023-05-18T21:11:59+00:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2023-05-19T21:11:22+00:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2023年5月18日</p>
+    <p>更新于：2023年5月19日</p>
   </a>
 </div>
 
@@ -2784,7 +2781,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://resonance.fun/2022/04/06/yuque/React%E4%B9%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/&title=React之基础知识 - All Resonance&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://resonance.fun/2023/05/19/yuque/Note%20of%20react%20source/&title=Note of react source - All Resonance&summary="
           
           >
           
@@ -2796,7 +2793,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://resonance.fun/2022/04/06/yuque/React%E4%B9%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/&title=React之基础知识 - All Resonance&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://resonance.fun/2023/05/19/yuque/Note%20of%20react%20source/&title=Note of react source - All Resonance&summary="
           
           >
           
@@ -2808,7 +2805,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://resonance.fun/2022/04/06/yuque/React%E4%B9%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/&title=React之基础知识 - All Resonance&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://resonance.fun/2023/05/19/yuque/Note%20of%20react%20source/&title=Note of react source - All Resonance&summary="
           
           >
           
@@ -2842,8 +2839,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="prev-next">
       
       
-        <a class='next' href='/2022/04/01/yuque/JavaScript%E4%B9%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/'>
-          <p class='title'>JavaScript之基础知识<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+        <a class='next' href='/2022/04/01/yuque/JavaScript%20basic/'>
+          <p class='title'>JavaScript basic<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
           <p class='content'>JS 事件循环JavaScript 语言是一门单线程的非阻塞的脚本语言。
 为什么 JS 是一门单线程的语言？因为在浏览器中，需要对各种的 DOM 操作。当 JS 是多线程的话，如果有两个线程同时...</p>
         </a>
@@ -2861,7 +2858,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <article class="post white-box reveal shadow" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/04/06/yuque/React%E4%B9%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2023/05/19/yuque/Note%20of%20react%20source/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -2884,19 +2881,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <section class="widget toc-wrapper shadow desktop mobile pjax" id="toc-div" >
-    
-  <header>
-    
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
-    
-  </header>
-
-
-    <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JSX-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">JSX 是什么</span></a></li></ol>
-    </div>
-  </section>
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
 
   
 
@@ -2954,7 +2941,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="React之基础知识";
+  pdata.postTitle="Note of react source";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   pdata.commentConfig={};
@@ -3080,7 +3067,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <!-- internal -->
 
-<script src="/js/app.js?time=1684444322460.js"></script>
+<script src="/js/app.js?time=1684530684691.js"></script>
 
 
 
@@ -3222,7 +3209,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
     </ul>
   </div>
-  <script>volantis.js('/js/plugins/rightMenu.js?time=1684444322460')</script>
+  <script>volantis.js('/js/plugins/rightMenu.js?time=1684530684691')</script>
 
 
 
@@ -3351,19 +3338,19 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/js/plugins/sites.js?time=1684444322460")
+        volantis.js("/js/plugins/sites.js?time=1684530684691")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/js/plugins/friends.js?time=1684444322460")
+        volantis.js("/js/plugins/friends.js?time=1684530684691")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/js/plugins/contributors.js?time=1684444322460")
+        volantis.js("/js/plugins/contributors.js?time=1684530684691")
       }
     
   };
@@ -3432,7 +3419,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
     await volantis.js("/libs/meting/dist/Meting.min.js")
   
     // 右键 music 需要在 APlayer  MetingJS 之后加载
-    await volantis.js('/js/plugins/aplayer.js?time=1684444322460')
+    await volantis.js('/js/plugins/aplayer.js?time=1684530684691')
   
   })();
 
@@ -3564,7 +3551,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 
   function loadSearchScript() {
     // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
-    return volantis.js("/js/search/hexo.js?time=1684444322460");
+    return volantis.js("/js/search/hexo.js?time=1684530684691");
   }
 
   function loadSearchService() {
@@ -4064,7 +4051,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"All Resonance","url":"https://resonance.fun/","logo":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"all-resonance","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://resonance.fun/","sameAs":["https://github.com/volantis-x"],"description":"夫君子之行，静以修身，俭以养德，非淡泊无以明志，非宁静无以致远～"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://resonance.fun/","name":"All Resonance"}},{"@type":"ListItem","position":3,"item":{"@id":"https://resonance.fun/2022/04/06/yuque/React之基础知识/","name":"React之基础知识"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"React之基础知识","description":"","datePublished":"2022-04-06T05:57:26.000Z","dateModified":"2023-05-18T21:11:59.729Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://resonance.fun/2022/04/06/yuque/React%E4%B9%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"},"author":{"@type":"Person","name":"all-resonance","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://resonance.fun/"},"publisher":{"@type":"Organization","name":"All Resonance","logo":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://resonance.fun/2022/04/06/yuque/React%E4%B9%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/","wordCount":0,"image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"All Resonance","url":"https://resonance.fun/","logo":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"all-resonance","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://resonance.fun/","sameAs":["https://github.com/volantis-x"],"description":"夫君子之行，静以修身，俭以养德，非淡泊无以明志，非宁静无以致远～"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://resonance.fun/","name":"All Resonance"}},{"@type":"ListItem","position":3,"item":{"@id":"https://resonance.fun/2023/05/19/yuque/Note of react source/","name":"Note of react source"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Note of react source","description":"","datePublished":"2023-05-19T05:53:29.000Z","dateModified":"2023-05-19T21:11:22.054Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://resonance.fun/2023/05/19/yuque/Note%20of%20react%20source/"},"author":{"@type":"Person","name":"all-resonance","image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://resonance.fun/"},"publisher":{"@type":"Organization","name":"All Resonance","logo":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://resonance.fun/2023/05/19/yuque/Note%20of%20react%20source/","wordCount":0,"image":{"@type":"ImageObject","url":"/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 <!-- more -->
