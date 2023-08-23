@@ -3,29 +3,29 @@
 
 
     <url>
-        <loc>https://resonance.fun/tags/HTML%E5%9F%BA%E7%A1%80/</loc>
-        <lastmod>2023-08-23T05:59:12.311Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://resonance.fun/tags/CSS%E5%9F%BA%E7%A1%80/</loc>
-        <lastmod>2023-08-23T05:59:12.311Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://resonance.fun/tags/JavaScript%E5%9F%BA%E7%A1%80/</loc>
-        <lastmod>2023-08-23T05:59:12.307Z</lastmod>
+        <lastmod>2023-08-23T21:11:20.691Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://resonance.fun/tags/HTML%E5%9F%BA%E7%A1%80/</loc>
+        <lastmod>2023-08-23T21:11:20.691Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://resonance.fun/tags/ES6/</loc>
-        <lastmod>2023-08-23T05:59:12.307Z</lastmod>
+        <lastmod>2023-08-23T21:11:20.691Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://resonance.fun/tags/CSS%E5%9F%BA%E7%A1%80/</loc>
+        <lastmod>2023-08-23T21:11:20.691Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
