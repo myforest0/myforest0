@@ -10,8 +10,17 @@
     
     
     <url>
+        <loc>https://resonance.fun/tags/</loc>
+        <lastmod>2023-10-11T21:11:27.753Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    
+    
+    <url>
         <loc>https://resonance.fun/about/</loc>
-        <lastmod>2023-10-10T21:11:34.791Z</lastmod>
+        <lastmod>2023-10-11T21:11:27.749Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -20,7 +29,7 @@
     
     <url>
         <loc>https://resonance.fun/categories/</loc>
-        <lastmod>2023-10-10T21:11:34.791Z</lastmod>
+        <lastmod>2023-10-11T21:11:27.749Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -29,16 +38,7 @@
     
     <url>
         <loc>https://resonance.fun/friends/</loc>
-        <lastmod>2023-10-10T21:11:34.791Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    
-    
-    <url>
-        <loc>https://resonance.fun/tags/</loc>
-        <lastmod>2023-10-10T21:11:34.791Z</lastmod>
+        <lastmod>2023-10-11T21:11:27.749Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
