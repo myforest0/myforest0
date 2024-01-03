@@ -1,0 +1,50 @@
+name: Publish And Deploy
+
+on:
+  push:
+    branches:
+      - main
+  repository_dispatch:
+    branches:
+      - main
+  schedule:
+    - cron: '0 21 * * *'
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: Install Dependencies And Update Theme 🔧
+        run: |
+          npm install
+      - name: Sync Notion 🔧
+        #env:
+         # YUQUE_TOKEN: ${{ secrets.YUQUE_TOKEN }}
+        run: |
+          npm run sync:notion
+      - name: Build 🔧
+        run: |
+          npm run docs:build
+      - name: Deploy Github Pages 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          BRANCH: gh-pages
+          FOLDER: docs/.vitepress/dist
+#      - name: Rename Folder Name 🔧
+#        run: |
+#          mv ./public/ ./resonance.fun/
+#      - name: SSH Server Deploy 🚀
+#        uses: kostya-ten/ssh-server-deploy@v4
+#        with:
+#          host: ${{ secrets.SSH_SERVER }}
+#          port: 22
+#          username: ${{ secrets.SSH_USERNAME }}
+#          password: ${{ secrets.SSH_PASSWORD }}
+#          scp_source: ./resonance.fun/
+#          scp_target: /www/wwwroot/
+

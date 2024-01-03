@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "sync:notion": "npx @elog/cli sync -e .elog.env",
+    "postsync:notion": "npm run copy:READMD.md",
+    "copy:READMD.md": "node ./scripts/copy.js"
+  },
+  "dependencies": {
+    "vitepress": "^1.0.0-rc.34"
+  },
+  "devDependencies": {
+    "elog": "^0.1.1",
+    "fs": "^0.0.1-security"
+  }
+}
