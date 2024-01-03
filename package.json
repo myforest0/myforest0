@@ -3,7 +3,7 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
-    "sync:notion": "npx @elog/cli sync -e",
+    "sync:notion": "npx @elog/cli sync",
     "postsync:notion": "npm run copy:READMD.md",
     "copy:READMD.md": "node ./scripts/copy.js"
   },
