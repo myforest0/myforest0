@@ -25,8 +25,8 @@ jobs:
           npm install
       - name: Sync Notion 🔧
         env:
-          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
-          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ variables.NOTION_DATABASE_ID }}
+          NOTION_TOKEN: ${{ variables.NOTION_TOKEN }}
         run: |
           npm run sync:notion
       - name: Build 🔧
