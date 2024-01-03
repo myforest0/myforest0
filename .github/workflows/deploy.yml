@@ -23,8 +23,9 @@ jobs:
         run: |
           npm install
       - name: Sync Notion 🔧
-        #env:
-         # YUQUE_TOKEN: ${{ secrets.YUQUE_TOKEN }}
+        env:
+          NOTION_DATABASE_ID: ${{ variables.NOTION_DATABASE_ID }}
+          NOTION_TOKEN: ${{ variables.NOTION_TOKEN }}
         run: |
           npm run sync:notion
       - name: Build 🔧
