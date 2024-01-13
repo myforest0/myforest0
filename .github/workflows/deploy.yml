@@ -14,7 +14,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    environment: notion
+    environment: blog
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
@@ -23,12 +23,11 @@ jobs:
       - name: Install Dependencies And Update Theme 🔧
         run: |
           npm install
-      - name: Sync Notion 🔧
+      - name: Sync Markdown 🔧
         env:
-          NOTION_DATABASE_ID: ${{ vars.NOTION_DATABASE_ID }}
-          NOTION_TOKEN: ${{ vars.NOTION_TOKEN }}
+          FLOWUS_TABLE_PAGE_ID: ${{ vars.FLOWUS_TABLE_PAGE_ID }}
         run: |
-          npm run sync:notion
+          npm run sync:markdown
       - name: Build 🔧
         run: |
           npm run docs:build

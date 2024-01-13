@@ -1,6 +1,6 @@
 module.exports = {
     write: {
-        platform: 'notion',
+        platform: 'flowus',
         yuque: {
             token: process.env.YUQUE_TOKEN,
             login: process.env.YUQUE_LOGIN,
@@ -31,14 +31,15 @@ module.exports = {
         },
         flowus: {
             tablePageId: process.env.FLOWUS_TABLE_PAGE_ID,
-            filter: false, // {property: 'status',value: '已发布'}
+            filter: false,//{property: 'status',value: '已发布'}
+            catalog: true,
         }
     },
     deploy: {
         platform: 'local',
         local: {
             outputDir: './docs',
-            filename: 'title',
+            filename: 'urlname',
             format: 'markdown',
             catalog: true,
         },
