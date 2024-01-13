@@ -1,0 +1,1 @@
+import{_ as t,c as e,o as r,U as a}from"./chunks/framework.x337NUrp.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"README.md","filePath":"README.md"}'),i={name:"README.md"},s=a("",5),d=[s];function n(o,l,h,_,c,E){return r(),e("div",null,d)}const S=t(i,[["render",n]]);export{m as __pageData,S as default};
