@@ -16,6 +16,9 @@ export default {
         footer: {
             message: 'Released under the MIT License.',
             copyright: '<a href="https://beian.miit.gov.cn/">蜀ICP备2023020990号-1</a> Copyright © 2019-present Forest'
+        },
+        search: {
+            provider: 'local'
         }
     },
 

@@ -67,7 +67,7 @@ module.exports = {
         enable: true,
         platform: 'local',
         local: {
-            outputDir: './docs/images',
+            outputDir: './docs/public/images',
             prefixKey: '/images',
             pathFollowDoc: false,
         },
