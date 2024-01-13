@@ -1,3 +1,14 @@
+---
+urlname: short-link-project
+title: 海量数据短链项目笔记
+description: safasf
+updated: '2024-01-13 13:49:13'
+date: '2024-01-13 11:45:57'
+status: 已发布
+catalog:
+  - 后端
+  - 短链项目
+---
 ## 业务背景：为啥需要短链?
 - 公司电商产品推广、业务活动⻚、广告落地⻚缺少实时【数据反馈和渠道效果分析】
 

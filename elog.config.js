@@ -31,6 +31,7 @@ module.exports = {
         },
         flowus: {
             tablePageId: process.env.FLOWUS_TABLE_PAGE_ID,
+            // tablePageId: '43928f20-296b-4db9-b7bb-af11fbb27e85',
             filter: {property: 'status', value: '已发布'},
             catalog: true,
         }
@@ -42,6 +43,10 @@ module.exports = {
             filename: 'urlname',
             format: 'markdown',
             catalog: true,
+            frontMatter: {
+                enable: true,
+                exclude: ['cover'] // 文档属性排除 cover 字段
+            }
         },
         halo: {
             endpoint: process.env.HALO_ENDPOINT,
