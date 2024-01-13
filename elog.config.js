@@ -31,7 +31,7 @@ module.exports = {
         },
         flowus: {
             tablePageId: process.env.FLOWUS_TABLE_PAGE_ID,
-            filter: false,//{property: 'status',value: '已发布'}
+            filter: {property: 'status', value: '已发布'},
             catalog: true,
         }
     },

@@ -32,30 +32,16 @@
     {
       "id": "5f5ec14f-5ba5-4c14-a789-76c6e4da74da",
       "doc_id": "5f5ec14f-5ba5-4c14-a789-76c6e4da74da",
-      "updated": 1705124945148,
+      "updated": 1705127566469,
       "properties": {
-        "urlname": "index",
+        "urlname": "README",
         "title": "关于我",
-        "updated": "2024-01-13 13:49:05",
+        "updated": "2024-01-13 14:32:46",
         "date": "2024-01-13 13:04:35",
         "status": "已发布"
       },
-      "realName": "index",
-      "relativePath": "/index.md",
-      "docPath": "./docs"
-    },
-    {
-      "id": "a2af69f2-c91f-4937-a4c6-350423d3f3c2",
-      "doc_id": "a2af69f2-c91f-4937-a4c6-350423d3f3c2",
-      "updated": 1705123402649,
-      "properties": {
-        "urlname": "a2af69f2-c91f-4937-a4c6-350423d3f3c2",
-        "title": "",
-        "updated": "2024-01-13 13:23:22",
-        "date": "2024-01-13 13:23:22"
-      },
-      "realName": "a2af69f2-c91f-4937-a4c6-350423d3f3c2",
-      "relativePath": "/a2af69f2-c91f-4937-a4c6-350423d3f3c2.md",
+      "realName": "README",
+      "relativePath": "/README.md",
       "docPath": "./docs"
     }
   ],
@@ -83,29 +69,15 @@
       "id": "5f5ec14f-5ba5-4c14-a789-76c6e4da74da",
       "doc_id": "5f5ec14f-5ba5-4c14-a789-76c6e4da74da",
       "title": "关于我",
-      "updated": 1705124945148,
+      "updated": 1705127566469,
       "createdAt": 1705122275590,
-      "updatedAt": 1705124945148,
+      "updatedAt": 1705127566469,
       "properties": {
-        "urlname": "index",
+        "urlname": "README",
         "title": "关于我",
-        "updated": "2024-01-13 13:49:05",
+        "updated": "2024-01-13 14:32:46",
         "date": "2024-01-13 13:04:35",
         "status": "已发布"
-      }
-    },
-    {
-      "id": "a2af69f2-c91f-4937-a4c6-350423d3f3c2",
-      "doc_id": "a2af69f2-c91f-4937-a4c6-350423d3f3c2",
-      "title": "",
-      "updated": 1705123402649,
-      "createdAt": 1705123402636,
-      "updatedAt": 1705123402649,
-      "properties": {
-        "urlname": "a2af69f2-c91f-4937-a4c6-350423d3f3c2",
-        "title": "",
-        "updated": "2024-01-13 13:23:22",
-        "date": "2024-01-13 13:23:22"
       }
     }
   ]

@@ -1,25 +1,35 @@
-## _Hi there，I'm Forest 👋_
-吾唯谙代码，若此技弗精，则无复归途。
+---
+layout: home
 
+title: Forest's Blog
+titleTemplate: 个人技术知识库，记录和分享个人碎片化、结构化、体系化的技术知识内容
 
-### Mastering skills
+hero:
+  name: Forest's Blog
+  text: 专注 & 洞察 & 分享
+  tagline: 个人技术知识库，记录 & 分享个人碎片化、结构化、体系化的技术知识内容。
+  image:
+    src: /images/logo.png
+    alt: Logo
+  actions:
+    - theme: brand
+      text: 快速开始
+      link: /README
+    - theme: alt
+      text: 在 GitHub 查看
+      link: https://github.com/myforest0/myforest0
 
-| 技能分类            | 掌握情况                                                                                                                  |
-| --------------- | --------------------------------------------------------------------------------------------------------------------- |
-| 编程语言+工具         | 熟练掌握后端 java/Python/Sql 等语言, 掌握 JDK8~13 新特性。 掌握前端 HTML/CSS/JS 基础, VUE 等框架，熟练掌握 IDEA、Git、Maven/Jenkins 等工具使用            |
-| 底层源码+并发编程       | 掌握 JVM 内存模型，垃圾回收机制，JDK 集合框架源码等读过部分Spring/RocketMQ/Netty核心源码 java并发和同步，线程池等熟练 AQS 和多个 JUC源码，熟练掌握多线程在项目中的实践             |
-| 框架技能+项目应用       | 熟练掌握 Spring/Mybatis/ SpringBoot/Cloud 全家桶核心知识; 熟练掌握Redis/RabbitMQ/ES/Netty 在项目中的使用。 掌握 Flink 实时计算框架和一定的大数据项目经验        |
-| 分布式和微服务         | 熟悉分布式架构、集群和负载均衡算法，熟悉分布式事务等搭建搜索引擎、Redis 和 RabbitMQ 集群、LVS+Nginx有 4 年微服务架构和分布式系统的经验， 熟悉 Rancher 云平台和容器编排技术，自动化扩容和监控体系搭建 |
-| 数据库和 Linux 操作系统 | 熟练掌握 Mysql, 掌握多种索引使用和原理，能独立分析需求设计数据库，有一定的 sql 优化经验。熟悉 Linux 常用命令，Shell 脚本编写,掌握常用软件部署，熟悉列式存储ClickHouse 多种合并树引擎         |
-
-### Daily writing and development tools
-- Code: VScode + Idea, occasionally use Webstorm
-
-- Write: Typora + Notion
-
-- Draw: Figma
-
-- Todo: Ticktick
-
-- Note: Notion
-
+features:
+  - icon:
+      src: images/svg/focus.svg
+    title: 保持专注
+    details: “简单比复杂更难，你必须努力让你的想法变得清晰明了，让它变得简单。一旦你做到了简单，你就能搬动大山。” -- 乔布斯
+  - icon:
+      src: images/svg/insight.svg
+    title: 善于洞察
+    details: “我既没有突出的理解力，也没有过人的机智。只在觉察那些稍纵即逝的事物并对其进行精细观察的能力上，我可能在普通人之上。” -- 达尔文
+  - icon:
+      src: images/svg/knowledge.svg
+    title: 乐于分享
+    details: 关于分享，有形的物品越分越少，无形的知识越分越多。在记录与分享的过程中, 梳理所学, 交流所得, 必有所获。
+---
