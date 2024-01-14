@@ -27,7 +27,7 @@ jobs:
         env:
           FLOWUS_TABLE_PAGE_ID: ${{ vars.FLOWUS_TABLE_PAGE_ID }}
         run: |
-          npm run sync:markdown
+          npm run sync
       - name: Build 🔧
         run: |
           npm run docs:build
