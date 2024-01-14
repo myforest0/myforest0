@@ -14,7 +14,7 @@ hero:
   actions:
     - theme: brand
       text: 快速开始
-      link: /README
+      link: /mds/关于我
     - theme: alt
       text: 在 GitHub 查看
       link: https://github.com/myforest0/myforest0
