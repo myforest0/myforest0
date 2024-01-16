@@ -30,8 +30,8 @@ module.exports = {
             appSecret: process.env.FEISHU_APP_SECRET,
         },
         flowus: {
-            // tablePageId: process.env.FLOWUS_TABLE_PAGE_ID,
-            tablePageId: '43928f20-296b-4db9-b7bb-af11fbb27e85',
+            tablePageId: process.env.FLOWUS_TABLE_PAGE_ID,
+            // tablePageId: 'acd7b429-e044-4468-96d0-a630c9040e67',
             filter: {property: 'status', value: '已发布'},
             catalog: true,
         }

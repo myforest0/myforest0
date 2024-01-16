@@ -1,8 +1,8 @@
 ---
-urlname: jstool
+urlname: js-tool
 title: JS常用工具函数
-updated: '2024-01-13 16:40:30'
-date: '2024-01-13 16:31:10'
+updated: '2024-01-16 15:04:37'
+date: '2024-01-16 15:04:15'
 status: 已发布
 catalog:
   - 前端

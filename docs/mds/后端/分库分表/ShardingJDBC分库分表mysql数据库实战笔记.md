@@ -1,8 +1,8 @@
 ---
 urlname: sharding-jdbc
 title: ShardingJDBC分库分表mysql数据库实战笔记
-updated: '2024-01-15 02:11:03'
-date: '2024-01-13 18:08:13'
+updated: '2024-01-16 15:04:37'
+date: '2024-01-16 15:04:15'
 status: 已发布
 catalog:
   - 后端
