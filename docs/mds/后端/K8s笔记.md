@@ -1,7 +1,7 @@
 ---
 urlname: k8s
 title: K8s笔记
-updated: '2024-01-16 15:04:15'
+updated: '2024-01-16 15:11:37'
 date: '2024-01-16 15:04:15'
 status: 已发布
 catalog:

@@ -1,7 +1,7 @@
 ---
 urlname: js-function
 title: JS函数
-updated: '2024-01-16 15:04:15'
+updated: '2024-01-16 15:11:38'
 date: '2024-01-16 15:04:15'
 status: 已发布
 catalog:

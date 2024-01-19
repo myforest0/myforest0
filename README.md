@@ -1,7 +1,7 @@
 ---
 urlname: README
 title: 关于我
-updated: '2024-01-16 15:04:36'
+updated: '2024-01-17 20:20:12'
 date: '2024-01-16 15:04:15'
 status: 已发布
 ---
@@ -12,8 +12,8 @@ status: 已发布
 
 - 自动生成菜单导航，无需手动编辑和整理菜单
 
-## 推荐笔记
-[短链项目笔记](https://resonance.fun/mds/后端/短链项目/short-link-project)
+## Project
+- 
 
 
 ### Mastering skills

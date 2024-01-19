@@ -33,3 +33,40 @@ features:
     title: 乐于分享
     details: 关于分享，有形的物品越分越少，无形的知识越分越多。在记录与分享的过程中, 梳理所学, 交流所得, 必有所获。
 ---
+
+<style>
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(
+    315deg,
+    #42d392 25%,
+    #647eff
+  );
+
+  --vp-home-hero-image-background-image: linear-gradient(
+    -45deg,
+    #42d392 50%,
+    #47caff 50%
+  );
+  --vp-home-hero-image-filter: blur(40px);
+
+  /* 1.0.0-beta.7 及以前版本配色方案 */
+  --vp-c-brand-1: var(--vp-c-green-1);
+  --vp-c-brand-2: var(--vp-c-green-2);
+  --vp-c-brand-3: var(--vp-c-green-3);
+  --vp-c-brand-soft: var(--vp-c-green-soft);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --vp-home-hero-image-filter: blur(56px);
+  }
+}
+
+@media (min-width: 960px) {
+  :root {
+    --vp-home-hero-image-filter: blur(72px);
+  }
+}
+</style>
+

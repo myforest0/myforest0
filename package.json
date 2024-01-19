@@ -9,7 +9,7 @@
     "copy:READMD.md": "node ./scripts/copy.js"
   },
   "dependencies": {
-    "vitepress": "^1.0.0-rc.34"
+    "vitepress": "^1.0.0-rc.39"
   },
   "devDependencies": {
     "fs": "^0.0.1-security"
