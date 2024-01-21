@@ -1,6 +1,6 @@
 module.exports = {
     write: {
-        platform: 'flowus',
+        platform: 'yuque-pwd',
         yuque: {
             token: process.env.YUQUE_TOKEN,
             login: process.env.YUQUE_LOGIN,

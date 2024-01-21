@@ -5,7 +5,8 @@
     "docs:preview": "vitepress preview docs",
     "sync": "npx @elog/cli sync",
     "postsync": "npm run copy:READMD.md",
-    "resync": "npx @elog/cli clean && npx @elog/cli sync",
+    "resync": "npx @elog/cli clean && npx @elog/cli sync -e",
+    "resync:dev": "npx @elog/cli clean && npx @elog/cli sync -e .elog.env",
     "copy:READMD.md": "node ./scripts/copy.js"
   },
   "dependencies": {
