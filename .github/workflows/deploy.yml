@@ -25,7 +25,10 @@ jobs:
           npm install
       - name: Sync Markdown 🔧
         env:
-          FLOWUS_TABLE_PAGE_ID: ${{ vars.FLOWUS_TABLE_PAGE_ID }}
+          YUQUE_USERNAME: ${{ vars.YUQUE_USERNAME }}
+          YUQUE_PASSWORD: ${{ vars.YUQUE_PASSWORD }}
+          YUQUE_LOGIN: ${{ vars.YUQUE_LOGIN }}
+          YUQUE_REPO: ${{ vars.YUQUE_REPO }}
         run: |
           npm run sync
       - name: Build 🔧
