@@ -13,7 +13,7 @@ module.exports = {
             password: process.env.YUQUE_PASSWORD,
             login: process.env.YUQUE_LOGIN,
             repo: process.env.YUQUE_REPO,
-            onlyPublic: false,
+            onlyPublic: true,
             onlyPublished: true,
         },
         notion: {
