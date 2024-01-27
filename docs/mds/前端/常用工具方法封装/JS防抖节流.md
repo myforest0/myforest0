@@ -2,7 +2,7 @@
 title: JS防抖节流
 urlname: 396c5934841b0928ca29239023870a03
 date: '2024-01-20 16:15:18'
-updated: '2024-01-21 12:22:12'
+updated: '2024-01-21 14:05:22'
 description: '防抖在用户频繁的进行某项操作时，只识别一次function clearTimer(timer) {   if (typeof timer !== null) clearTimeout(timer);   return null; }  // 简单版本 function debounce(fun...'
 ---
 ### 防抖

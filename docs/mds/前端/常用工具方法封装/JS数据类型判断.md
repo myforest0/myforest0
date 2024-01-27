@@ -2,9 +2,10 @@
 title: JS数据类型判断
 urlname: xihxbg
 date: '2022-03-10 10:55:27'
-updated: '2024-01-21 12:22:12'
-description: 'function toType(obj) {   const reg = /^\[Object (.+)\]$/   if (obj == null) return obj + ''''   return typeof obj === ''object'' || typeof obj === ''fun...'
+updated: '2024-01-21 14:05:02'
+description: '检测数据类型function toType(obj) {   const reg = /^\[Object (.+)\]$/   if (obj == null) return obj + ''''   return typeof obj === ''object'' || typeof obj ==...'
 ---
+### 检测数据类型
 ```javascript
 function toType(obj) {
   const reg = /^\[Object (.+)\]$/
@@ -15,6 +16,7 @@ function toType(obj) {
 }
 
 ```
+### 检测是否为标准普通对象
 ```javascript
 function isPlainObject(obj) {
   let proto, Ctor
@@ -29,6 +31,7 @@ function isPlainObject(obj) {
 }
 
 ```
+### 检测是否为空对象
 ```javascript
 function isEmptyObject(obj) {
   if (obj == null || /^(object|function)$/.test(typeof obj)) return false

@@ -1,88 +1,15 @@
 {
   "docs": [
     {
-      "id": 68892282,
-      "doc_id": "sk8ag5",
-      "updated": 1705810932000,
-      "properties": {
-        "title": "JavaScript之数据类型",
-        "urlname": "sk8ag5",
-        "date": "2022-03-10 09:44:19",
-        "updated": "2024-01-21 12:22:12",
-        "description": "JS中的数据类型被分为两大类：原始值类型（值类型/基本数据类型）number 数字string 字符串boolean 布尔null 空对象指针undefined 未定义symbol 唯一值bigint 大数对象类型（引用数据类型）标准普通对象 Object标准特殊对象 Array、RegExp..."
-      },
-      "catalog": [
-        {
-          "title": "前端",
-          "doc_id": "sk8ag5"
-        },
-        {
-          "title": "JS底层知识",
-          "doc_id": "sk8ag5"
-        }
-      ],
-      "realName": "JavaScript之数据类型",
-      "relativePath": "/前端/JS底层知识/JavaScript之数据类型.md",
-      "docPath": "docs/mds/前端/JS底层知识"
-    },
-    {
-      "id": 15934440,
-      "doc_id": "sxbk2l",
-      "updated": 1705811460000,
-      "properties": {
-        "title": "思维导图之面向对象",
-        "urlname": "sxbk2l",
-        "date": "2020-11-13 19:59:16",
-        "updated": "2024-01-21 12:31:00"
-      },
-      "catalog": [
-        {
-          "title": "前端",
-          "doc_id": "sxbk2l"
-        },
-        {
-          "title": "JS底层知识",
-          "doc_id": "sxbk2l"
-        }
-      ],
-      "realName": "思维导图之面向对象",
-      "relativePath": "/前端/JS底层知识/思维导图之面向对象.md",
-      "docPath": "docs/mds/前端/JS底层知识"
-    },
-    {
-      "id": 15149991,
-      "doc_id": "vhrwmx",
-      "updated": 1705810932000,
-      "properties": {
-        "title": "思维导图之作用域和闭包",
-        "urlname": "vhrwmx",
-        "date": "2020-10-29 13:24:13",
-        "updated": "2024-01-21 12:22:12"
-      },
-      "catalog": [
-        {
-          "title": "前端",
-          "doc_id": "vhrwmx"
-        },
-        {
-          "title": "JS底层知识",
-          "doc_id": "vhrwmx"
-        }
-      ],
-      "realName": "思维导图之作用域和闭包",
-      "relativePath": "/前端/JS底层知识/思维导图之作用域和闭包.md",
-      "docPath": "docs/mds/前端/JS底层知识"
-    },
-    {
       "id": 68913348,
       "doc_id": "xihxbg",
-      "updated": 1705810932000,
+      "updated": 1705817102000,
       "properties": {
         "title": "JS数据类型判断",
         "urlname": "xihxbg",
         "date": "2022-03-10 10:55:27",
-        "updated": "2024-01-21 12:22:12",
-        "description": "function toType(obj) {   const reg = /^\\[Object (.+)\\]$/   if (obj == null) return obj + ''   return typeof obj === 'object' || typeof obj === 'fun..."
+        "updated": "2024-01-21 14:05:02",
+        "description": "检测数据类型function toType(obj) {   const reg = /^\\[Object (.+)\\]$/   if (obj == null) return obj + ''   return typeof obj === 'object' || typeof obj ==..."
       },
       "catalog": [
         {
@@ -99,148 +26,14 @@
       "docPath": "docs/mds/前端/常用工具方法封装"
     },
     {
-      "id": 156618703,
-      "doc_id": "da5c5456cedccd0d194247d029f198f4",
-      "updated": 1705810932000,
-      "properties": {
-        "title": "ShardingJDBC分库分表mysql数据库实战笔记",
-        "urlname": "da5c5456cedccd0d194247d029f198f4",
-        "date": "2024-01-20 16:15:21",
-        "updated": "2024-01-21 12:22:12",
-        "description": "ShardingJDBC分库分表mysql数据库实战笔记为什么要学习分库分表和Sharding-JDBC 多数互联网公司里面用的技术，高并发项目都离不开分库分表  数据库性能优化的至关重要环节，分库分表是必杀技之一  在多数互联网公司中，ShardingJDBC占有率很高，是Apache下的顶..."
-      },
-      "catalog": [
-        {
-          "title": "后端",
-          "doc_id": "da5c5456cedccd0d194247d029f198f4"
-        }
-      ],
-      "realName": "ShardingJDBC分库分表mysql数据库实战笔记",
-      "relativePath": "/后端/ShardingJDBC分库分表mysql数据库实战笔记.md",
-      "docPath": "docs/mds/后端"
-    },
-    {
-      "id": 156618702,
-      "doc_id": "a819666aa68d94cd43692e05bac074e0",
-      "updated": 1705811358000,
-      "properties": {
-        "title": "K8s笔记",
-        "urlname": "a819666aa68d94cd43692e05bac074e0",
-        "date": "2024-01-20 16:15:19",
-        "updated": "2024-01-21 12:29:18",
-        "description": "容器编排k8s最佳实践kubernetes+Rancher2.x笔记为什么要学习容器编排调度Kubernetes 多数互联网公司里面用的技术，实现跨主机多容器编排调度管理的最佳技术之一  可以实现服务注册发现、DevOps自动部署和回滚，能够自动实现请求的负载均衡分配网络流量  在多数互联网公..."
-      },
-      "catalog": [
-        {
-          "title": "后端",
-          "doc_id": "a819666aa68d94cd43692e05bac074e0"
-        }
-      ],
-      "realName": "K8s笔记",
-      "relativePath": "/后端/K8s笔记.md",
-      "needUpdate": 1,
-      "docPath": "docs/mds/后端"
-    },
-    {
-      "id": 71899506,
-      "doc_id": "cglr9x",
-      "updated": 1705810932000,
-      "properties": {
-        "title": "JavaScript总结",
-        "urlname": "cglr9x",
-        "date": "2022-04-01 17:53:57",
-        "updated": "2024-01-21 12:22:12",
-        "description": "JS事件循环JavaScript语言是一门单线程的非阻塞的脚本语言。为什么 JS 是一门单线程的语言？ 因为在浏览器中，需要对各种的DOM操作。当JS是多线程的话，如果有两个线程同时对同一个DOM进行操作，一个是在这个DOM上绑定事件，另外一个是删除该DOM，此时就会产生歧义。因此为了保证这种..."
-      },
-      "catalog": [
-        {
-          "title": "前端",
-          "doc_id": "cglr9x"
-        },
-        {
-          "title": "基础知识",
-          "doc_id": "cglr9x"
-        }
-      ],
-      "realName": "JavaScript总结",
-      "relativePath": "/前端/基础知识/JavaScript总结.md",
-      "docPath": "docs/mds/前端/基础知识"
-    },
-    {
-      "id": 71882344,
-      "doc_id": "wrw545",
-      "updated": 1705810932000,
-      "properties": {
-        "title": "CSS常见概念",
-        "urlname": "wrw545",
-        "date": "2022-04-01 16:21:09",
-        "updated": "2024-01-21 12:22:12",
-        "description": "CSS选择器以及优先级样式优先级最近的祖先样式⽐其他祖先样式优先级高 直接样式⽐祖先样式优先级⾼ 选择器优先级内联样式 > id选择器 > 类选择器 = 属性选择器 = 伪类选择器 > 标签选择器 = 伪元素选择器组合选择符 分类 后代选择符： .a .b{} 子级选择符： .a > .b{}..."
-      },
-      "catalog": [
-        {
-          "title": "前端",
-          "doc_id": "wrw545"
-        },
-        {
-          "title": "基础知识",
-          "doc_id": "wrw545"
-        }
-      ],
-      "realName": "CSS常见概念",
-      "relativePath": "/前端/基础知识/CSS常见概念.md",
-      "docPath": "docs/mds/前端/基础知识"
-    },
-    {
-      "id": 71838073,
-      "doc_id": "mri1c6",
-      "updated": 1705810932000,
-      "properties": {
-        "title": "HTML常见概念",
-        "urlname": "mri1c6",
-        "date": "2022-04-01 11:33:15",
-        "updated": "2024-01-21 12:22:12",
-        "description": "src和href的区别srcsrc用于替换当前元素，href用于在当前文档和引用资源之间确立联系。src是source的缩写，指向外部资源的位置，指向的内容将会嵌入到文档中当前标签所在位置；在请求src资源时会将其指向的资源下载并应用到文档内，例如js脚本，img图片和frame等元素。<sc..."
-      },
-      "catalog": [
-        {
-          "title": "前端",
-          "doc_id": "mri1c6"
-        },
-        {
-          "title": "基础知识",
-          "doc_id": "mri1c6"
-        }
-      ],
-      "realName": "HTML常见概念",
-      "relativePath": "/前端/基础知识/HTML常见概念.md",
-      "docPath": "docs/mds/前端/基础知识"
-    },
-    {
-      "id": 156618704,
-      "doc_id": "about_me",
-      "updated": 1705811442000,
-      "properties": {
-        "title": "关于我",
-        "urlname": "about_me",
-        "date": "2024-01-20 16:15:22",
-        "updated": "2024-01-21 12:30:42",
-        "description": "Hi there，I'm Forest 👋吾唯谙代码，若此技弗精，则无复归途。特性 博客所有内容自动同步第三方笔记平台  自动生成菜单导航，无需手动编辑和整理菜单 Project海量数据短链项目笔记Mastering skills技能分类掌握情况编程语言+工具熟练掌握后端 java/Pyth..."
-      },
-      "catalog": [],
-      "realName": "关于我",
-      "relativePath": "/关于我.md",
-      "docPath": "docs/mds"
-    },
-    {
       "id": 156618701,
       "doc_id": "396c5934841b0928ca29239023870a03",
-      "updated": 1705810932000,
+      "updated": 1705817122000,
       "properties": {
         "title": "JS防抖节流",
         "urlname": "396c5934841b0928ca29239023870a03",
         "date": "2024-01-20 16:15:18",
-        "updated": "2024-01-21 12:22:12",
+        "updated": "2024-01-21 14:05:22",
         "description": "防抖在用户频繁的进行某项操作时，只识别一次function clearTimer(timer) {   if (typeof timer !== null) clearTimeout(timer);   return null; }  // 简单版本 function debounce(fun..."
       },
       "catalog": [
@@ -258,29 +51,20 @@
       "docPath": "docs/mds/前端/常用工具方法封装"
     },
     {
-      "id": 156618715,
-      "doc_id": "56e2d0f34428683e981667a3bf7e7f47",
-      "updated": 1705811031000,
+      "id": 156618704,
+      "doc_id": "about_me",
+      "updated": 1705817182000,
       "properties": {
-        "title": "构架笔记",
-        "urlname": "56e2d0f34428683e981667a3bf7e7f47",
-        "date": "2024-01-20 16:15:26",
-        "updated": "2024-01-21 12:23:51",
-        "description": "构架笔记什么是架构师英文 Architect 源于建筑学，在软件工程当中的架构师和建筑工程当中建筑师有很多共性，都是负责项目宏观的架构设计和整体把控；在软件工程领域中就是软件项目的总体设计师负责人对于大部分程序员来说，架构师算是职业最终目标互联网行业常⻅的架构师岗位1. 解决方案架构师：技术选..."
+        "title": "关于我",
+        "urlname": "about_me",
+        "date": "2024-01-20 16:15:22",
+        "updated": "2024-01-21 14:06:22",
+        "description": "Hi there，I'm Forest 👋吾唯谙代码，若此技弗精，则无复归途。特性 博客所有内容自动同步第三方笔记平台  自动生成菜单导航，无需手动编辑和整理菜单 Project海量数据短链项目笔记Mastering skills技能分类掌握情况编程语言+工具熟练掌握后端 java/Pyth..."
       },
-      "catalog": [
-        {
-          "title": "后端",
-          "doc_id": "56e2d0f34428683e981667a3bf7e7f47"
-        },
-        {
-          "title": "架构",
-          "doc_id": "56e2d0f34428683e981667a3bf7e7f47"
-        }
-      ],
-      "realName": "构架笔记",
-      "relativePath": "/后端/架构/构架笔记.md",
-      "docPath": "docs/mds/后端/架构"
+      "catalog": [],
+      "realName": "关于我",
+      "relativePath": "/关于我.md",
+      "docPath": "docs/mds"
     },
     {
       "id": 156621721,
@@ -303,59 +87,15 @@
       "docPath": "docs/mds/算法"
     },
     {
-      "id": 156618729,
-      "doc_id": "8425e27363f6f29b405444f8b25ccfde",
-      "updated": 1705810932000,
-      "properties": {
-        "title": "高性能RabbitMQ容器化分布式集群实战",
-        "urlname": "8425e27363f6f29b405444f8b25ccfde",
-        "date": "2024-01-20 16:15:30",
-        "updated": "2024-01-21 12:22:12"
-      },
-      "catalog": [
-        {
-          "title": "后端",
-          "doc_id": "8425e27363f6f29b405444f8b25ccfde"
-        }
-      ],
-      "realName": "高性能RabbitMQ容器化分布式集群实战",
-      "relativePath": "/后端/高性能RabbitMQ容器化分布式集群实战.md",
-      "docPath": "docs/mds/后端"
-    },
-    {
-      "id": 156618719,
-      "doc_id": "b5e89992b7ef1c6b14737431f584256f",
-      "updated": 1705811346000,
-      "properties": {
-        "title": "海量数据短链项目笔记",
-        "urlname": "b5e89992b7ef1c6b14737431f584256f",
-        "date": "2024-01-20 16:15:27",
-        "updated": "2024-01-21 12:29:06",
-        "description": "海量数据短链项目笔记业务背景：为啥需要短链? 公司电商产品推广、业务活动⻚、广告落地⻚缺少实时【数据反馈和渠道效果分析】  老项目业务推广【没人维护，无法做埋点】需要统计效果  APP和营销活动发送营销短信链接过⻓，【浪费短信发送费用】  SaaS平台盈利  用户按量付费，根据流量包选择付费购..."
-      },
-      "catalog": [
-        {
-          "title": "后端",
-          "doc_id": "b5e89992b7ef1c6b14737431f584256f"
-        },
-        {
-          "title": "项目",
-          "doc_id": "b5e89992b7ef1c6b14737431f584256f"
-        }
-      ],
-      "realName": "海量数据短链项目笔记",
-      "relativePath": "/后端/项目/海量数据短链项目笔记.md",
-      "docPath": "docs/mds/后端/项目"
-    },
-    {
       "id": 156618710,
       "doc_id": "51ee5d1b79664e09aa36aa64af9d1320",
-      "updated": 1705810932000,
+      "updated": 1705902570000,
       "properties": {
         "title": "分布式缓存Redis6.X+高可用集群笔记",
         "urlname": "51ee5d1b79664e09aa36aa64af9d1320",
         "date": "2024-01-20 16:15:24",
-        "updated": "2024-01-21 12:22:12"
+        "updated": "2024-01-22 13:49:30",
+        "description": "Q: 为什么要学习RedisA: 解决高并发下性能问题 高并发解决方案：  队列：Rabbitmq、Kafka  缓存  分布式缓存：Redis、Memcached  本地缓存：Mybatis、Redis本地单机服务   怎么选择缓存方案？结合业务数据选择，一般都是共同存在的。衍生问题及解决：..."
       },
       "catalog": [
         {
@@ -368,83 +108,39 @@
       "docPath": "docs/mds/后端"
     },
     {
-      "id": 156618705,
-      "doc_id": "b982350d297df339bdb4abb3e79e2f1f",
-      "updated": 1705810932000,
+      "id": 156618715,
+      "doc_id": "56e2d0f34428683e981667a3bf7e7f47",
+      "updated": 1705817172000,
       "properties": {
-        "title": "分布式流处理平台Kafka笔记",
-        "urlname": "b982350d297df339bdb4abb3e79e2f1f",
-        "date": "2024-01-20 16:15:23",
-        "updated": "2024-01-21 12:22:12"
+        "title": "构架笔记",
+        "urlname": "56e2d0f34428683e981667a3bf7e7f47",
+        "date": "2024-01-20 16:15:26",
+        "updated": "2024-01-21 14:06:12",
+        "description": "构架笔记什么是架构师英文 Architect 源于建筑学，在软件工程当中的架构师和建筑工程当中建筑师有很多共性，都是负责项目宏观的架构设计和整体把控；在软件工程领域中就是软件项目的总体设计师负责人对于大部分程序员来说，架构师算是职业最终目标互联网行业常⻅的架构师岗位1. 解决方案架构师：技术选..."
       },
       "catalog": [
         {
           "title": "后端",
-          "doc_id": "b982350d297df339bdb4abb3e79e2f1f"
-        }
-      ],
-      "realName": "分布式流处理平台Kafka笔记",
-      "relativePath": "/后端/分布式流处理平台Kafka笔记.md",
-      "docPath": "docs/mds/后端"
-    },
-    {
-      "id": 156618697,
-      "doc_id": "7325541e983fbb49fe5f73fb011788fd",
-      "updated": 1705810932000,
-      "properties": {
-        "title": "JS函数",
-        "urlname": "7325541e983fbb49fe5f73fb011788fd",
-        "date": "2024-01-20 16:15:17",
-        "updated": "2024-01-21 12:22:12"
-      },
-      "catalog": [
-        {
-          "title": "前端",
-          "doc_id": "7325541e983fbb49fe5f73fb011788fd"
+          "doc_id": "56e2d0f34428683e981667a3bf7e7f47"
         },
         {
-          "title": "JS底层知识",
-          "doc_id": "7325541e983fbb49fe5f73fb011788fd"
+          "title": "架构",
+          "doc_id": "56e2d0f34428683e981667a3bf7e7f47"
         }
       ],
-      "realName": "JS函数",
-      "relativePath": "/前端/JS底层知识/JS函数.md",
-      "docPath": "docs/mds/前端/JS底层知识"
-    },
-    {
-      "id": 156618695,
-      "doc_id": "e1d4df91fb6f51043b4325bbb6260ce5",
-      "updated": 1705810932000,
-      "properties": {
-        "title": "JS内存机制",
-        "urlname": "e1d4df91fb6f51043b4325bbb6260ce5",
-        "date": "2024-01-20 16:15:16",
-        "updated": "2024-01-21 12:22:12"
-      },
-      "catalog": [
-        {
-          "title": "前端",
-          "doc_id": "e1d4df91fb6f51043b4325bbb6260ce5"
-        },
-        {
-          "title": "JS底层知识",
-          "doc_id": "e1d4df91fb6f51043b4325bbb6260ce5"
-        }
-      ],
-      "realName": "JS内存机制",
-      "relativePath": "/前端/JS底层知识/JS内存机制.md",
-      "needUpdate": 1,
-      "docPath": "docs/mds/前端/JS底层知识"
+      "realName": "构架笔记",
+      "relativePath": "/后端/架构/构架笔记.md",
+      "docPath": "docs/mds/后端/架构"
     },
     {
       "id": 49735396,
       "doc_id": "etfpwu",
-      "updated": 1705810932000,
+      "updated": 1705817133000,
       "properties": {
         "title": "网络通信基本概念",
         "urlname": "etfpwu",
         "date": "2021-07-25 20:03:21",
-        "updated": "2024-01-21 12:22:12"
+        "updated": "2024-01-21 14:05:33"
       },
       "catalog": [
         {
@@ -459,77 +155,6 @@
       "realName": "网络通信基本概念",
       "relativePath": "/前端/网络通信/网络通信基本概念.md",
       "docPath": "docs/mds/前端/网络通信"
-    },
-    {
-      "id": 47883854,
-      "doc_id": "pa2vzf",
-      "updated": 1705810932000,
-      "properties": {
-        "title": "Webpack核心原理",
-        "urlname": "pa2vzf",
-        "date": "2021-06-27 11:49:50",
-        "updated": "2024-01-21 12:22:12",
-        "description": "对于Webpack来说，它本质上就是一个模块打包器，正是由于有了Loader和Plugin，才让Webpack有了其他各种各样的功能。Webpack打包后的文件创建项目mkdir demo && cd demo npm init -y安装依赖yarn add webpack webpack-c..."
-      },
-      "catalog": [
-        {
-          "title": "前端",
-          "doc_id": "pa2vzf"
-        },
-        {
-          "title": "工程化",
-          "doc_id": "pa2vzf"
-        }
-      ],
-      "realName": "Webpack核心原理",
-      "relativePath": "/前端/工程化/Webpack核心原理.md",
-      "docPath": "docs/mds/前端/工程化"
-    },
-    {
-      "id": 46697798,
-      "doc_id": "eoh5tn",
-      "updated": 1705810932000,
-      "properties": {
-        "title": "前端工程化",
-        "urlname": "eoh5tn",
-        "date": "2021-06-07 09:49:08",
-        "updated": "2024-01-21 12:22:12",
-        "description": "在没有Node的远古时代，面对复杂的项目结构往往束手无策，即使采用变量模块化、等一些代码抽象的手段，还是不尽如人意。那么此时就有一个划时代的英雄出现了，它就是Node，如果说Ajax给前端能力范围带来了一次革命，那么Node也同样给前端工程化带来一次伟大的革命！工程化概述前端工程化是指遵循一定..."
-      },
-      "catalog": [
-        {
-          "title": "前端",
-          "doc_id": "eoh5tn"
-        },
-        {
-          "title": "工程化",
-          "doc_id": "eoh5tn"
-        }
-      ],
-      "realName": "前端工程化",
-      "relativePath": "/前端/工程化/前端工程化.md",
-      "docPath": "docs/mds/前端/工程化"
-    },
-    {
-      "id": 7795559,
-      "doc_id": "uxhzaq",
-      "updated": 1705811001000,
-      "properties": {
-        "title": "未来的路",
-        "urlname": "uxhzaq",
-        "date": "2020-06-02 20:10:59",
-        "updated": "2024-01-21 12:23:21",
-        "description": "面试先达到P6再考虑其他岗位根据自己的喜欢选择P6之后要做什么先长高、再长胖、最后锻炼为型男。读书、读书、读书、读书，目的：锻炼学习能力。不要写中规中矩的简历，要按照一定的维度写。只要简历写的好，面试基本上都会过。自我介绍不要打磕。面试是场修行，是在任何地方都学不到的。面试十家左右，即使不去。..."
-      },
-      "catalog": [
-        {
-          "title": "个人思考",
-          "doc_id": "uxhzaq"
-        }
-      ],
-      "realName": "未来的路",
-      "relativePath": "/个人思考/未来的路.md",
-      "docPath": "docs/mds/个人思考"
     }
   ],
   "catalog": [
@@ -555,26 +180,11 @@
       "url": "",
       "prev_uuid": "GggV1FqNSLoTF-K3",
       "sibling_uuid": "tqMl_xspFbXL5l9T",
-      "child_uuid": "PCk8ICJ5Pun60eGO",
+      "child_uuid": "",
       "parent_uuid": "",
       "doc_id": "",
       "level": 0,
       "id": "",
-      "open_window": 1,
-      "visible": 1
-    },
-    {
-      "type": "DOC",
-      "title": "未来的路",
-      "uuid": "PCk8ICJ5Pun60eGO",
-      "url": "uxhzaq",
-      "prev_uuid": "PWxPfsFGNU0m1jU8",
-      "sibling_uuid": "",
-      "child_uuid": "",
-      "parent_uuid": "PWxPfsFGNU0m1jU8",
-      "doc_id": 7795559,
-      "level": 1,
-      "id": 7795559,
       "open_window": 1,
       "visible": 1
     },
@@ -839,7 +449,7 @@
       "uuid": "ygN0XcHGYZIBewkw",
       "url": "e1d4df91fb6f51043b4325bbb6260ce5",
       "prev_uuid": "0i146-tRdQ3YDl82",
-      "sibling_uuid": "rfE1EgUaNfdG066n",
+      "sibling_uuid": "JSzka1jHIdfICtBe",
       "child_uuid": "",
       "parent_uuid": "M0jRpOCrZFDUuYwa",
       "doc_id": 156618695,
@@ -850,47 +460,17 @@
     },
     {
       "type": "DOC",
-      "title": "思维导图之作用域和闭包",
-      "uuid": "rfE1EgUaNfdG066n",
-      "url": "vhrwmx",
-      "prev_uuid": "ygN0XcHGYZIBewkw",
-      "sibling_uuid": "JSzka1jHIdfICtBe",
-      "child_uuid": "",
-      "parent_uuid": "M0jRpOCrZFDUuYwa",
-      "doc_id": 15149991,
-      "level": 2,
-      "id": 15149991,
-      "open_window": 0,
-      "visible": 1
-    },
-    {
-      "type": "DOC",
       "title": "JavaScript之数据类型",
       "uuid": "JSzka1jHIdfICtBe",
       "url": "sk8ag5",
-      "prev_uuid": "rfE1EgUaNfdG066n",
-      "sibling_uuid": "ykJQmwYyGd9epQ78",
+      "prev_uuid": "ygN0XcHGYZIBewkw",
+      "sibling_uuid": "",
       "child_uuid": "",
       "parent_uuid": "M0jRpOCrZFDUuYwa",
       "doc_id": 68892282,
       "level": 2,
       "id": 68892282,
       "open_window": 1,
-      "visible": 1
-    },
-    {
-      "type": "DOC",
-      "title": "思维导图之面向对象",
-      "uuid": "ykJQmwYyGd9epQ78",
-      "url": "sxbk2l",
-      "prev_uuid": "JSzka1jHIdfICtBe",
-      "sibling_uuid": "",
-      "child_uuid": "",
-      "parent_uuid": "M0jRpOCrZFDUuYwa",
-      "doc_id": 15934440,
-      "level": 2,
-      "id": 15934440,
-      "open_window": 0,
       "visible": 1
     },
     {
@@ -1019,7 +599,7 @@
       "uuid": "SOf0KujD7aCDRUgg",
       "url": "",
       "prev_uuid": "0GJzS6jyw8MClvw7",
-      "sibling_uuid": "",
+      "sibling_uuid": "bwYOWyF-5QZC3Tzl",
       "child_uuid": "NiiXGV5fCuHEvc0N",
       "parent_uuid": "",
       "doc_id": "",
@@ -1041,6 +621,111 @@
       "level": 1,
       "id": 156621721,
       "open_window": 1,
+      "visible": 1
+    },
+    {
+      "type": "TITLE",
+      "title": "时序图",
+      "uuid": "bwYOWyF-5QZC3Tzl",
+      "url": "",
+      "prev_uuid": "SOf0KujD7aCDRUgg",
+      "sibling_uuid": "1blv5x559vL_5DH4",
+      "child_uuid": "QqfUJKGDzgSjN999",
+      "parent_uuid": "",
+      "doc_id": "",
+      "level": 0,
+      "id": "",
+      "open_window": 1,
+      "visible": 1
+    },
+    {
+      "type": "DOC",
+      "title": "在线教育VOD视频点播时序图-学员",
+      "uuid": "QqfUJKGDzgSjN999",
+      "url": "qow0s5l8lbys74zz",
+      "prev_uuid": "bwYOWyF-5QZC3Tzl",
+      "sibling_uuid": "KlBerGUxQp9P-_tX",
+      "child_uuid": "",
+      "parent_uuid": "bwYOWyF-5QZC3Tzl",
+      "doc_id": 156899578,
+      "level": 1,
+      "id": 156899578,
+      "open_window": 1,
+      "visible": 1
+    },
+    {
+      "type": "DOC",
+      "title": "在线教育VOD视频点播时序图-讲师",
+      "uuid": "KlBerGUxQp9P-_tX",
+      "url": "bxi1hywgfc8ksbnx",
+      "prev_uuid": "QqfUJKGDzgSjN999",
+      "sibling_uuid": "eeJ4OEafLbE-twHZ",
+      "child_uuid": "",
+      "parent_uuid": "bwYOWyF-5QZC3Tzl",
+      "doc_id": 156894288,
+      "level": 1,
+      "id": 156894288,
+      "open_window": 1,
+      "visible": 1
+    },
+    {
+      "type": "DOC",
+      "title": "微信支付时序图",
+      "uuid": "eeJ4OEafLbE-twHZ",
+      "url": "gaclr90e1tpqtv2i",
+      "prev_uuid": "KlBerGUxQp9P-_tX",
+      "sibling_uuid": "",
+      "child_uuid": "",
+      "parent_uuid": "bwYOWyF-5QZC3Tzl",
+      "doc_id": 156728186,
+      "level": 1,
+      "id": 156728186,
+      "open_window": 1,
+      "visible": 1
+    },
+    {
+      "type": "TITLE",
+      "title": "思维导图",
+      "uuid": "1blv5x559vL_5DH4",
+      "url": "",
+      "prev_uuid": "bwYOWyF-5QZC3Tzl",
+      "sibling_uuid": "",
+      "child_uuid": "ykJQmwYyGd9epQ78",
+      "parent_uuid": "",
+      "doc_id": "",
+      "level": 0,
+      "id": "",
+      "open_window": 1,
+      "visible": 1
+    },
+    {
+      "type": "DOC",
+      "title": "面向对象",
+      "uuid": "ykJQmwYyGd9epQ78",
+      "url": "sxbk2l",
+      "prev_uuid": "1blv5x559vL_5DH4",
+      "sibling_uuid": "rfE1EgUaNfdG066n",
+      "child_uuid": "",
+      "parent_uuid": "1blv5x559vL_5DH4",
+      "doc_id": 15934440,
+      "level": 1,
+      "id": 15934440,
+      "open_window": 0,
+      "visible": 1
+    },
+    {
+      "type": "DOC",
+      "title": "作用域和闭包",
+      "uuid": "rfE1EgUaNfdG066n",
+      "url": "vhrwmx",
+      "prev_uuid": "ykJQmwYyGd9epQ78",
+      "sibling_uuid": "",
+      "child_uuid": "",
+      "parent_uuid": "1blv5x559vL_5DH4",
+      "doc_id": 15149991,
+      "level": 1,
+      "id": 15149991,
+      "open_window": 0,
       "visible": 1
     }
   ]

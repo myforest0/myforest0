@@ -2,7 +2,8 @@
 title: 分布式缓存Redis6.X+高可用集群笔记
 urlname: 51ee5d1b79664e09aa36aa64af9d1320
 date: '2024-01-20 16:15:24'
-updated: '2024-01-21 12:22:12'
+updated: '2024-01-22 13:49:30'
+description: 'Q: 为什么要学习RedisA: 解决高并发下性能问题 高并发解决方案：  队列：Rabbitmq、Kafka  缓存  分布式缓存：Redis、Memcached  本地缓存：Mybatis、Redis本地单机服务   怎么选择缓存方案？结合业务数据选择，一般都是共同存在的。衍生问题及解决：...'
 ---
 ## Q: 为什么要学习Redis
 
