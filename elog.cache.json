@@ -1,6 +1,31 @@
 {
   "docs": [
     {
+      "id": 156618701,
+      "doc_id": "396c5934841b0928ca29239023870a03",
+      "updated": 1705817122000,
+      "properties": {
+        "title": "JS防抖节流",
+        "urlname": "396c5934841b0928ca29239023870a03",
+        "date": "2024-01-20 16:15:18",
+        "updated": "2024-01-21 14:05:22",
+        "description": "防抖在用户频繁的进行某项操作时，只识别一次function clearTimer(timer) {   if (typeof timer !== null) clearTimeout(timer);   return null; }  // 简单版本 function debounce(fun..."
+      },
+      "catalog": [
+        {
+          "title": "前端",
+          "doc_id": "396c5934841b0928ca29239023870a03"
+        },
+        {
+          "title": "常用工具方法封装",
+          "doc_id": "396c5934841b0928ca29239023870a03"
+        }
+      ],
+      "realName": "JS防抖节流",
+      "relativePath": "/前端/常用工具方法封装/JS防抖节流.md",
+      "docPath": "docs/mds/前端/常用工具方法封装"
+    },
+    {
       "id": 68913348,
       "doc_id": "xihxbg",
       "updated": 1705817102000,
@@ -26,29 +51,147 @@
       "docPath": "docs/mds/前端/常用工具方法封装"
     },
     {
-      "id": 156618701,
-      "doc_id": "396c5934841b0928ca29239023870a03",
-      "updated": 1705817122000,
+      "id": 156618719,
+      "doc_id": "b5e89992b7ef1c6b14737431f584256f",
+      "updated": 1707034035000,
       "properties": {
-        "title": "JS防抖节流",
-        "urlname": "396c5934841b0928ca29239023870a03",
-        "date": "2024-01-20 16:15:18",
-        "updated": "2024-01-21 14:05:22",
-        "description": "防抖在用户频繁的进行某项操作时，只识别一次function clearTimer(timer) {   if (typeof timer !== null) clearTimeout(timer);   return null; }  // 简单版本 function debounce(fun..."
+        "title": "海量数据短链项目笔记",
+        "urlname": "b5e89992b7ef1c6b14737431f584256f",
+        "date": "2024-01-20 16:15:27",
+        "updated": "2024-02-04 16:07:15",
+        "description": "海量数据短链项目笔记业务背景：为啥需要短链? 公司电商产品推广、业务活动⻚、广告落地⻚缺少实时【数据反馈和渠道效果分析】  老项目业务推广【没人维护，无法做埋点】需要统计效果  APP和营销活动发送营销短信链接过⻓，【浪费短信发送费用】  SaaS平台盈利  用户按量付费，根据流量包选择付费购..."
+      },
+      "catalog": [
+        {
+          "title": "后端",
+          "doc_id": "b5e89992b7ef1c6b14737431f584256f"
+        },
+        {
+          "title": "项目",
+          "doc_id": "b5e89992b7ef1c6b14737431f584256f"
+        }
+      ],
+      "realName": "海量数据短链项目笔记",
+      "relativePath": "/后端/项目/海量数据短链项目笔记.md",
+      "docPath": "docs/mds/后端/项目"
+    },
+    {
+      "id": 68892282,
+      "doc_id": "sk8ag5",
+      "updated": 1707033713000,
+      "properties": {
+        "title": "JavaScript之数据类型",
+        "urlname": "sk8ag5",
+        "date": "2022-03-10 09:44:19",
+        "updated": "2024-02-04 16:01:53",
+        "description": "JS中的数据类型被分为两大类：原始值类型（值类型/基本数据类型）number 数字string 字符串boolean 布尔null 空对象指针undefined 未定义symbol 唯一值bigint 大数对象类型（引用数据类型）标准普通对象 Object标准特殊对象 Array、RegExp..."
       },
       "catalog": [
         {
           "title": "前端",
-          "doc_id": "396c5934841b0928ca29239023870a03"
+          "doc_id": "sk8ag5"
         },
         {
-          "title": "常用工具方法封装",
-          "doc_id": "396c5934841b0928ca29239023870a03"
+          "title": "JS底层知识",
+          "doc_id": "sk8ag5"
         }
       ],
-      "realName": "JS防抖节流",
-      "relativePath": "/前端/常用工具方法封装/JS防抖节流.md",
-      "docPath": "docs/mds/前端/常用工具方法封装"
+      "realName": "JavaScript之数据类型",
+      "relativePath": "/前端/JS底层知识/JavaScript之数据类型.md",
+      "docPath": "docs/mds/前端/JS底层知识"
+    },
+    {
+      "id": 156618703,
+      "doc_id": "da5c5456cedccd0d194247d029f198f4",
+      "updated": 1707033852000,
+      "properties": {
+        "title": "ShardingJDBC分库分表mysql数据库实战笔记",
+        "urlname": "da5c5456cedccd0d194247d029f198f4",
+        "date": "2024-01-20 16:15:21",
+        "updated": "2024-02-04 16:04:12",
+        "description": "ShardingJDBC分库分表mysql数据库实战笔记为什么要学习分库分表和Sharding-JDBC 多数互联网公司里面用的技术，高并发项目都离不开分库分表  数据库性能优化的至关重要环节，分库分表是必杀技之一  在多数互联网公司中，ShardingJDBC占有率很高，是Apache下的顶..."
+      },
+      "catalog": [
+        {
+          "title": "后端",
+          "doc_id": "da5c5456cedccd0d194247d029f198f4"
+        }
+      ],
+      "realName": "ShardingJDBC分库分表mysql数据库实战笔记",
+      "relativePath": "/后端/ShardingJDBC分库分表mysql数据库实战笔记.md",
+      "docPath": "docs/mds/后端"
+    },
+    {
+      "id": 156618702,
+      "doc_id": "a819666aa68d94cd43692e05bac074e0",
+      "updated": 1707033873000,
+      "properties": {
+        "title": "K8s笔记",
+        "urlname": "a819666aa68d94cd43692e05bac074e0",
+        "date": "2024-01-20 16:15:19",
+        "updated": "2024-02-04 16:04:33",
+        "description": "容器编排k8s最佳实践kubernetes+Rancher2.x笔记为什么要学习容器编排调度Kubernetes 多数互联网公司里面用的技术，实现跨主机多容器编排调度管理的最佳技术之一  可以实现服务注册发现、DevOps自动部署和回滚，能够自动实现请求的负载均衡分配网络流量  在多数互联网公..."
+      },
+      "catalog": [
+        {
+          "title": "后端",
+          "doc_id": "a819666aa68d94cd43692e05bac074e0"
+        }
+      ],
+      "realName": "K8s笔记",
+      "relativePath": "/后端/K8s笔记.md",
+      "needUpdate": 1,
+      "docPath": "docs/mds/后端"
+    },
+    {
+      "id": 71882344,
+      "doc_id": "wrw545",
+      "updated": 1707033593000,
+      "properties": {
+        "title": "CSS常见概念",
+        "urlname": "wrw545",
+        "date": "2022-04-01 16:21:09",
+        "updated": "2024-02-04 15:59:53",
+        "description": "CSS选择器以及优先级样式优先级最近的祖先样式⽐其他祖先样式优先级高 直接样式⽐祖先样式优先级⾼ 选择器优先级内联样式 > id选择器 > 类选择器 = 属性选择器 = 伪类选择器 > 标签选择器 = 伪元素选择器组合选择符 分类 后代选择符： .a .b{} 子级选择符： .a > .b{}..."
+      },
+      "catalog": [
+        {
+          "title": "前端",
+          "doc_id": "wrw545"
+        },
+        {
+          "title": "基础知识",
+          "doc_id": "wrw545"
+        }
+      ],
+      "realName": "CSS常见概念",
+      "relativePath": "/前端/基础知识/CSS常见概念.md",
+      "docPath": "docs/mds/前端/基础知识"
+    },
+    {
+      "id": 71899506,
+      "doc_id": "cglr9x",
+      "updated": 1707033644000,
+      "properties": {
+        "title": "JavaScript总结",
+        "urlname": "cglr9x",
+        "date": "2022-04-01 17:53:57",
+        "updated": "2024-02-04 16:00:44",
+        "description": "JS事件循环JavaScript语言是一门单线程的非阻塞的脚本语言。为什么 JS 是一门单线程的语言？ 因为在浏览器中，需要对各种的DOM操作。当JS是多线程的话，如果有两个线程同时对同一个DOM进行操作，一个是在这个DOM上绑定事件，另外一个是删除该DOM，此时就会产生歧义。因此为了保证这种..."
+      },
+      "catalog": [
+        {
+          "title": "前端",
+          "doc_id": "cglr9x"
+        },
+        {
+          "title": "基础知识",
+          "doc_id": "cglr9x"
+        }
+      ],
+      "realName": "JavaScript总结",
+      "relativePath": "/前端/基础知识/JavaScript总结.md",
+      "docPath": "docs/mds/前端/基础知识"
     },
     {
       "id": 156618704,
@@ -87,6 +230,122 @@
       "docPath": "docs/mds/算法"
     },
     {
+      "id": 156618715,
+      "doc_id": "56e2d0f34428683e981667a3bf7e7f47",
+      "updated": 1705817172000,
+      "properties": {
+        "title": "构架笔记",
+        "urlname": "56e2d0f34428683e981667a3bf7e7f47",
+        "date": "2024-01-20 16:15:26",
+        "updated": "2024-01-21 14:06:12",
+        "description": "构架笔记什么是架构师英文 Architect 源于建筑学，在软件工程当中的架构师和建筑工程当中建筑师有很多共性，都是负责项目宏观的架构设计和整体把控；在软件工程领域中就是软件项目的总体设计师负责人对于大部分程序员来说，架构师算是职业最终目标互联网行业常⻅的架构师岗位1. 解决方案架构师：技术选..."
+      },
+      "catalog": [
+        {
+          "title": "后端",
+          "doc_id": "56e2d0f34428683e981667a3bf7e7f47"
+        },
+        {
+          "title": "架构",
+          "doc_id": "56e2d0f34428683e981667a3bf7e7f47"
+        }
+      ],
+      "realName": "构架笔记",
+      "relativePath": "/后端/架构/构架笔记.md",
+      "docPath": "docs/mds/后端/架构"
+    },
+    {
+      "id": 156618729,
+      "doc_id": "8425e27363f6f29b405444f8b25ccfde",
+      "updated": 1707033834000,
+      "properties": {
+        "title": "高性能RabbitMQ容器化分布式集群实战",
+        "urlname": "8425e27363f6f29b405444f8b25ccfde",
+        "date": "2024-01-20 16:15:30",
+        "updated": "2024-02-04 16:03:54",
+        "description": "222"
+      },
+      "catalog": [
+        {
+          "title": "后端",
+          "doc_id": "8425e27363f6f29b405444f8b25ccfde"
+        }
+      ],
+      "realName": "高性能RabbitMQ容器化分布式集群实战",
+      "relativePath": "/后端/高性能RabbitMQ容器化分布式集群实战.md",
+      "docPath": "docs/mds/后端"
+    },
+    {
+      "id": 156618705,
+      "doc_id": "b982350d297df339bdb4abb3e79e2f1f",
+      "updated": 1707033898000,
+      "properties": {
+        "title": "分布式流处理平台Kafka笔记",
+        "urlname": "b982350d297df339bdb4abb3e79e2f1f",
+        "date": "2024-01-20 16:15:23",
+        "updated": "2024-02-04 16:04:58",
+        "description": "hbjbh"
+      },
+      "catalog": [
+        {
+          "title": "后端",
+          "doc_id": "b982350d297df339bdb4abb3e79e2f1f"
+        }
+      ],
+      "realName": "分布式流处理平台Kafka笔记",
+      "relativePath": "/后端/分布式流处理平台Kafka笔记.md",
+      "docPath": "docs/mds/后端"
+    },
+    {
+      "id": 156618697,
+      "doc_id": "7325541e983fbb49fe5f73fb011788fd",
+      "updated": 1707033674000,
+      "properties": {
+        "title": "JS函数",
+        "urlname": "7325541e983fbb49fe5f73fb011788fd",
+        "date": "2024-01-20 16:15:17",
+        "updated": "2024-02-04 16:01:14"
+      },
+      "catalog": [
+        {
+          "title": "前端",
+          "doc_id": "7325541e983fbb49fe5f73fb011788fd"
+        },
+        {
+          "title": "JS底层知识",
+          "doc_id": "7325541e983fbb49fe5f73fb011788fd"
+        }
+      ],
+      "realName": "JS函数",
+      "relativePath": "/前端/JS底层知识/JS函数.md",
+      "docPath": "docs/mds/前端/JS底层知识"
+    },
+    {
+      "id": 156618695,
+      "doc_id": "e1d4df91fb6f51043b4325bbb6260ce5",
+      "updated": 1707033695000,
+      "properties": {
+        "title": "JS内存机制",
+        "urlname": "e1d4df91fb6f51043b4325bbb6260ce5",
+        "date": "2024-01-20 16:15:16",
+        "updated": "2024-02-04 16:01:35"
+      },
+      "catalog": [
+        {
+          "title": "前端",
+          "doc_id": "e1d4df91fb6f51043b4325bbb6260ce5"
+        },
+        {
+          "title": "JS底层知识",
+          "doc_id": "e1d4df91fb6f51043b4325bbb6260ce5"
+        }
+      ],
+      "realName": "JS内存机制",
+      "relativePath": "/前端/JS底层知识/JS内存机制.md",
+      "needUpdate": 1,
+      "docPath": "docs/mds/前端/JS底层知识"
+    },
+    {
       "id": 49735396,
       "doc_id": "etfpwu",
       "updated": 1705817133000,
@@ -111,29 +370,54 @@
       "docPath": "docs/mds/前端/网络通信"
     },
     {
-      "id": 156618715,
-      "doc_id": "56e2d0f34428683e981667a3bf7e7f47",
-      "updated": 1705817172000,
+      "id": 47883854,
+      "doc_id": "pa2vzf",
+      "updated": 1707033765000,
       "properties": {
-        "title": "构架笔记",
-        "urlname": "56e2d0f34428683e981667a3bf7e7f47",
-        "date": "2024-01-20 16:15:26",
-        "updated": "2024-01-21 14:06:12",
-        "description": "构架笔记什么是架构师英文 Architect 源于建筑学，在软件工程当中的架构师和建筑工程当中建筑师有很多共性，都是负责项目宏观的架构设计和整体把控；在软件工程领域中就是软件项目的总体设计师负责人对于大部分程序员来说，架构师算是职业最终目标互联网行业常⻅的架构师岗位1. 解决方案架构师：技术选..."
+        "title": "Webpack核心原理",
+        "urlname": "pa2vzf",
+        "date": "2021-06-27 11:49:50",
+        "updated": "2024-02-04 16:02:45",
+        "description": "对于Webpack来说，它本质上就是一个模块打包器，正是由于有了Loader和Plugin，才让Webpack有了其他各种各样的功能。Webpack打包后的文件创建项目mkdir demo && cd demo npm init -y安装依赖yarn add webpack webpack-c..."
       },
       "catalog": [
         {
-          "title": "后端",
-          "doc_id": "56e2d0f34428683e981667a3bf7e7f47"
+          "title": "前端",
+          "doc_id": "pa2vzf"
         },
         {
-          "title": "架构",
-          "doc_id": "56e2d0f34428683e981667a3bf7e7f47"
+          "title": "工程化",
+          "doc_id": "pa2vzf"
         }
       ],
-      "realName": "构架笔记",
-      "relativePath": "/后端/架构/构架笔记.md",
-      "docPath": "docs/mds/后端/架构"
+      "realName": "Webpack核心原理",
+      "relativePath": "/前端/工程化/Webpack核心原理.md",
+      "docPath": "docs/mds/前端/工程化"
+    },
+    {
+      "id": 46697798,
+      "doc_id": "eoh5tn",
+      "updated": 1707033750000,
+      "properties": {
+        "title": "前端工程化",
+        "urlname": "eoh5tn",
+        "date": "2021-06-07 09:49:08",
+        "updated": "2024-02-04 16:02:30",
+        "description": "在没有Node的远古时代，面对复杂的项目结构往往束手无策，即使采用变量模块化、等一些代码抽象的手段，还是不尽如人意。那么此时就有一个划时代的英雄出现了，它就是Node，如果说Ajax给前端能力范围带来了一次革命，那么Node也同样给前端工程化带来一次伟大的革命！工程化概述前端工程化是指遵循一定..."
+      },
+      "catalog": [
+        {
+          "title": "前端",
+          "doc_id": "eoh5tn"
+        },
+        {
+          "title": "工程化",
+          "doc_id": "eoh5tn"
+        }
+      ],
+      "realName": "前端工程化",
+      "relativePath": "/前端/工程化/前端工程化.md",
+      "docPath": "docs/mds/前端/工程化"
     }
   ],
   "catalog": [
