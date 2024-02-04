@@ -87,25 +87,28 @@
       "docPath": "docs/mds/算法"
     },
     {
-      "id": 156618710,
-      "doc_id": "51ee5d1b79664e09aa36aa64af9d1320",
-      "updated": 1705902570000,
+      "id": 49735396,
+      "doc_id": "etfpwu",
+      "updated": 1705817133000,
       "properties": {
-        "title": "分布式缓存Redis6.X+高可用集群笔记",
-        "urlname": "51ee5d1b79664e09aa36aa64af9d1320",
-        "date": "2024-01-20 16:15:24",
-        "updated": "2024-01-22 13:49:30",
-        "description": "Q: 为什么要学习RedisA: 解决高并发下性能问题 高并发解决方案：  队列：Rabbitmq、Kafka  缓存  分布式缓存：Redis、Memcached  本地缓存：Mybatis、Redis本地单机服务   怎么选择缓存方案？结合业务数据选择，一般都是共同存在的。衍生问题及解决：..."
+        "title": "网络通信基本概念",
+        "urlname": "etfpwu",
+        "date": "2021-07-25 20:03:21",
+        "updated": "2024-01-21 14:05:33"
       },
       "catalog": [
         {
-          "title": "后端",
-          "doc_id": "51ee5d1b79664e09aa36aa64af9d1320"
+          "title": "前端",
+          "doc_id": "etfpwu"
+        },
+        {
+          "title": "网络通信",
+          "doc_id": "etfpwu"
         }
       ],
-      "realName": "分布式缓存Redis6.X+高可用集群笔记",
-      "relativePath": "/后端/分布式缓存Redis6.X+高可用集群笔记.md",
-      "docPath": "docs/mds/后端"
+      "realName": "网络通信基本概念",
+      "relativePath": "/前端/网络通信/网络通信基本概念.md",
+      "docPath": "docs/mds/前端/网络通信"
     },
     {
       "id": 156618715,
@@ -131,30 +134,6 @@
       "realName": "构架笔记",
       "relativePath": "/后端/架构/构架笔记.md",
       "docPath": "docs/mds/后端/架构"
-    },
-    {
-      "id": 49735396,
-      "doc_id": "etfpwu",
-      "updated": 1705817133000,
-      "properties": {
-        "title": "网络通信基本概念",
-        "urlname": "etfpwu",
-        "date": "2021-07-25 20:03:21",
-        "updated": "2024-01-21 14:05:33"
-      },
-      "catalog": [
-        {
-          "title": "前端",
-          "doc_id": "etfpwu"
-        },
-        {
-          "title": "网络通信",
-          "doc_id": "etfpwu"
-        }
-      ],
-      "realName": "网络通信基本概念",
-      "relativePath": "/前端/网络通信/网络通信基本概念.md",
-      "docPath": "docs/mds/前端/网络通信"
     }
   ],
   "catalog": [
@@ -164,7 +143,7 @@
       "uuid": "GggV1FqNSLoTF-K3",
       "url": "about_me",
       "prev_uuid": "",
-      "sibling_uuid": "PWxPfsFGNU0m1jU8",
+      "sibling_uuid": "tqMl_xspFbXL5l9T",
       "child_uuid": "",
       "parent_uuid": "",
       "doc_id": 156618704,
@@ -175,25 +154,10 @@
     },
     {
       "type": "TITLE",
-      "title": "个人思考",
-      "uuid": "PWxPfsFGNU0m1jU8",
-      "url": "",
-      "prev_uuid": "GggV1FqNSLoTF-K3",
-      "sibling_uuid": "tqMl_xspFbXL5l9T",
-      "child_uuid": "",
-      "parent_uuid": "",
-      "doc_id": "",
-      "level": 0,
-      "id": "",
-      "open_window": 1,
-      "visible": 1
-    },
-    {
-      "type": "TITLE",
       "title": "后端",
       "uuid": "tqMl_xspFbXL5l9T",
       "url": "",
-      "prev_uuid": "PWxPfsFGNU0m1jU8",
+      "prev_uuid": "GggV1FqNSLoTF-K3",
       "sibling_uuid": "0GJzS6jyw8MClvw7",
       "child_uuid": "Maaqh5SpchPKACsM",
       "parent_uuid": "",
