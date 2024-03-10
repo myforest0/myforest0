@@ -1,29 +1,62 @@
 {
   "docs": [
     {
-      "id": 68913348,
-      "doc_id": "xihxbg",
-      "updated": 1705817102000,
+      "id": 156618704,
+      "doc_id": "about_me",
+      "updated": 1710091302000,
       "properties": {
-        "title": "JS数据类型判断",
-        "urlname": "xihxbg",
-        "date": "2022-03-10 10:55:27",
-        "updated": "2024-01-21 14:05:02",
-        "description": "检测数据类型function toType(obj) {   const reg = /^\\[Object (.+)\\]$/   if (obj == null) return obj + ''   return typeof obj === 'object' || typeof obj ==..."
+        "title": "关于我",
+        "urlname": "about_me",
+        "date": "2024-01-20 16:15:22",
+        "updated": "2024-03-11 01:21:42",
+        "description": "Hi there，I'm Forest 👋吾唯谙代码，若此技弗精，则无复归途。特性 博客所有内容自动同步第三方笔记平台  自动生成菜单导航，无需手动编辑和整理菜单 Project海量数据短链项目笔记Mastering skills技能分类掌握情况编程语言+工具熟练掌握后端 java/Pyth..."
+      },
+      "catalog": [],
+      "realName": "关于我",
+      "relativePath": "/关于我.md",
+      "docPath": "docs/mds"
+    },
+    {
+      "id": 156618719,
+      "doc_id": "b5e89992b7ef1c6b14737431f584256f",
+      "updated": 1710090993000,
+      "properties": {
+        "title": "海量数据短链项目笔记",
+        "urlname": "b5e89992b7ef1c6b14737431f584256f",
+        "date": "2024-01-20 16:15:27",
+        "updated": "2024-03-11 01:16:33",
+        "description": "业务背景：为啥需要短链?1.1.  公司电商产品推广、业务活动⻚、广告落地⻚缺少实时【数据反馈和渠道效果分析】 2.1.  老项目业务推广【没人维护，无法做埋点】需要统计效果 3.1.  APP和营销活动发送营销短信链接过⻓，【浪费短信发送费用】 4.1.  SaaS平台盈利 4.1.1.  ..."
       },
       "catalog": [
         {
-          "title": "前端",
-          "doc_id": "xihxbg"
-        },
-        {
-          "title": "常用工具方法封装",
-          "doc_id": "xihxbg"
+          "title": "项目心得",
+          "doc_id": "b5e89992b7ef1c6b14737431f584256f"
         }
       ],
-      "realName": "JS数据类型判断",
-      "relativePath": "/前端/常用工具方法封装/JS数据类型判断.md",
-      "docPath": "docs/mds/前端/常用工具方法封装"
+      "realName": "海量数据短链项目笔记",
+      "relativePath": "/项目心得/海量数据短链项目笔记.md",
+      "docPath": "docs/mds/项目心得"
+    },
+    {
+      "id": 156618715,
+      "doc_id": "56e2d0f34428683e981667a3bf7e7f47",
+      "updated": 1710090986000,
+      "properties": {
+        "title": "构架笔记",
+        "urlname": "56e2d0f34428683e981667a3bf7e7f47",
+        "date": "2024-01-20 16:15:26",
+        "updated": "2024-03-11 01:16:26",
+        "description": "什么是架构师英文 Architect 源于建筑学，在软件工程当中的架构师和建筑工程当中建筑师有很多共性，都是负责项目宏观的架构设计和整体把控；在软件工程领域中就是软件项目的总体设计师负责人对于大部分程序员来说，架构师算是职业最终目标互联网行业常⻅的架构师岗位1.1. 解决方案架构师：技术选型+..."
+      },
+      "catalog": [
+        {
+          "title": "内功心法",
+          "doc_id": "56e2d0f34428683e981667a3bf7e7f47"
+        }
+      ],
+      "realName": "构架笔记",
+      "relativePath": "/内功心法/构架笔记.md",
+      "docPath": "docs/mds/内功心法"
     },
     {
       "id": 156618701,
@@ -51,50 +84,54 @@
       "docPath": "docs/mds/前端/常用工具方法封装"
     },
     {
-      "id": 156618719,
-      "doc_id": "b5e89992b7ef1c6b14737431f584256f",
-      "updated": 1707036254000,
+      "id": 68913348,
+      "doc_id": "xihxbg",
+      "updated": 1705817102000,
       "properties": {
-        "title": "海量数据短链项目笔记",
-        "urlname": "b5e89992b7ef1c6b14737431f584256f",
-        "date": "2024-01-20 16:15:27",
-        "updated": "2024-02-04 16:44:14",
-        "description": "海量数据短链项目笔记业务背景：为啥需要短链? 公司电商产品推广、业务活动⻚、广告落地⻚缺少实时【数据反馈和渠道效果分析】  老项目业务推广【没人维护，无法做埋点】需要统计效果  APP和营销活动发送营销短信链接过⻓，【浪费短信发送费用】  SaaS平台盈利  用户按量付费，根据流量包选择付费购..."
+        "title": "JS数据类型判断",
+        "urlname": "xihxbg",
+        "date": "2022-03-10 10:55:27",
+        "updated": "2024-01-21 14:05:02",
+        "description": "检测数据类型function toType(obj) {   const reg = /^\\[Object (.+)\\]$/   if (obj == null) return obj + ''   return typeof obj === 'object' || typeof obj ==..."
       },
       "catalog": [
         {
-          "title": "后端",
-          "doc_id": "b5e89992b7ef1c6b14737431f584256f"
+          "title": "前端",
+          "doc_id": "xihxbg"
         },
         {
-          "title": "项目",
-          "doc_id": "b5e89992b7ef1c6b14737431f584256f"
+          "title": "常用工具方法封装",
+          "doc_id": "xihxbg"
         }
       ],
-      "realName": "海量数据短链项目笔记",
-      "relativePath": "/后端/项目/海量数据短链项目笔记.md",
-      "docPath": "docs/mds/后端/项目"
+      "realName": "JS数据类型判断",
+      "relativePath": "/前端/常用工具方法封装/JS数据类型判断.md",
+      "docPath": "docs/mds/前端/常用工具方法封装"
     },
     {
-      "id": 156618703,
-      "doc_id": "da5c5456cedccd0d194247d029f198f4",
-      "updated": 1707033852000,
+      "id": 71838073,
+      "doc_id": "mri1c6",
+      "updated": 1707033538000,
       "properties": {
-        "title": "ShardingJDBC分库分表mysql数据库实战笔记",
-        "urlname": "da5c5456cedccd0d194247d029f198f4",
-        "date": "2024-01-20 16:15:21",
-        "updated": "2024-02-04 16:04:12",
-        "description": "ShardingJDBC分库分表mysql数据库实战笔记为什么要学习分库分表和Sharding-JDBC 多数互联网公司里面用的技术，高并发项目都离不开分库分表  数据库性能优化的至关重要环节，分库分表是必杀技之一  在多数互联网公司中，ShardingJDBC占有率很高，是Apache下的顶..."
+        "title": "HTML常见概念",
+        "urlname": "mri1c6",
+        "date": "2022-04-01 11:33:15",
+        "updated": "2024-02-04 15:58:58",
+        "description": "src和href的区别srcsrc用于替换当前元素，href用于在当前文档和引用资源之间确立联系。src是source的缩写，指向外部资源的位置，指向的内容将会嵌入到文档中当前标签所在位置；在请求src资源时会将其指向的资源下载并应用到文档内，例如js脚本，img图片和frame等元素。<sc..."
       },
       "catalog": [
         {
-          "title": "后端",
-          "doc_id": "da5c5456cedccd0d194247d029f198f4"
+          "title": "前端",
+          "doc_id": "mri1c6"
+        },
+        {
+          "title": "基础知识",
+          "doc_id": "mri1c6"
         }
       ],
-      "realName": "ShardingJDBC分库分表mysql数据库实战笔记",
-      "relativePath": "/后端/ShardingJDBC分库分表mysql数据库实战笔记.md",
-      "docPath": "docs/mds/后端"
+      "realName": "HTML常见概念",
+      "relativePath": "/前端/基础知识/HTML常见概念.md",
+      "docPath": "docs/mds/前端/基础知识"
     },
     {
       "id": 68892282,
@@ -122,53 +159,6 @@
       "docPath": "docs/mds/前端/JS底层知识"
     },
     {
-      "id": 71882344,
-      "doc_id": "wrw545",
-      "updated": 1707033593000,
-      "properties": {
-        "title": "CSS常见概念",
-        "urlname": "wrw545",
-        "date": "2022-04-01 16:21:09",
-        "updated": "2024-02-04 15:59:53",
-        "description": "CSS选择器以及优先级样式优先级最近的祖先样式⽐其他祖先样式优先级高 直接样式⽐祖先样式优先级⾼ 选择器优先级内联样式 > id选择器 > 类选择器 = 属性选择器 = 伪类选择器 > 标签选择器 = 伪元素选择器组合选择符 分类 后代选择符： .a .b{} 子级选择符： .a > .b{}..."
-      },
-      "catalog": [
-        {
-          "title": "前端",
-          "doc_id": "wrw545"
-        },
-        {
-          "title": "基础知识",
-          "doc_id": "wrw545"
-        }
-      ],
-      "realName": "CSS常见概念",
-      "relativePath": "/前端/基础知识/CSS常见概念.md",
-      "docPath": "docs/mds/前端/基础知识"
-    },
-    {
-      "id": 156618702,
-      "doc_id": "a819666aa68d94cd43692e05bac074e0",
-      "updated": 1707033873000,
-      "properties": {
-        "title": "K8s笔记",
-        "urlname": "a819666aa68d94cd43692e05bac074e0",
-        "date": "2024-01-20 16:15:19",
-        "updated": "2024-02-04 16:04:33",
-        "description": "容器编排k8s最佳实践kubernetes+Rancher2.x笔记为什么要学习容器编排调度Kubernetes 多数互联网公司里面用的技术，实现跨主机多容器编排调度管理的最佳技术之一  可以实现服务注册发现、DevOps自动部署和回滚，能够自动实现请求的负载均衡分配网络流量  在多数互联网公..."
-      },
-      "catalog": [
-        {
-          "title": "后端",
-          "doc_id": "a819666aa68d94cd43692e05bac074e0"
-        }
-      ],
-      "realName": "K8s笔记",
-      "relativePath": "/后端/K8s笔记.md",
-      "needUpdate": 1,
-      "docPath": "docs/mds/后端"
-    },
-    {
       "id": 71899506,
       "doc_id": "cglr9x",
       "updated": 1707033644000,
@@ -194,20 +184,29 @@
       "docPath": "docs/mds/前端/基础知识"
     },
     {
-      "id": 156618704,
-      "doc_id": "about_me",
-      "updated": 1705817182000,
+      "id": 71882344,
+      "doc_id": "wrw545",
+      "updated": 1707033593000,
       "properties": {
-        "title": "关于我",
-        "urlname": "about_me",
-        "date": "2024-01-20 16:15:22",
-        "updated": "2024-01-21 14:06:22",
-        "description": "Hi there，I'm Forest 👋吾唯谙代码，若此技弗精，则无复归途。特性 博客所有内容自动同步第三方笔记平台  自动生成菜单导航，无需手动编辑和整理菜单 Project海量数据短链项目笔记Mastering skills技能分类掌握情况编程语言+工具熟练掌握后端 java/Pyth..."
+        "title": "CSS常见概念",
+        "urlname": "wrw545",
+        "date": "2022-04-01 16:21:09",
+        "updated": "2024-02-04 15:59:53",
+        "description": "CSS选择器以及优先级样式优先级最近的祖先样式⽐其他祖先样式优先级高 直接样式⽐祖先样式优先级⾼ 选择器优先级内联样式 > id选择器 > 类选择器 = 属性选择器 = 伪类选择器 > 标签选择器 = 伪元素选择器组合选择符 分类 后代选择符： .a .b{} 子级选择符： .a > .b{}..."
       },
-      "catalog": [],
-      "realName": "关于我",
-      "relativePath": "/关于我.md",
-      "docPath": "docs/mds"
+      "catalog": [
+        {
+          "title": "前端",
+          "doc_id": "wrw545"
+        },
+        {
+          "title": "基础知识",
+          "doc_id": "wrw545"
+        }
+      ],
+      "realName": "CSS常见概念",
+      "relativePath": "/前端/基础知识/CSS常见概念.md",
+      "docPath": "docs/mds/前端/基础知识"
     },
     {
       "id": 156621721,
@@ -228,31 +227,6 @@
       "realName": "等待记录中",
       "relativePath": "/算法/等待记录中.md",
       "docPath": "docs/mds/算法"
-    },
-    {
-      "id": 156618715,
-      "doc_id": "56e2d0f34428683e981667a3bf7e7f47",
-      "updated": 1705817172000,
-      "properties": {
-        "title": "构架笔记",
-        "urlname": "56e2d0f34428683e981667a3bf7e7f47",
-        "date": "2024-01-20 16:15:26",
-        "updated": "2024-01-21 14:06:12",
-        "description": "构架笔记什么是架构师英文 Architect 源于建筑学，在软件工程当中的架构师和建筑工程当中建筑师有很多共性，都是负责项目宏观的架构设计和整体把控；在软件工程领域中就是软件项目的总体设计师负责人对于大部分程序员来说，架构师算是职业最终目标互联网行业常⻅的架构师岗位1. 解决方案架构师：技术选..."
-      },
-      "catalog": [
-        {
-          "title": "后端",
-          "doc_id": "56e2d0f34428683e981667a3bf7e7f47"
-        },
-        {
-          "title": "架构",
-          "doc_id": "56e2d0f34428683e981667a3bf7e7f47"
-        }
-      ],
-      "realName": "构架笔记",
-      "relativePath": "/后端/架构/构架笔记.md",
-      "docPath": "docs/mds/后端/架构"
     },
     {
       "id": 156618697,
@@ -277,73 +251,6 @@
       "realName": "JS函数",
       "relativePath": "/前端/JS底层知识/JS函数.md",
       "docPath": "docs/mds/前端/JS底层知识"
-    },
-    {
-      "id": 156618729,
-      "doc_id": "8425e27363f6f29b405444f8b25ccfde",
-      "updated": 1707033834000,
-      "properties": {
-        "title": "高性能RabbitMQ容器化分布式集群实战",
-        "urlname": "8425e27363f6f29b405444f8b25ccfde",
-        "date": "2024-01-20 16:15:30",
-        "updated": "2024-02-04 16:03:54",
-        "description": "222"
-      },
-      "catalog": [
-        {
-          "title": "后端",
-          "doc_id": "8425e27363f6f29b405444f8b25ccfde"
-        }
-      ],
-      "realName": "高性能RabbitMQ容器化分布式集群实战",
-      "relativePath": "/后端/高性能RabbitMQ容器化分布式集群实战.md",
-      "docPath": "docs/mds/后端"
-    },
-    {
-      "id": 156618705,
-      "doc_id": "b982350d297df339bdb4abb3e79e2f1f",
-      "updated": 1707033898000,
-      "properties": {
-        "title": "分布式流处理平台Kafka笔记",
-        "urlname": "b982350d297df339bdb4abb3e79e2f1f",
-        "date": "2024-01-20 16:15:23",
-        "updated": "2024-02-04 16:04:58",
-        "description": "hbjbh"
-      },
-      "catalog": [
-        {
-          "title": "后端",
-          "doc_id": "b982350d297df339bdb4abb3e79e2f1f"
-        }
-      ],
-      "realName": "分布式流处理平台Kafka笔记",
-      "relativePath": "/后端/分布式流处理平台Kafka笔记.md",
-      "docPath": "docs/mds/后端"
-    },
-    {
-      "id": 47883854,
-      "doc_id": "pa2vzf",
-      "updated": 1707033765000,
-      "properties": {
-        "title": "Webpack核心原理",
-        "urlname": "pa2vzf",
-        "date": "2021-06-27 11:49:50",
-        "updated": "2024-02-04 16:02:45",
-        "description": "对于Webpack来说，它本质上就是一个模块打包器，正是由于有了Loader和Plugin，才让Webpack有了其他各种各样的功能。Webpack打包后的文件创建项目mkdir demo && cd demo npm init -y安装依赖yarn add webpack webpack-c..."
-      },
-      "catalog": [
-        {
-          "title": "前端",
-          "doc_id": "pa2vzf"
-        },
-        {
-          "title": "工程化",
-          "doc_id": "pa2vzf"
-        }
-      ],
-      "realName": "Webpack核心原理",
-      "relativePath": "/前端/工程化/Webpack核心原理.md",
-      "docPath": "docs/mds/前端/工程化"
     },
     {
       "id": 156618695,
@@ -393,16 +300,56 @@
       "realName": "网络通信基本概念",
       "relativePath": "/前端/网络通信/网络通信基本概念.md",
       "docPath": "docs/mds/前端/网络通信"
+    },
+    {
+      "id": 47883854,
+      "doc_id": "pa2vzf",
+      "updated": 1707033765000,
+      "properties": {
+        "title": "Webpack核心原理",
+        "urlname": "pa2vzf",
+        "date": "2021-06-27 11:49:50",
+        "updated": "2024-02-04 16:02:45",
+        "description": "对于Webpack来说，它本质上就是一个模块打包器，正是由于有了Loader和Plugin，才让Webpack有了其他各种各样的功能。Webpack打包后的文件创建项目mkdir demo && cd demo npm init -y安装依赖yarn add webpack webpack-c..."
+      },
+      "catalog": [
+        {
+          "title": "前端",
+          "doc_id": "pa2vzf"
+        },
+        {
+          "title": "工程化",
+          "doc_id": "pa2vzf"
+        }
+      ],
+      "realName": "Webpack核心原理",
+      "relativePath": "/前端/工程化/Webpack核心原理.md",
+      "docPath": "docs/mds/前端/工程化"
     }
   ],
   "catalog": [
     {
       "type": "DOC",
+      "title": "项目模块-常问题目",
+      "uuid": "kQyRdfAz-j1HWXcK",
+      "url": "kt9xsiy4mp4q8be7",
+      "prev_uuid": "",
+      "sibling_uuid": "GggV1FqNSLoTF-K3",
+      "child_uuid": "",
+      "parent_uuid": "",
+      "doc_id": 160277028,
+      "level": 0,
+      "id": 160277028,
+      "open_window": 1,
+      "visible": 1
+    },
+    {
+      "type": "DOC",
       "title": "关于我",
       "uuid": "GggV1FqNSLoTF-K3",
       "url": "about_me",
-      "prev_uuid": "",
-      "sibling_uuid": "tqMl_xspFbXL5l9T",
+      "prev_uuid": "kQyRdfAz-j1HWXcK",
+      "sibling_uuid": "ny6wIhXCk7Nx52z6",
       "child_uuid": "",
       "parent_uuid": "",
       "doc_id": 156618704,
@@ -413,12 +360,12 @@
     },
     {
       "type": "TITLE",
-      "title": "后端",
-      "uuid": "tqMl_xspFbXL5l9T",
+      "title": "专题秘籍",
+      "uuid": "ny6wIhXCk7Nx52z6",
       "url": "",
       "prev_uuid": "GggV1FqNSLoTF-K3",
-      "sibling_uuid": "0GJzS6jyw8MClvw7",
-      "child_uuid": "Maaqh5SpchPKACsM",
+      "sibling_uuid": "Maaqh5SpchPKACsM",
+      "child_uuid": "KQ0VYoheGMkaRLHP",
       "parent_uuid": "",
       "doc_id": "",
       "level": 0,
@@ -427,16 +374,76 @@
       "visible": 1
     },
     {
+      "type": "DOC",
+      "title": "分布式缓存Redis6.X+高可用集群笔记",
+      "uuid": "KQ0VYoheGMkaRLHP",
+      "url": "nv79uf433z8xzuix",
+      "prev_uuid": "ny6wIhXCk7Nx52z6",
+      "sibling_uuid": "ruzy_ayFAcxpNMl9",
+      "child_uuid": "",
+      "parent_uuid": "ny6wIhXCk7Nx52z6",
+      "doc_id": 160786983,
+      "level": 1,
+      "id": 160786983,
+      "open_window": 1,
+      "visible": 1
+    },
+    {
+      "type": "DOC",
+      "title": "高性能RabbitMQ容器化分布式集群实战",
+      "uuid": "ruzy_ayFAcxpNMl9",
+      "url": "mczhg718tevtk7gi",
+      "prev_uuid": "KQ0VYoheGMkaRLHP",
+      "sibling_uuid": "lJkGI1TOXq6FWSwg",
+      "child_uuid": "",
+      "parent_uuid": "ny6wIhXCk7Nx52z6",
+      "doc_id": 160787768,
+      "level": 1,
+      "id": 160787768,
+      "open_window": 1,
+      "visible": 1
+    },
+    {
+      "type": "DOC",
+      "title": "分布式流处理平台Kafka笔记",
+      "uuid": "lJkGI1TOXq6FWSwg",
+      "url": "qsexcc77u1xtpypr",
+      "prev_uuid": "ruzy_ayFAcxpNMl9",
+      "sibling_uuid": "7Q6ySyNDf7alfHQl",
+      "child_uuid": "",
+      "parent_uuid": "ny6wIhXCk7Nx52z6",
+      "doc_id": 160788051,
+      "level": 1,
+      "id": 160788051,
+      "open_window": 1,
+      "visible": 1
+    },
+    {
+      "type": "DOC",
+      "title": "ShardingJDBC分库分表mysql数据库实战笔记",
+      "uuid": "7Q6ySyNDf7alfHQl",
+      "url": "kv8tdeq7fevk5orm",
+      "prev_uuid": "lJkGI1TOXq6FWSwg",
+      "sibling_uuid": "",
+      "child_uuid": "",
+      "parent_uuid": "ny6wIhXCk7Nx52z6",
+      "doc_id": 160788426,
+      "level": 1,
+      "id": 160788426,
+      "open_window": 1,
+      "visible": 1
+    },
+    {
       "type": "TITLE",
-      "title": "项目",
+      "title": "项目心得",
       "uuid": "Maaqh5SpchPKACsM",
       "url": "",
-      "prev_uuid": "tqMl_xspFbXL5l9T",
+      "prev_uuid": "ny6wIhXCk7Nx52z6",
       "sibling_uuid": "hyvnFY5Hmr3vKWNZ",
       "child_uuid": "3Y5q7F0prDAHrDVR",
-      "parent_uuid": "tqMl_xspFbXL5l9T",
+      "parent_uuid": "",
       "doc_id": "",
-      "level": 1,
+      "level": 0,
       "id": "",
       "open_window": 1,
       "visible": 1
@@ -451,22 +458,22 @@
       "child_uuid": "",
       "parent_uuid": "Maaqh5SpchPKACsM",
       "doc_id": 156618719,
-      "level": 2,
+      "level": 1,
       "id": 156618719,
       "open_window": 1,
       "visible": 1
     },
     {
       "type": "TITLE",
-      "title": "架构",
+      "title": "内功心法",
       "uuid": "hyvnFY5Hmr3vKWNZ",
       "url": "",
       "prev_uuid": "Maaqh5SpchPKACsM",
-      "sibling_uuid": "1IIdh434YXG8Vi4L",
+      "sibling_uuid": "9UTJDwnjWc9aNU7r",
       "child_uuid": "mmcNy6yGO8Yd4M1x",
-      "parent_uuid": "tqMl_xspFbXL5l9T",
+      "parent_uuid": "",
       "doc_id": "",
-      "level": 1,
+      "level": 0,
       "id": "",
       "open_window": 1,
       "visible": 1
@@ -481,83 +488,38 @@
       "child_uuid": "",
       "parent_uuid": "hyvnFY5Hmr3vKWNZ",
       "doc_id": 156618715,
-      "level": 2,
+      "level": 1,
       "id": 156618715,
       "open_window": 1,
       "visible": 1
     },
     {
-      "type": "DOC",
-      "title": "K8s笔记",
-      "uuid": "1IIdh434YXG8Vi4L",
-      "url": "a819666aa68d94cd43692e05bac074e0",
+      "type": "TITLE",
+      "title": "简历",
+      "uuid": "9UTJDwnjWc9aNU7r",
+      "url": "",
       "prev_uuid": "hyvnFY5Hmr3vKWNZ",
-      "sibling_uuid": "bVRwv9oXftjnG2i4",
-      "child_uuid": "",
-      "parent_uuid": "tqMl_xspFbXL5l9T",
-      "doc_id": 156618702,
-      "level": 1,
-      "id": 156618702,
+      "sibling_uuid": "0GJzS6jyw8MClvw7",
+      "child_uuid": "ZKjrGQaz6KfAlhpK",
+      "parent_uuid": "",
+      "doc_id": "",
+      "level": 0,
+      "id": "",
       "open_window": 1,
       "visible": 1
     },
     {
       "type": "DOC",
-      "title": "ShardingJDBC分库分表mysql数据库实战笔记",
-      "uuid": "bVRwv9oXftjnG2i4",
-      "url": "da5c5456cedccd0d194247d029f198f4",
-      "prev_uuid": "1IIdh434YXG8Vi4L",
-      "sibling_uuid": "GcUra0ETfH02gLvh",
-      "child_uuid": "",
-      "parent_uuid": "tqMl_xspFbXL5l9T",
-      "doc_id": 156618703,
-      "level": 1,
-      "id": 156618703,
-      "open_window": 1,
-      "visible": 1
-    },
-    {
-      "type": "DOC",
-      "title": "高性能RabbitMQ容器化分布式集群实战",
-      "uuid": "GcUra0ETfH02gLvh",
-      "url": "8425e27363f6f29b405444f8b25ccfde",
-      "prev_uuid": "bVRwv9oXftjnG2i4",
-      "sibling_uuid": "SbkB8U5gKPYsQiqG",
-      "child_uuid": "",
-      "parent_uuid": "tqMl_xspFbXL5l9T",
-      "doc_id": 156618729,
-      "level": 1,
-      "id": 156618729,
-      "open_window": 1,
-      "visible": 1
-    },
-    {
-      "type": "DOC",
-      "title": "分布式缓存Redis6.X+高可用集群笔记",
-      "uuid": "SbkB8U5gKPYsQiqG",
-      "url": "51ee5d1b79664e09aa36aa64af9d1320",
-      "prev_uuid": "GcUra0ETfH02gLvh",
-      "sibling_uuid": "IL6wlyYalmATcDih",
-      "child_uuid": "",
-      "parent_uuid": "tqMl_xspFbXL5l9T",
-      "doc_id": 156618710,
-      "level": 1,
-      "id": 156618710,
-      "open_window": 1,
-      "visible": 1
-    },
-    {
-      "type": "DOC",
-      "title": "分布式流处理平台Kafka笔记",
-      "uuid": "IL6wlyYalmATcDih",
-      "url": "b982350d297df339bdb4abb3e79e2f1f",
-      "prev_uuid": "SbkB8U5gKPYsQiqG",
+      "title": "向仕林-5年-高级全栈",
+      "uuid": "ZKjrGQaz6KfAlhpK",
+      "url": "htgkhdh35g0g9fy4",
+      "prev_uuid": "9UTJDwnjWc9aNU7r",
       "sibling_uuid": "",
       "child_uuid": "",
-      "parent_uuid": "tqMl_xspFbXL5l9T",
-      "doc_id": 156618705,
+      "parent_uuid": "9UTJDwnjWc9aNU7r",
+      "doc_id": 159594868,
       "level": 1,
-      "id": 156618705,
+      "id": 159594868,
       "open_window": 1,
       "visible": 1
     },
@@ -566,7 +528,7 @@
       "title": "前端",
       "uuid": "0GJzS6jyw8MClvw7",
       "url": "",
-      "prev_uuid": "tqMl_xspFbXL5l9T",
+      "prev_uuid": "9UTJDwnjWc9aNU7r",
       "sibling_uuid": "SOf0KujD7aCDRUgg",
       "child_uuid": "4-a16McF4_wseYDq",
       "parent_uuid": "",

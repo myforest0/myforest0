@@ -14,7 +14,7 @@ module.exports = {
             login: process.env.YUQUE_LOGIN,
             repo: process.env.YUQUE_REPO,
             onlyPublic: true,
-            onlyPublished: true,
+            onlyPublished: false,
         },
         notion: {
             token: process.env.NOTION_TOKEN,
